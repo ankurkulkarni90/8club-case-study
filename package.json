@@ -1,0 +1,23 @@
+{
+  "name": "8club-product-case-study",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "homepage": "https://ankurkulkarni90.github.io/8club-case-study",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "gh-pages -d dist"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.23.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "gh-pages": "^6.1.1",
+    "vite": "^5.4.2"
+  }
+}
