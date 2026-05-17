@@ -7,26 +7,41 @@ const findings = [
   {
     number: "01",
     title: "The waitlist is the activation bottleneck",
-    body: "Four of six onboarding observations cluster at the same point: the waitlist-to-activation transition. The estimated emotional arc drops from ~9/10 (Hotspot selection) to ~2/10 (waitlist screen) in a single step. No timeline, no status updates, no explanation of clearance criteria. Users who complete all mandatory steps see \"16% profile complete.\" The waiting room has empty tabs and no content. This is where 8club loses the demand that onboarding built.",
-    impact: "Affects 100% of users. Improving waitlist transparency and experience correlates with 15-25% higher Day-7 retention in comparable invite-only products.",
+    bullets: [
+      "Four of six onboarding observations cluster at the same point: the transition from onboarding to the waitlist.",
+      "The estimated emotional arc drops sharply here. Hotspot selection feels exciting, but the waitlist screen offers no timeline, no status indicator, and no explanation of what determines clearance.",
+      "Users who complete every mandatory onboarding step land on a screen that says \"16% profile complete,\" which frames their effort as insufficient rather than acknowledging it.",
+      "The tabs available to waitlisted users (Wall, Notifications, Hotspots) are mostly empty or gated, so there is nothing to do while waiting.",
+    ],
+    impact: "This affects every user who signs up. In comparable invite-only products, introducing waitlist transparency and status communication has correlated with 15-25% improvements in Day-7 retention among gated users.",
     accent: "#DC2626",
     accentBg: "#FEF2F2",
     accentBorder: "#FECACA",
   },
   {
     number: "02",
-    title: "No channels exist to bring waitlisted users back",
-    body: "Phone number is collected for OTP but not used for transactional SMS. Email is not part of onboarding; it is an optional field buried in Edit Profile. Push notification permission is requested on the Notifications tab, after onboarding, when a waitlisted user has no reason to grant it. If a user closes the app during the wait, 8club has no way to reach them when they are cleared.",
-    impact: "Structural gap. Adding email collection during onboarding (with clear value framing) typically sees 40-60% provision rates at comparable consumer apps. That alone creates a re-engagement channel that currently does not exist.",
+    title: "There is no reliable way to bring waitlisted users back",
+    bullets: [
+      "The phone number collected during sign-up is used for OTP authentication. However, when my own waitlist was cleared, I did not receive an SMS, email, or push notification about it.",
+      "Email is not part of the onboarding flow. It is an optional field in Edit Profile, which most users are unlikely to fill out unprompted.",
+      "Push notification permission is requested on the Notifications tab, which a waitlisted user may not visit or may decline because the value is unclear at that point.",
+      "This means that when 8club clears a user from the waitlist, the app may have no way to tell them. The user has to remember to come back on their own.",
+    ],
+    impact: "Adding email collection during onboarding with a specific value proposition (\"we will notify you when you are in\") typically sees 40-60% provision rates in consumer apps. Even recovering a small fraction of users who never learn they were approved directly lifts activation.",
     accent: "#D97706",
     accentBg: "#FFF7ED",
     accentBorder: "#FFEDD5",
   },
   {
     number: "03",
-    title: "Discovery does not match what users selected",
-    body: "The app asks for interests and city during onboarding, but the feed, wall, and home tabs do not strongly reflect those selections. Most visible hotspots skew toward parties. The home tab surfaces past events. Users in non-Bangalore cities see limited relevant content. This is the most requested improvement in app store reviews across both stores.",
-    impact: "Interest-based relevance scoring is the highest-signal feature request. Comparable social discovery apps that ship location + interest filtering typically see measurable lifts in browse-to-action conversion.",
+    title: "Discovery does not reflect what users selected",
+    bullets: [
+      "During onboarding, 8club asks users to pick their interests and city. But the feed, wall, and home tabs do not strongly reflect those choices.",
+      "Most visible hotspots skew toward parties. Users who selected other interest categories see limited variety.",
+      "The home tab often surfaces past events rather than upcoming ones.",
+      "This is the most consistent improvement request in app store reviews across both stores.",
+    ],
+    impact: "Interest and location-based feed relevance is the highest-signal feature gap. Comparable social discovery apps that shipped these filters have seen measurable improvements in browse-to-action conversion.",
     accent: "#2563EB",
     accentBg: "#EFF6FF",
     accentBorder: "#BFDBFE",
@@ -37,7 +52,7 @@ const goDeeper = [
   {
     id: "review-analysis",
     title: "App Review Intelligence",
-    meta: "441 reviews, 8 themes, severity-scored",
+    meta: "54 text reviews analysed across 8 themes",
     accent: "#DC2626",
   },
   {
@@ -76,8 +91,8 @@ export default function Landing({ onNavigate }) {
 
   const fadeIn = (delay) => ({
     opacity: loaded ? 1 : 0,
-    transform: loaded ? "translateY(0)" : "translateY(12px)",
-    transition: `all 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s`,
+    transform: loaded ? "translateY(0)" : "translateY(10px)",
+    transition: `all 0.5s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s`,
   });
 
   return (
@@ -101,7 +116,7 @@ export default function Landing({ onNavigate }) {
               padding: "5px 14px",
               borderRadius: 100,
               background: "linear-gradient(135deg, #5B21B6, #7C3AED)",
-              fontSize: 11,
+              fontSize: 12,
               fontFamily: "'JetBrains Mono', monospace",
               color: "#fff",
               fontWeight: 500,
@@ -139,15 +154,16 @@ export default function Landing({ onNavigate }) {
             style={{
               fontSize: 17,
               lineHeight: 1.75,
-              color: "#555",
-              maxWidth: 620,
+              color: "#444",
+              maxWidth: 640,
               margin: "0 0 24px 0",
             }}
           >
-            441 app store reviews read individually. 13 onboarding screens
-            documented with a real phone number. Six observations scored through
-            a prioritisation framework and two expanded into full solution
-            architectures. Here is what surfaced.
+            I signed up for 8club, went through every screen, read every
+            text review on both app stores, and put together what I think
+            matters most for the product right now. Below are the key
+            findings, followed by what I would focus on first. The full
+            analysis is linked at the bottom.
           </p>
 
           <div
@@ -166,7 +182,7 @@ export default function Landing({ onNavigate }) {
               rel="noopener noreferrer"
               style={{
                 fontFamily: "'Plus Jakarta Sans', sans-serif",
-                fontSize: 14,
+                fontSize: 15,
                 fontWeight: 600,
                 color: "#5B21B6",
                 textDecoration: "none",
@@ -175,21 +191,25 @@ export default function Landing({ onNavigate }) {
               Ankur Kulkarni
             </a>
             <span style={{ color: "#ccc" }}>·</span>
-            <span
+            <a
+              href="https://8club.co/engineering-and-data/product-manager"
+              target="_blank"
+              rel="noopener noreferrer"
               style={{
                 fontFamily: "'JetBrains Mono', monospace",
-                fontSize: 12,
-                color: "#666",
+                fontSize: 13,
+                color: "#5B21B6",
+                textDecoration: "none",
               }}
             >
-              Founding PM Candidate
-            </span>
+              Your prospective first PM
+            </a>
             <span style={{ color: "#ccc" }}>·</span>
             <span
               style={{
                 fontFamily: "'JetBrains Mono', monospace",
-                fontSize: 12,
-                color: "#666",
+                fontSize: 13,
+                color: "#555",
               }}
             >
               May 2026
@@ -201,18 +221,19 @@ export default function Landing({ onNavigate }) {
         <section style={{ padding: "28px 0 24px", ...fadeIn(0.1) }}>
           <div
             style={{
-              fontFamily: "'JetBrains Mono', monospace",
-              fontSize: 11,
-              letterSpacing: "1.2px",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontSize: 14,
+              fontWeight: 700,
+              letterSpacing: "0.5px",
               textTransform: "uppercase",
-              color: "#888",
+              color: "#555",
               marginBottom: 16,
             }}
           >
             Key Findings
           </div>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
             {findings.map((f, i) => (
               <div
                 key={f.number}
@@ -220,7 +241,7 @@ export default function Landing({ onNavigate }) {
                   background: "#fff",
                   borderRadius: 14,
                   padding: "22px 24px",
-                  border: `1px solid #E5E5E3`,
+                  border: "1px solid #E5E5E3",
                   borderLeft: `3px solid ${f.accent}`,
                   boxShadow: "0 1px 3px rgba(0,0,0,0.04)",
                   ...fadeIn(0.15 + i * 0.07),
@@ -231,13 +252,13 @@ export default function Landing({ onNavigate }) {
                     display: "flex",
                     alignItems: "center",
                     gap: 10,
-                    marginBottom: 8,
+                    marginBottom: 10,
                   }}
                 >
                   <span
                     style={{
                       fontFamily: "'JetBrains Mono', monospace",
-                      fontSize: 11,
+                      fontSize: 13,
                       color: f.accent,
                       fontWeight: 500,
                     }}
@@ -247,7 +268,7 @@ export default function Landing({ onNavigate }) {
                   <h3
                     style={{
                       fontFamily: "'Plus Jakarta Sans', sans-serif",
-                      fontSize: 17,
+                      fontSize: 18,
                       fontWeight: 700,
                       color: "#111",
                       margin: 0,
@@ -258,16 +279,27 @@ export default function Landing({ onNavigate }) {
                   </h3>
                 </div>
 
-                <p
+                <ul
                   style={{
-                    fontSize: 15,
-                    lineHeight: 1.75,
-                    color: "#555",
-                    margin: "0 0 12px 0",
+                    margin: "0 0 14px 0",
+                    padding: "0 0 0 20px",
+                    listStyle: "disc",
                   }}
                 >
-                  {f.body}
-                </p>
+                  {f.bullets.map((b, j) => (
+                    <li
+                      key={j}
+                      style={{
+                        fontSize: 15,
+                        lineHeight: 1.7,
+                        color: "#444",
+                        marginBottom: 6,
+                      }}
+                    >
+                      {b}
+                    </li>
+                  ))}
+                </ul>
 
                 <div
                   style={{
@@ -280,20 +312,20 @@ export default function Landing({ onNavigate }) {
                   <span
                     style={{
                       fontFamily: "'JetBrains Mono', monospace",
-                      fontSize: 10,
+                      fontSize: 12,
                       fontWeight: 600,
                       color: f.accent,
                       textTransform: "uppercase",
-                      letterSpacing: "0.8px",
+                      letterSpacing: "0.5px",
                     }}
                   >
                     Directional Impact
                   </span>
                   <p
                     style={{
-                      fontSize: 13,
+                      fontSize: 14,
                       lineHeight: 1.65,
-                      color: "#555",
+                      color: "#444",
                       margin: "4px 0 0 0",
                     }}
                   >
@@ -305,7 +337,7 @@ export default function Landing({ onNavigate }) {
           </div>
         </section>
 
-        {/* First 30 Days */}
+        {/* Where I Would Start */}
         <section
           style={{
             padding: "24px 0",
@@ -315,12 +347,13 @@ export default function Landing({ onNavigate }) {
         >
           <div
             style={{
-              fontFamily: "'JetBrains Mono', monospace",
-              fontSize: 11,
-              letterSpacing: "1.2px",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontSize: 14,
+              fontWeight: 700,
+              letterSpacing: "0.5px",
               textTransform: "uppercase",
-              color: "#888",
-              marginBottom: 12,
+              color: "#555",
+              marginBottom: 14,
             }}
           >
             Where I Would Start
@@ -329,80 +362,55 @@ export default function Landing({ onNavigate }) {
             style={{
               background: "#fff",
               borderRadius: 14,
-              padding: "20px 24px",
+              padding: "22px 24px",
               border: "1px solid #E5E5E3",
               borderLeft: "3px solid #5B21B6",
               boxShadow: "0 1px 3px rgba(0,0,0,0.04)",
             }}
           >
-            <p
+            <ul
               style={{
-                fontSize: 15,
-                lineHeight: 1.8,
-                color: "#444",
-                margin: "0 0 10px 0",
-              }}
-            >
-              <strong style={{ color: "#111" }}>
-                Week 1-2: Instrument the activation funnel.
-              </strong>{" "}
-              Before building anything, understand the current conversion rates
-              at each stage: onboarding completion, waitlist entry, clearance,
-              first Hotspot attendance. The analysis above is built from
-              public signals. Internal data will confirm, refine, or redirect
-              these priorities.
-            </p>
-            <p
-              style={{
-                fontSize: 15,
-                lineHeight: 1.8,
-                color: "#444",
-                margin: "0 0 10px 0",
-              }}
-            >
-              <strong style={{ color: "#111" }}>
-                Week 2-3: Ship waitlist transparency.
-              </strong>{" "}
-              Status updates, timeline estimates, progress reframing ("Core
-              profile complete" instead of "16%"). Low engineering effort,
-              high-signal change. Measurable through Day-7 retention of
-              waitlisted users.
-            </p>
-            <p
-              style={{
-                fontSize: 15,
-                lineHeight: 1.8,
-                color: "#444",
-                margin: "0 0 10px 0",
-              }}
-            >
-              <strong style={{ color: "#111" }}>
-                Week 3-4: Close the re-engagement gap.
-              </strong>{" "}
-              Add email collection during onboarding. Move push notification
-              permission into the onboarding flow at a contextually appropriate
-              moment. Send a single transactional SMS when waitlist clears. These
-              are the channels needed to bring users back when it is their turn.
-            </p>
-            <p
-              style={{
-                fontSize: 15,
-                lineHeight: 1.8,
-                color: "#444",
                 margin: 0,
+                padding: "0 0 0 20px",
+                listStyle: "disc",
               }}
             >
-              <strong style={{ color: "#111" }}>
-                Ongoing: Feed relevance and stability.
-              </strong>{" "}
-              Set up crash monitoring with release-gating. Begin work on
-              interest-based and location-based feed scoring so discovery matches
-              what users selected during onboarding.
-            </p>
+              <li style={{ fontSize: 15, lineHeight: 1.75, color: "#444", marginBottom: 10 }}>
+                <strong style={{ color: "#111" }}>Week 1-2: Instrument the activation funnel.</strong>{" "}
+                Before building anything, I would want to understand the actual
+                conversion rates at each stage: onboarding completion, waitlist
+                entry, clearance, first Hotspot attendance. The findings above
+                are based on public data. Internal metrics will confirm, refine,
+                or redirect these priorities.
+              </li>
+              <li style={{ fontSize: 15, lineHeight: 1.75, color: "#444", marginBottom: 10 }}>
+                <strong style={{ color: "#111" }}>Week 2-3: Ship waitlist transparency.</strong>{" "}
+                Add status updates, timeline estimates, and reframe the progress
+                signal ("Core profile complete" instead of "16%"). This is a
+                copy and logic change, not an architecture change. Measurable
+                through Day-7 retention of waitlisted users.
+              </li>
+              <li style={{ fontSize: 15, lineHeight: 1.75, color: "#444", marginBottom: 10 }}>
+                <strong style={{ color: "#111" }}>Week 3-4: Close the re-engagement gap.</strong>{" "}
+                Add email collection during onboarding with a clear reason
+                ("we will notify you when you are in"). Move push notification
+                permission into the onboarding flow at the moment users learn
+                about invites, where the ask makes sense. For SMS: 8club already
+                collects the phone number for OTP. Using it for a single
+                transactional message when the waitlist clears is a high-signal,
+                low-cost addition worth testing.
+              </li>
+              <li style={{ fontSize: 15, lineHeight: 1.75, color: "#444", marginBottom: 0 }}>
+                <strong style={{ color: "#111" }}>Ongoing: Feed relevance and stability.</strong>{" "}
+                Set up crash monitoring with release-gating. Begin work on
+                interest-based and location-based feed scoring so what users see
+                matches what they told 8club they care about.
+              </li>
+            </ul>
           </div>
         </section>
 
-        {/* Go Deeper */}
+        {/* Full Analysis */}
         <section
           style={{
             padding: "24px 0",
@@ -412,11 +420,12 @@ export default function Landing({ onNavigate }) {
         >
           <div
             style={{
-              fontFamily: "'JetBrains Mono', monospace",
-              fontSize: 11,
-              letterSpacing: "1.2px",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontSize: 14,
+              fontWeight: 700,
+              letterSpacing: "0.5px",
               textTransform: "uppercase",
-              color: "#888",
+              color: "#555",
               marginBottom: 6,
             }}
           >
@@ -425,13 +434,13 @@ export default function Landing({ onNavigate }) {
           <p
             style={{
               fontSize: 14,
-              color: "#888",
+              color: "#555",
               margin: "0 0 14px 0",
-              lineHeight: 1.6,
+              lineHeight: 1.65,
             }}
           >
-            The three pages below contain the complete evidence base behind
-            these findings.
+            These three pages contain the complete evidence and reasoning
+            behind the findings above.
           </p>
 
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
@@ -450,7 +459,7 @@ export default function Landing({ onNavigate }) {
                     padding: "14px 20px",
                     borderRadius: 10,
                     border: `1px solid ${isHovered ? item.accent + "44" : "#E5E5E3"}`,
-                    background: isHovered ? "#fff" : "#fff",
+                    background: "#fff",
                     cursor: "pointer",
                     transition: "all 0.2s ease",
                     boxShadow: isHovered
@@ -472,9 +481,9 @@ export default function Landing({ onNavigate }) {
                     <div
                       style={{
                         fontFamily: "'JetBrains Mono', monospace",
-                        fontSize: 11,
-                        color: "#888",
-                        marginTop: 2,
+                        fontSize: 13,
+                        color: "#666",
+                        marginTop: 3,
                       }}
                     >
                       {item.meta}
@@ -485,15 +494,13 @@ export default function Landing({ onNavigate }) {
                     height="16"
                     viewBox="0 0 24 24"
                     fill="none"
-                    stroke={isHovered ? item.accent : "#ccc"}
+                    stroke={isHovered ? item.accent : "#999"}
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     style={{
                       transition: "all 0.2s ease",
-                      transform: isHovered
-                        ? "translateX(3px)"
-                        : "translateX(0)",
+                      transform: isHovered ? "translateX(3px)" : "translateX(0)",
                       flexShrink: 0,
                     }}
                   >
@@ -516,29 +523,33 @@ export default function Landing({ onNavigate }) {
         >
           <div
             style={{
-              fontFamily: "'JetBrains Mono', monospace",
-              fontSize: 11,
-              letterSpacing: "1.2px",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontSize: 14,
+              fontWeight: 700,
+              letterSpacing: "0.5px",
               textTransform: "uppercase",
-              color: "#888",
+              color: "#555",
               marginBottom: 12,
             }}
           >
-            Methodology
+            How This Was Built
           </div>
           <p
             style={{
               fontSize: 14,
               lineHeight: 1.8,
-              color: "#666",
-              maxWidth: 620,
+              color: "#444",
+              maxWidth: 640,
             }}
           >
-            Reviews were read individually across both stores. The onboarding
-            teardown was done by signing up with a real phone number and
-            documenting each screen. The prioritisation framework is original.
-            All conclusions are based on public data and one user's experience.
-            Internal metrics would refine or redirect these priorities.
+            I read every text review on both stores individually, signed up
+            with a real phone number and walked through every screen, then ran
+            the raw observations through AI-assisted pattern recognition to
+            surface themes and cross-references I might have missed manually.
+            The prioritisation framework and solution architectures are
+            original. Everything here is built on public data and one user's
+            experience. Internal metrics would refine or redirect these
+            conclusions. That is expected and welcome.
           </p>
         </section>
 
@@ -567,13 +578,38 @@ export default function Landing({ onNavigate }) {
           </a>
           <div
             style={{
-              fontFamily: "'JetBrains Mono', monospace",
-              fontSize: 12,
-              color: "#666",
-              marginTop: 6,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 14,
+              marginTop: 8,
             }}
           >
-            ankurkulkarni90@gmail.com
+            <a
+              href="mailto:ankurkulkarni90@gmail.com"
+              style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: 13,
+                color: "#555",
+                textDecoration: "none",
+              }}
+            >
+              ankurkulkarni90@gmail.com
+            </a>
+            <span style={{ color: "#ccc" }}>·</span>
+            <a
+              href="https://github.com/ankurkulkarni90"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: 13,
+                color: "#555",
+                textDecoration: "none",
+              }}
+            >
+              GitHub
+            </a>
           </div>
         </div>
       </div>
