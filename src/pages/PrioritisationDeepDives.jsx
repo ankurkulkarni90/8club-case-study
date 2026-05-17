@@ -34,7 +34,7 @@ const observations = [
   {
     id: 4,
     name: "The Empty State Gap",
-    short: '"Scroll while it simmers" — but there\'s nothing to scroll. Multiple tabs are empty or broken for waitlisted users.',
+    short: '"Scroll while it simmers", but there\'s nothing to scroll. Multiple tabs are empty or broken for waitlisted users.',
     funnelStage: "Waitlist",
     breadth: "100%",
     severity: "High",
@@ -107,7 +107,7 @@ function FunnelDiagram() {
     <div style={{ margin: "16px 0" }}>
       {stages.map((s, i) => (
         <div key={i} style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 6 }}>
-          <div style={{ width: 160, textAlign: "right", fontSize: 12, color: "#666", flexShrink: 0, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{s.label}</div>
+          <div style={{ minWidth: 100, maxWidth: 160, textAlign: "right", fontSize: 12, color: "#666", flexShrink: 0, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{s.label}</div>
           <div style={{ flex: 1, position: "relative" }}>
             <div
               style={{
@@ -135,7 +135,7 @@ function DeepDive1() {
   return (
     <div style={{ background: "#fff", borderRadius: 14, padding: 24, marginBottom: 20, borderLeft: "3px solid #DC2626", border: "1px solid #E5E5E3", borderLeftWidth: 3, borderLeftColor: "#DC2626", boxShadow: "0 1px 3px rgba(0,0,0,0.04)" }}>
       <div style={{ fontSize: 10, fontWeight: 600, color: "#DC2626", textTransform: "uppercase", letterSpacing: "1.2px", marginBottom: 4, fontFamily: "'JetBrains Mono', monospace" }}>
-        Deep-Dive #1 — Primary Observation
+        Deep-Dive #1. Primary Observation
       </div>
       <h3 style={{ fontSize: 20, color: "#111", margin: "0 0 6px 0", fontWeight: 700, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
         The Waitlist-to-Activation Gap
@@ -148,10 +148,10 @@ function DeepDive1() {
         <div style={{ fontSize: 14, fontWeight: 700, color: "#92400E", marginBottom: 8, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Why This Matters for 8club Right Now</div>
         <div style={{ fontSize: 13, color: "#444", lineHeight: 1.75 }}>
           <p style={{ margin: "0 0 8px 0" }}>
-            8club is pre-Series A. The metric that determines whether they raise successfully is <strong style={{ color: "#111" }}>activation rate</strong> — what percentage of users who download the app eventually attend their first Hotspot. Every step upstream of that first attendance is activation infrastructure.
+            8club is pre-Series A. The metric that determines whether they raise successfully is <strong style={{ color: "#111" }}>activation rate</strong>, i.e. what percentage of users who download the app eventually attend their first Hotspot. Every step upstream of that first attendance is activation infrastructure.
           </p>
           <p style={{ margin: "0 0 8px 0" }}>
-            The waitlist sits at the narrowest point of the funnel. It is, by design, a curation gate — and curation is core to 8club's brand promise. The problem isn't that the waitlist exists. It's that <strong style={{ color: "#111" }}>the experience of waiting is actively destroying the demand the onboarding just created</strong>.
+            The waitlist sits at the narrowest point of the funnel. It is, by design, a curation gate. and curation is core to 8club's brand promise. The problem isn't that the waitlist exists. It's that <strong style={{ color: "#111" }}>the experience of waiting is actively destroying the demand the onboarding just created</strong>.
           </p>
           <p style={{ margin: "0" }}>
             This is visible in the data that's already public: the waitlist is the single most common complaint in app store reviews across both iOS and Android. Users who wait more than a few days without any signal tend to leave 1-star reviews and uninstall. The app is effectively converting marketing spend into negative reviews.
@@ -161,11 +161,11 @@ function DeepDive1() {
 
       <div style={{ marginBottom: 20 }}>
         <div style={{ fontSize: 14, fontWeight: 700, color: "#92400E", marginBottom: 8, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>The Four Facets of This Problem</div>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: 10 }}>
           {[
             {
               title: "Expectation vs. Reality",
-              body: 'The "How Does It Work" explainer promises: "You get invited to Hotspots." The reality: you sit on a waitlist with no invites, no timeline, no status. The emotional arc data shows this as the sharpest sentiment drop in the entire flow — from excitement (est. ~8/10) to confusion (est. ~2/10) in a single transition.',
+              body: 'The "How Does It Work" explainer promises: "You get invited to Hotspots." The reality: you sit on a waitlist with no invites, no timeline, no status. The emotional arc data shows this as the sharpest sentiment drop in the entire flow. from excitement (est. ~8/10) to confusion (est. ~2/10) in a single transition.',
               color: "#DC2626", bg: "#FEF2F2", border: "#FECACA",
             },
             {
@@ -175,12 +175,12 @@ function DeepDive1() {
             },
             {
               title: "Deflating Progress Signals",
-              body: 'Completing all 5 mandatory onboarding steps results in 16% profile completion. The framing says "you\'re 16% done" when the user just did everything asked. This creates a psychological penalty for compliance. Compare: if onboarding said "Core profile complete — 5 optional steps to stand out to hosts," the same data becomes empowering.',
+              body: 'Completing all 5 mandatory onboarding steps results in 16% profile completion. The framing says "you\'re 16% done" when the user just did everything asked. This creates a psychological penalty for compliance. Compare: if onboarding said "Core profile complete. 5 optional steps to stand out to hosts," the same data becomes empowering.',
               color: "#CA8A04", bg: "#FEFCE8", border: "#FEF08A",
             },
             {
               title: "An Empty Room to Wait In",
-              body: "\"Scroll while it simmers\" — but the Wall tab loaded blank, Notifications show zero, and the Hotspots tab is gated. The user is told to explore an app that has nothing to show them yet. This is a missed opportunity: the waiting period could build anticipation, educate about the community, or showcase what's coming.",
+              body: "\"Scroll while it simmers\", but the Wall tab loaded blank, Notifications show zero, and the Hotspots tab is gated. The user is told to explore an app that has nothing to show them yet. This is a missed opportunity: the waiting period could build anticipation, educate about the community, or showcase what's coming.",
               color: "#7C3AED", bg: "#F5F3FF", border: "#E0DBFF",
             },
           ].map((facet) => (
@@ -222,9 +222,9 @@ function DeepDive1() {
         <div style={{ fontSize: 14, fontWeight: 700, color: "#92400E", marginBottom: 8, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Directional Ideas (Ordered by Implementation Effort)</div>
         <div style={{ fontSize: 12, color: "#999", fontStyle: "italic", marginBottom: 10 }}>These are starting points for exploration, not prescriptions. The right answer depends on data only the team has.</div>
         {[
-          { effort: "Low", effortColor: "#059669", effortBg: "#F0FDF4", effortBorder: "#BBF7D0", title: "Reframe the progress signal", body: "When onboarding completes, show \"Core profile complete ✓\" as a distinct milestone before introducing optional enhancement steps. The 16% number doesn't need to disappear — but the user should feel they've accomplished something before being told they're barely started. This is a copy and logic change, not an architecture change." },
-          { effort: "Low", effortColor: "#059669", effortBg: "#F0FDF4", effortBorder: "#BBF7D0", title: "Add transparency to the wait", body: "Even without revealing the exact algorithm, communicate: an estimated timeline (\"most profiles are reviewed within X days\"), what stage the user is in (\"submitted → under review → cleared\"), and what actions genuinely improve their chances (if profile completion matters, say so explicitly). Opacity is only valuable when it serves the brand — here it's eroding trust." },
-          { effort: "Medium", effortColor: "#D97706", effortBg: "#FFF7ED", effortBorder: "#FFEDD5", title: "Build a waitlist-lite experience", body: "Instead of empty tabs, give waitlisted users curated content: a highlight reel of past Hotspots (the Wall already has this content — surface it reliably), a \"trending this week in Bangalore\" feed, or profiles of active hosts they could follow. The goal is to build anticipation and social proof during the wait, not just kill time. This transforms the waitlist from a dead-end into a warmup." },
+          { effort: "Low", effortColor: "#059669", effortBg: "#F0FDF4", effortBorder: "#BBF7D0", title: "Reframe the progress signal", body: "When onboarding completes, show \"Core profile complete ✓\" as a distinct milestone before introducing optional enhancement steps. The 16% number doesn't need to disappear, but the user should feel they've accomplished something before being told they're barely started. This is a copy and logic change, not an architecture change." },
+          { effort: "Low", effortColor: "#059669", effortBg: "#F0FDF4", effortBorder: "#BBF7D0", title: "Add transparency to the wait", body: "Even without revealing the exact algorithm, communicate: an estimated timeline (\"most profiles are reviewed within X days\"), what stage the user is in (\"submitted → under review → cleared\"), and what actions genuinely improve their chances (if profile completion matters, say so explicitly). Opacity is only valuable when it serves the brand. here it's eroding trust." },
+          { effort: "Medium", effortColor: "#D97706", effortBg: "#FFF7ED", effortBorder: "#FFEDD5", title: "Build a waitlist-lite experience", body: "Instead of empty tabs, give waitlisted users curated content: a highlight reel of past Hotspots (the Wall already has this content. surface it reliably), a \"trending this week in Bangalore\" feed, or profiles of active hosts they could follow. The goal is to build anticipation and social proof during the wait, not just kill time. This transforms the waitlist from a dead-end into a warmup." },
           { effort: "Medium", effortColor: "#D97706", effortBg: "#FFF7ED", effortBorder: "#FFEDD5", title: "Status update touchpoints", body: "At 24h, 48h, and 72h post-submission, send a brief in-app or push update: where the profile stands, what's happening in the community, and one specific action the user could take. This converts silence into communication. Even \"we're still reviewing\" is better than nothing, because it confirms the system is alive." },
         ].map((idea) => (
           <div key={idea.title} style={{ background: "#FAFAF8", borderRadius: 10, padding: 14, marginBottom: 8, display: "flex", gap: 12, alignItems: "flex-start", border: "1px solid #E5E5E3" }}>
@@ -246,13 +246,13 @@ function DeepDive2() {
   return (
     <div style={{ background: "#fff", borderRadius: 14, padding: 24, marginBottom: 20, borderLeft: "3px solid #D97706", border: "1px solid #E5E5E3", borderLeftWidth: 3, borderLeftColor: "#D97706", boxShadow: "0 1px 3px rgba(0,0,0,0.04)" }}>
       <div style={{ fontSize: 10, fontWeight: 600, color: "#D97706", textTransform: "uppercase", letterSpacing: "1.2px", marginBottom: 4, fontFamily: "'JetBrains Mono', monospace" }}>
-        Deep-Dive #2 — Secondary Observation
+        Deep-Dive #2. Secondary Observation
       </div>
       <h3 style={{ fontSize: 20, color: "#111", margin: "0 0 6px 0", fontWeight: 700, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
         The Re-engagement Dead End
       </h3>
       <p style={{ fontSize: 12, color: "#999", margin: "0 0 16px 0", fontStyle: "italic" }}>
-        Observation #6 — a structural gap in the ability to bring waitlisted users back after they leave the app.
+        Observation #6, a structural gap in the ability to bring waitlisted users back after they leave the app.
       </p>
 
       <div style={{ marginBottom: 20 }}>
@@ -262,19 +262,19 @@ function DeepDive2() {
             Even if the waitlist experience improves (Deep-Dive #1), there will always be a gap between onboarding and clearance. During that gap, users will close the app. The question is: <strong style={{ color: "#111" }}>can the system bring them back when it's their turn?</strong>
           </p>
           <p style={{ margin: "0 0 8px 0" }}>
-            Right now, the answer appears to be no. The onboarding flow collects a phone number (for auth) but there's no evidence of transactional SMS for waitlist status updates. Email is not collected during onboarding — it's an optional field buried in Edit Profile, meaning most users never provide it. Push notification permission is requested on the Notifications tab, but a waitlisted user exploring the app may not navigate there or may decline because the ask feels premature ("notify me about what?").
+            Right now, the answer appears to be no. The onboarding flow collects a phone number (for auth) but there's no evidence of transactional SMS for waitlist status updates. Email is not collected during onboarding. it's an optional field buried in Edit Profile, meaning most users never provide it. Push notification permission is requested on the Notifications tab, but a waitlisted user exploring the app may not navigate there or may decline because the ask feels premature ("notify me about what?").
           </p>
           <p style={{ margin: "0" }}>
-            This creates a paradox: 8club invests in acquiring a user, onboarding them, collecting their data, and evaluating their profile — but when the moment comes to convert them (waitlist clearance), the app may have no way to reach them. The user has to remember to come back on their own. For an app competing against Instagram, WhatsApp, and daily life for attention, that's a significant structural weakness.
+            This creates a paradox: 8club invests in acquiring a user, onboarding them, collecting their data, and evaluating their profile, but when the moment comes to convert them (waitlist clearance), the app may have no way to reach them. The user has to remember to come back on their own. For an app competing against Instagram, WhatsApp, and daily life for attention, that's a significant structural weakness.
           </p>
         </div>
       </div>
 
       <div style={{ marginBottom: 20 }}>
         <div style={{ fontSize: 14, fontWeight: 700, color: "#92400E", marginBottom: 8, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Current Re-engagement Channel Map</div>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(100px, 1fr))", gap: 10 }}>
           {[
-            { channel: "Push Notifications", status: "Not granted", statusColor: "#DC2626", statusBg: "#FEF2F2", note: "Permission asked post-onboarding on the Notifs tab — likely low grant rate for waitlisted users who see no immediate value" },
+            { channel: "Push Notifications", status: "Not granted", statusColor: "#DC2626", statusBg: "#FEF2F2", note: "Permission asked post-onboarding on the Notifs tab. likely low grant rate for waitlisted users who see no immediate value" },
             { channel: "Email", status: "Not collected", statusColor: "#DC2626", statusBg: "#FEF2F2", note: "Optional field in Edit Profile, not part of onboarding flow. Most users likely skip it." },
             { channel: "SMS", status: "Number collected, not used", statusColor: "#D97706", statusBg: "#FFF7ED", note: "Phone number collected for OTP but no evidence of transactional SMS for status updates or re-engagement." },
           ].map((ch) => (
@@ -292,7 +292,7 @@ function DeepDive2() {
         <div style={{ fontSize: 13, color: "#444", lineHeight: 1.75 }}>
           {[
             "What % of users who complete onboarding grant push notification permission before leaving their first session? If it's below 30%, the re-engagement gap is confirmed.",
-            "What % of waitlisted users return to the app within 7 days without any outbound trigger? This measures organic return rate — the baseline without any re-engagement system.",
+            "What % of waitlisted users return to the app within 7 days without any outbound trigger? This measures organic return rate, the baseline without any re-engagement system.",
             "Of users who ARE cleared from the waitlist, what % open the app within 48 hours of clearance? If clearance happens but the user never comes back to discover it, the investment in review and approval is wasted.",
             "Is there a legal/compliance constraint on using the OTP phone number for transactional SMS in India? (TRAI regulations around promotional vs. transactional messaging matter here.)",
           ].map((q, i) => (
@@ -316,7 +316,7 @@ function DeepDive2() {
         <div style={{ fontSize: 14, fontWeight: 700, color: "#92400E", marginBottom: 8, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Directional Ideas (Ordered by Implementation Effort)</div>
         <div style={{ fontSize: 12, color: "#999", fontStyle: "italic", marginBottom: 10 }}>Starting points, not prescriptions. Compliance review needed for SMS-based approaches.</div>
         {[
-          { effort: "Low", effortColor: "#059669", effortBg: "#F0FDF4", effortBorder: "#BBF7D0", title: "Move notification permission ask into the onboarding flow", body: "Instead of burying it on the Notifications tab, request push permission during the \"How Does It Work\" explainer — right at the moment the user learns they'll receive invites. The context (\"we need to notify you when you're invited\") makes the ask natural. This is a flow reorder, not a new feature." },
+          { effort: "Low", effortColor: "#059669", effortBg: "#F0FDF4", effortBorder: "#BBF7D0", title: "Move notification permission ask into the onboarding flow", body: "Instead of burying it on the Notifications tab, request push permission during the \"How Does It Work\" explainer. right at the moment the user learns they'll receive invites. The context (\"we need to notify you when you're invited\") makes the ask natural. This is a flow reorder, not a new feature." },
           { effort: "Low", effortColor: "#059669", effortBg: "#F0FDF4", effortBorder: "#BBF7D0", title: "Add email collection to onboarding with clear value framing", body: "Add an optional step after the username screen: \"Add your email so we can let you know the moment you're in.\" The value proposition is immediate and specific. Even a 40-50% provision rate creates a re-engagement channel that currently doesn't exist." },
           { effort: "Medium", effortColor: "#D97706", effortBg: "#FFF7ED", effortBorder: "#FFEDD5", title: "Transactional SMS for critical state changes", body: "Use the already-collected phone number to send a single SMS when waitlist status changes: \"You're in! Open 8club to see your first Hotspot invites.\" Under TRAI regulations, service/transactional SMS tied to an existing account relationship is permissible. One high-signal message at the right moment is worth more than a drip campaign." },
         ].map((idea) => (
@@ -373,7 +373,7 @@ export default function Prioritisation() {
               8club is a pre-Series A company with ~$795K seed funding, ~200K community members (heavily Bangalore-concentrated), and effectively zero revenue. They're hiring their first PM. The next fundraise depends on proving the core loop works: users download → onboard → get cleared → receive Hotspot invites → attend → come back.
             </p>
             <p style={{ margin: "0 0 8px 0" }}>
-              At this stage, the metric that matters most is <strong style={{ color: "#111" }}>activation rate</strong> — what percentage of users who download the app make it all the way to attending their first Hotspot. Everything upstream of that first attendance is activation infrastructure. Everything downstream (repeat attendance, hosting, referrals) is retention and growth — important, but only meaningful after activation works.
+              At this stage, the metric that matters most is <strong style={{ color: "#111" }}>activation rate</strong>, i.e. what percentage of users who download the app make it all the way to attending their first Hotspot. Everything upstream of that first attendance is activation infrastructure. Everything downstream (repeat attendance, hosting, referrals) is retention and growth, which are important but only meaningful after activation works.
             </p>
             <p style={{ margin: "0" }}>
               So the prioritisation question becomes: <strong style={{ color: "#111" }}>of the 6 observations from the journey map, which ones sit at the highest-leverage point in the activation funnel, affect the most users, and are addressable given a small, fast-moving team?</strong>
@@ -385,7 +385,7 @@ export default function Prioritisation() {
         <div style={{ background: "#fff", borderRadius: 14, padding: 20, marginBottom: 20, border: "1px solid #E5E5E3", boxShadow: "0 1px 3px rgba(0,0,0,0.04)" }}>
           <div style={{ fontSize: 14, fontWeight: 700, color: "#111", marginBottom: 4, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>8club's Activation Funnel</div>
           <div style={{ fontSize: 11, color: "#999", marginBottom: 4, fontStyle: "italic" }}>
-            Widths are illustrative — actual conversion rates would need internal data. The bottleneck location is informed by public review data.
+            Widths are illustrative. actual conversion rates would need internal data. The bottleneck location is informed by public review data.
           </div>
           <FunnelDiagram />
           <div style={{ fontSize: 12, color: "#666", lineHeight: 1.65, marginTop: 8 }}>
@@ -447,7 +447,7 @@ export default function Prioritisation() {
           <div style={{ fontSize: 14, fontWeight: 700, color: "#5B21B6", marginBottom: 8, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>The Clustering Insight</div>
           <div style={{ fontSize: 13, color: "#444", lineHeight: 1.75 }}>
             <p style={{ margin: "0 0 8px 0" }}>
-              Four of the six observations (#1 Emotional Cliff, #2 Opacity, #3 16% Deflation, #4 Empty States) are not independent problems — they are <strong style={{ color: "#111" }}>facets of one core issue: the waitlist-to-activation transition</strong>. The expectation gap, the lack of transparency, the deflating progress signal, and the empty experience are all symptoms of the same underlying condition: the waiting period actively destroys the demand that onboarding created.
+              Four of the six observations (#1 Emotional Cliff, #2 Opacity, #3 16% Deflation, #4 Empty States) are not independent problems. they are <strong style={{ color: "#111" }}>facets of one core issue: the waitlist-to-activation transition</strong>. The expectation gap, the lack of transparency, the deflating progress signal, and the empty experience are all symptoms of the same underlying condition: the waiting period actively destroys the demand that onboarding created.
             </p>
             <p style={{ margin: "0 0 8px 0" }}>
               Treating them as four separate issues would fragment effort. Treating them as one problem with four dimensions enables a cohesive solution. This is why they merge into Deep-Dive #1.
@@ -456,7 +456,7 @@ export default function Prioritisation() {
               <strong style={{ color: "#111" }}>Observation #6 (Re-engagement Dead End)</strong> is the structural complement: even if the waitlist experience improves, users who leave during the wait need a channel to be brought back. It earns Deep-Dive #2 because it addresses a different failure mode (system-level, not experience-level) with distinct solutions.
             </p>
             <p style={{ margin: "0" }}>
-              <strong style={{ color: "#111" }}>Observation #5 (Trust Sequencing)</strong> is a valid friction point but is deprioritised because its impact is lower-order. Even with perfectly sequenced permissions, the waitlist gap would still be the activation killer. Fixing sequencing optimises the onboarding — fixing the waitlist experience unlocks the entire funnel. Sequencing becomes a natural follow-up once the higher-leverage problems are addressed.
+              <strong style={{ color: "#111" }}>Observation #5 (Trust Sequencing)</strong> is a valid friction point but is deprioritised because its impact is lower-order. Even with perfectly sequenced permissions, the waitlist gap would still be the activation killer. Fixing sequencing optimises the onboarding. fixing the waitlist experience unlocks the entire funnel. Sequencing becomes a natural follow-up once the higher-leverage problems are addressed.
             </p>
           </div>
         </div>
@@ -464,7 +464,7 @@ export default function Prioritisation() {
         {/* Final Selection */}
         <div style={{ background: "#fff", borderRadius: 14, padding: 20, marginBottom: 20, border: "1px solid #BFDBFE", boxShadow: "0 1px 3px rgba(0,0,0,0.04)" }}>
           <div style={{ fontSize: 14, fontWeight: 700, color: "#1E40AF", marginBottom: 10, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Final Selection: 2 Deep-Dives</div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 12 }}>
             <div style={{ background: "#FAFAF8", borderRadius: 10, padding: 14, borderTop: "3px solid #DC2626", border: "1px solid #FECACA", borderTopWidth: 3, borderTopColor: "#DC2626" }}>
               <div style={{ fontSize: 10, color: "#DC2626", fontWeight: 600, marginBottom: 4, fontFamily: "'JetBrains Mono', monospace" }}>PRIMARY</div>
               <div style={{ fontSize: 14, fontWeight: 700, color: "#111", marginBottom: 4, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>The Waitlist-to-Activation Gap</div>
@@ -473,11 +473,11 @@ export default function Prioritisation() {
             <div style={{ background: "#FAFAF8", borderRadius: 10, padding: 14, borderTop: "3px solid #D97706", border: "1px solid #FFEDD5", borderTopWidth: 3, borderTopColor: "#D97706" }}>
               <div style={{ fontSize: 10, color: "#D97706", fontWeight: 600, marginBottom: 4, fontFamily: "'JetBrains Mono', monospace" }}>SECONDARY</div>
               <div style={{ fontSize: 14, fontWeight: 700, color: "#111", marginBottom: 4, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>The Re-engagement Dead End</div>
-              <div style={{ fontSize: 11, color: "#666", lineHeight: 1.55 }}>Observation #6. Structural infrastructure gap — no channels to bring waitlisted users back. Complements #1 by addressing the system layer, not just the experience layer.</div>
+              <div style={{ fontSize: 11, color: "#666", lineHeight: 1.55 }}>Observation #6: Structural infrastructure gap, no channels to bring waitlisted users back. Complements #1 by addressing the system layer, not just the experience layer.</div>
             </div>
           </div>
           <div style={{ marginTop: 10, fontSize: 11, color: "#999", lineHeight: 1.55, fontStyle: "italic" }}>
-            Deprioritised: #5 (Trust Sequencing) — valid but lower-order; a natural follow-up optimisation once the primary bottleneck is addressed.
+            Deprioritised: #5 (Trust Sequencing). valid but lower-order; a natural follow-up optimisation once the primary bottleneck is addressed.
           </div>
         </div>
 
@@ -490,13 +490,13 @@ export default function Prioritisation() {
         <div style={{ background: "#fff", borderRadius: 14, padding: 18, marginTop: 8, borderLeft: "3px solid #059669", border: "1px solid #E5E5E3", borderLeftWidth: 3, borderLeftColor: "#059669", boxShadow: "0 1px 3px rgba(0,0,0,0.04)" }}>
           <div style={{ fontSize: 14, fontWeight: 700, color: "#065F46", marginBottom: 6, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>A Note on Framing</div>
           <div style={{ fontSize: 12, color: "#555", lineHeight: 1.75 }}>
-            Everything above is informed by one new user's onboarding experience and publicly available data (app store reviews, website, LinkedIn). The 8club team has internal data — clearance rates, cohort analysis, retention curves, A/B test history — that would refine, redirect, or invalidate some of these observations. That's expected and welcome. The value here isn't in having the final answer. It's in demonstrating a way of looking at the product: mapping the experience, identifying patterns, connecting observations to business context, and thinking about what to explore first.
+            Everything above is informed by one new user's onboarding experience and publicly available data (app store reviews, website, LinkedIn). The 8club team has internal data. clearance rates, cohort analysis, retention curves, A/B test history. that would refine, redirect, or invalidate some of these observations. That's expected and welcome. The value here isn't in having the final answer. It's in demonstrating a way of looking at the product: mapping the experience, identifying patterns, connecting observations to business context, and thinking about what to explore first.
           </div>
         </div>
 
         <div style={{ textAlign: "center", padding: "22px 0 8px 0", borderTop: "1px solid #E5E5E3", marginTop: 24 }}>
-          <div style={{ fontSize: 10, color: "#bbb", fontFamily: "'JetBrains Mono', monospace" }}>
-            Internal analysis · Not for distribution · Ankur Kulkarni × Claude Gerrard
+          <div style={{ fontSize: 12, color: "#999", fontFamily: "'JetBrains Mono', monospace" }}>
+            Product analysis by Ankur Kulkarni
           </div>
         </div>
       </div>

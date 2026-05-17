@@ -4,15 +4,15 @@ const caseStudies = [
   {
     id: "review-analysis",
     number: "01",
-    title: "App Review Analysis",
-    subtitle: "441 Reviews · Play Store + App Store",
-    hook: "What users are actually saying — and what 8club is missing",
+    title: "App Review Intelligence",
+    subtitle: "441 reviews across Play Store and App Store",
+    hook: "What users are telling 8club through their ratings, and what patterns emerge when you read every single one.",
     description:
-      "Forensic teardown of every public review across both stores. Categorized by severity, cross-referenced with 8club's own responses, and mapped to actionable PM interventions. Surfaces the crash cluster, the waitlist trust gap, and the discovery problem users keep screaming about.",
+      "Every public review on both stores, categorised by theme, scored by severity, and mapped to PM-level actions. Covers stability, the waitlist experience, discovery and filtering gaps, pricing perception, and more. Each category includes the raw reviews, a pattern analysis, and a recommended next step.",
     stats: [
-      { label: "Reviews Analyzed", value: "441" },
-      { label: "Issue Categories", value: "7" },
-      { label: "Critical Bugs", value: "2" },
+      { label: "Reviews Read", value: "441" },
+      { label: "Themes Found", value: "8" },
+      { label: "Priority Actions", value: "5" },
     ],
     accent: "#DC2626",
     accentBg: "#FEF2F2",
@@ -23,32 +23,32 @@ const caseStudies = [
     id: "onboarding-journey",
     title: "Onboarding Journey Map",
     number: "02",
-    subtitle: "13 Screens · Emotion-Scored UX Teardown",
-    hook: "The 8-minute journey from curious download to confused waitlist",
+    subtitle: "13 screens, emotion-scored, screen by screen",
+    hook: "A first-person walkthrough of the full onboarding funnel, from OTP to waitlist.",
     description:
-      "First-person walkthrough of 8club's entire onboarding funnel — every screen, every permission dialog, every piece of copy — scored on an emotional curve. Maps exactly where the product builds trust and where it hemorrhages it. The cliff from Hotspot selection (9/10) to waitlist (2/10) is the story.",
+      "Signed up with a real phone number and documented every screen, permission dialog, and piece of copy. Each stage is scored on an estimated emotional curve. Maps where the product builds user trust, where it asks too much too early, and where the experience drops off. Surfaces six candidate observations for prioritisation.",
     stats: [
-      { label: "Screens Mapped", value: "13" },
+      { label: "Stages Mapped", value: "13" },
       { label: "Friction Points", value: "23" },
-      { label: "Emotion Low", value: "2/10" },
+      { label: "Observations", value: "6" },
     ],
     accent: "#D97706",
     accentBg: "#FFF7ED",
     accentBorder: "#FFEDD5",
-    icon: "📉",
+    icon: "📱",
   },
   {
     id: "prioritisation",
     number: "03",
     title: "Prioritisation Deep Dives",
-    subtitle: "8 Observations · RICE-Scored · Solution Architecture",
-    hook: "Not just what's broken — what to build first and exactly how",
+    subtitle: "8 observations scored, 4 fully spec'd",
+    hook: "Taking the observations from the journey map and applying a structured prioritisation framework.",
     description:
-      "Eight observations from the onboarding audit, scored through a modified RICE framework (Breadth × Severity × Feasibility), then expanded into full solution architectures. Each deep dive includes the problem, the user psychology behind it, the build spec, and the expected impact. This is the roadmap pitch.",
+      "Eight observations from the onboarding audit, scored through a modified RICE framework (Breadth, Severity, Feasibility). The top four are expanded into full solution architectures with problem statements, user psychology, build specifications, and expected impact. This is where analysis turns into a buildable roadmap.",
     stats: [
-      { label: "Observations", value: "8" },
+      { label: "Scored", value: "8" },
       { label: "Deep Dives", value: "4" },
-      { label: "Solutions Spec'd", value: "8" },
+      { label: "Solutions", value: "8" },
     ],
     accent: "#059669",
     accentBg: "#ECFDF5",
@@ -76,11 +76,8 @@ export default function Landing({ onNavigate }) {
   }, []);
 
   const navigate = (id) => {
-    if (onNavigate) {
-      onNavigate(id);
-    } else {
-      window.location.hash = id;
-    }
+    if (onNavigate) onNavigate(id);
+    else window.location.hash = id;
   };
 
   return (
@@ -90,20 +87,19 @@ export default function Landing({ onNavigate }) {
         background: "#FAFAF8",
         color: "#1A1A1A",
         fontFamily: "'Source Serif 4', Georgia, serif",
-        padding: "28px 20px",
+        padding: "32px 20px",
       }}
     >
       <div style={{ maxWidth: 760, margin: "0 auto" }}>
-        {/* ── HEADER ── */}
+        {/* Header */}
         <header
           style={{
-            paddingTop: 20,
+            paddingTop: 16,
             opacity: loaded ? 1 : 0,
-            transform: loaded ? "translateY(0)" : "translateY(16px)",
-            transition: "all 0.7s cubic-bezier(0.16, 1, 0.3, 1)",
+            transform: loaded ? "translateY(0)" : "translateY(12px)",
+            transition: "all 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
           }}
         >
-          {/* Purple pill badge */}
           <div
             style={{
               display: "inline-flex",
@@ -126,15 +122,15 @@ export default function Landing({ onNavigate }) {
           <h1
             style={{
               fontFamily: "'Plus Jakarta Sans', sans-serif",
-              fontSize: "clamp(28px, 5.5vw, 42px)",
+              fontSize: "clamp(28px, 5.5vw, 40px)",
               fontWeight: 800,
-              lineHeight: 1.15,
+              lineHeight: 1.2,
               letterSpacing: "-0.5px",
               color: "#111",
-              margin: "0 0 12px 0",
+              margin: "0 0 14px 0",
             }}
           >
-            What I'd fix at{" "}
+            Product Lens:{" "}
             <span
               style={{
                 background: "linear-gradient(135deg, #5B21B6, #7C3AED)",
@@ -143,22 +139,21 @@ export default function Landing({ onNavigate }) {
               }}
             >
               8club
-            </span>{" "}
-            on day one.
+            </span>
           </h1>
 
           <p
             style={{
-              fontSize: 16,
+              fontSize: 17,
               lineHeight: 1.75,
-              color: "#666",
-              maxWidth: 600,
-              margin: "0 0 20px 0",
+              color: "#555",
+              maxWidth: 620,
+              margin: "0 0 24px 0",
             }}
           >
-            An uninvited product audit — from app store reviews to onboarding
-            teardown to a prioritised roadmap — built to show how I think about
-            consumer products.
+            Three analyses exploring 8club's product through different angles:
+            user reviews, onboarding experience, and a prioritised improvement
+            roadmap. Built to show how I think about consumer products.
           </p>
 
           <div
@@ -171,22 +166,26 @@ export default function Landing({ onNavigate }) {
               borderBottom: "1px solid #E5E5E3",
             }}
           >
-            <span
+            <a
+              href="https://www.linkedin.com/in/ankurkulkarni/"
+              target="_blank"
+              rel="noopener noreferrer"
               style={{
                 fontFamily: "'Plus Jakarta Sans', sans-serif",
-                fontSize: 13,
+                fontSize: 14,
                 fontWeight: 600,
-                color: "#444",
+                color: "#5B21B6",
+                textDecoration: "none",
               }}
             >
               Ankur Kulkarni
-            </span>
+            </a>
             <span style={{ color: "#ccc" }}>·</span>
             <span
               style={{
                 fontFamily: "'JetBrains Mono', monospace",
-                fontSize: 11,
-                color: "#999",
+                fontSize: 12,
+                color: "#666",
               }}
             >
               Founding PM Candidate
@@ -195,8 +194,8 @@ export default function Landing({ onNavigate }) {
             <span
               style={{
                 fontFamily: "'JetBrains Mono', monospace",
-                fontSize: 11,
-                color: "#999",
+                fontSize: 12,
+                color: "#666",
               }}
             >
               May 2026
@@ -204,50 +203,49 @@ export default function Landing({ onNavigate }) {
           </div>
         </header>
 
-        {/* ── CONTEXT ── */}
+        {/* Context */}
         <section
           style={{
             padding: "28px 0 24px",
             opacity: loaded ? 1 : 0,
-            transform: loaded ? "translateY(0)" : "translateY(16px)",
-            transition: "all 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.12s",
+            transform: loaded ? "translateY(0)" : "translateY(12px)",
+            transition: "all 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s",
           }}
         >
           <div
             style={{
               fontFamily: "'JetBrains Mono', monospace",
-              fontSize: 10,
+              fontSize: 11,
               letterSpacing: "1.2px",
               textTransform: "uppercase",
-              color: "#999",
+              color: "#888",
               marginBottom: 12,
             }}
           >
             Context
           </div>
-          <p style={{ fontSize: 15, lineHeight: 1.8, color: "#444", maxWidth: 660 }}>
-            8club has cracked something rare —{" "}
+          <p style={{ fontSize: 16, lineHeight: 1.8, color: "#444", maxWidth: 660 }}>
+            8club has clear product-market fit signals:{" "}
             <strong style={{ color: "#111" }}>
-              200K+ members, 10K+ hosts, and a fill rate that puts Eventbrite to
-              shame
+              200K+ members, 10K+ hosts, 55% Hotspot fill rate
             </strong>
-            . The product-market fit signal is loud. But the app store tells a
-            parallel story: crashes that burned a November cohort, a waitlist that
-            breeds silence instead of anticipation, and a discovery experience that
-            shows events 2,000km away. These three analyses are how I'd walk into
-            Day 1 as 8club's founding PM — with receipts, not opinions.
+            . The concept resonates, even critics in the app store acknowledge
+            that. These analyses look at where the current experience sits,
+            what patterns show up across hundreds of user reviews, and where
+            the highest-leverage improvements are for a founding PM thinking
+            about the first 30 days.
           </p>
         </section>
 
-        {/* ── CASE STUDY CARDS ── */}
+        {/* Case Study Cards */}
         <section style={{ padding: "8px 0 40px" }}>
           <div
             style={{
               fontFamily: "'JetBrains Mono', monospace",
-              fontSize: 10,
+              fontSize: 11,
               letterSpacing: "1.2px",
               textTransform: "uppercase",
-              color: "#999",
+              color: "#888",
               marginBottom: 16,
             }}
           >
@@ -275,11 +273,10 @@ export default function Landing({ onNavigate }) {
                       ? "0 4px 12px rgba(0,0,0,0.06)"
                       : "0 1px 3px rgba(0,0,0,0.04)",
                     opacity: loaded ? 1 : 0,
-                    transform: loaded ? "translateY(0)" : "translateY(16px)",
-                    transitionDelay: `${0.2 + i * 0.08}s`,
+                    transform: loaded ? "translateY(0)" : "translateY(12px)",
+                    transitionDelay: `${0.18 + i * 0.08}s`,
                   }}
                 >
-                  {/* Number + Icon row */}
                   <div
                     style={{
                       display: "flex",
@@ -320,7 +317,6 @@ export default function Landing({ onNavigate }) {
                     </svg>
                   </div>
 
-                  {/* Title */}
                   <h3
                     style={{
                       fontFamily: "'Plus Jakarta Sans', sans-serif",
@@ -334,47 +330,43 @@ export default function Landing({ onNavigate }) {
                     {study.title}
                   </h3>
 
-                  {/* Subtitle */}
                   <div
                     style={{
                       fontFamily: "'JetBrains Mono', monospace",
-                      fontSize: 10,
-                      color: "#999",
+                      fontSize: 11,
+                      color: "#888",
                       textTransform: "uppercase",
-                      letterSpacing: "1px",
+                      letterSpacing: "0.8px",
                       marginBottom: 10,
                     }}
                   >
                     {study.subtitle}
                   </div>
 
-                  {/* Hook */}
                   <p
                     style={{
-                      fontSize: 13,
+                      fontSize: 14,
                       fontStyle: "italic",
                       color: study.accent,
                       margin: "0 0 10px 0",
-                      lineHeight: 1.5,
+                      lineHeight: 1.55,
                       fontWeight: 500,
                     }}
                   >
                     {study.hook}
                   </p>
 
-                  {/* Description */}
                   <p
                     style={{
-                      fontSize: 14,
+                      fontSize: 15,
                       lineHeight: 1.75,
-                      color: "#666",
+                      color: "#555",
                       margin: "0 0 18px 0",
                     }}
                   >
                     {study.description}
                   </p>
 
-                  {/* Stats row */}
                   <div
                     style={{
                       display: "flex",
@@ -391,7 +383,7 @@ export default function Landing({ onNavigate }) {
                         <div
                           style={{
                             fontFamily: "'Plus Jakarta Sans', sans-serif",
-                            fontSize: 18,
+                            fontSize: 20,
                             fontWeight: 700,
                             color: study.accent,
                           }}
@@ -401,8 +393,8 @@ export default function Landing({ onNavigate }) {
                         <div
                           style={{
                             fontFamily: "'JetBrains Mono', monospace",
-                            fontSize: 9,
-                            color: "#999",
+                            fontSize: 10,
+                            color: "#888",
                             textTransform: "uppercase",
                             letterSpacing: "0.8px",
                             marginTop: 2,
@@ -419,76 +411,67 @@ export default function Landing({ onNavigate }) {
           </div>
         </section>
 
-        {/* ── HOW THIS WAS BUILT ── */}
+        {/* Methodology */}
         <section
           style={{
             padding: "24px 0 20px",
             borderTop: "1px solid #E5E5E3",
             opacity: loaded ? 1 : 0,
-            transition: "all 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.5s",
+            transition: "all 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.5s",
           }}
         >
           <div
             style={{
               fontFamily: "'JetBrains Mono', monospace",
-              fontSize: 10,
+              fontSize: 11,
               letterSpacing: "1.2px",
               textTransform: "uppercase",
-              color: "#999",
+              color: "#888",
               marginBottom: 12,
             }}
           >
-            How this was built
+            Methodology
           </div>
-          <p style={{ fontSize: 13, lineHeight: 1.8, color: "#888", maxWidth: 600 }}>
-            Every review was read individually — not scraped, not summarised by AI.
-            The onboarding teardown was done by signing up with a real phone number
-            and documenting every screen. The prioritisation framework is original.
-            All three analyses were built as interactive React applications, not
-            static documents, because product thinking deserves to be explored, not
-            just read.
+          <p style={{ fontSize: 14, lineHeight: 1.8, color: "#666", maxWidth: 620 }}>
+            Reviews were read individually across both stores. The onboarding
+            teardown was done by signing up with a real phone number and
+            documenting each screen. The prioritisation framework is original.
+            All three analyses are interactive React applications.
           </p>
         </section>
 
-        {/* ── FOOTER ── */}
+        {/* Footer */}
         <div
           style={{
             textAlign: "center",
-            padding: "22px 0 8px",
+            padding: "24px 0 12px",
             borderTop: "1px solid #E5E5E3",
             marginTop: 8,
           }}
         >
-          <div
+          <a
+            href="https://www.linkedin.com/in/ankurkulkarni/"
+            target="_blank"
+            rel="noopener noreferrer"
             style={{
               fontFamily: "'Plus Jakarta Sans', sans-serif",
-              fontSize: 14,
+              fontSize: 15,
               fontWeight: 600,
-              color: "#111",
+              color: "#5B21B6",
+              textDecoration: "none",
             }}
           >
             Ankur Kulkarni
-          </div>
+          </a>
           <div
             style={{
               fontFamily: "'JetBrains Mono', monospace",
-              fontSize: 10,
-              color: "#999",
-              marginTop: 4,
+              fontSize: 12,
+              color: "#666",
+              marginTop: 6,
             }}
           >
-            ankurkulkarni90@gmail.com · linkedin.com/in/ankurkulkarni
-          </div>
-          <div
-            style={{
-              fontFamily: "'JetBrains Mono', monospace",
-              fontSize: 9,
-              color: "#bbb",
-              marginTop: 8,
-              letterSpacing: "0.5px",
-            }}
-          >
-            Built with conviction, not permission
+            ankurkulkarni90@gmail.com
           </div>
         </div>
       </div>

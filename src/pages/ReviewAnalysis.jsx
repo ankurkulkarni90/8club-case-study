@@ -22,9 +22,9 @@ const reviewData = {
         { user: "Sandeep Kataria", rating: 1, store: "Play", date: "19 Dec 2025", text: "Keeps crashing." },
         { user: "Anil Reddy", rating: 1, store: "Play", date: "25 Dec 2025", text: "Lagging always." },
         { user: "SaviorofProducts", rating: 1, store: "iOS", date: "~1y ago", text: "App doesn't seem to open." },
-        { user: "Sathyamoorthy Iyer", rating: 4, store: "Play", date: "21 Dec 2025", text: "It's shutting down in one minute. Now the main page has 502 error.", note: "Rated 4★ overall but still reported a critical stability issue — even satisfied users hit crashes." },
+        { user: "Sathyamoorthy Iyer", rating: 4, store: "Play", date: "21 Dec 2025", text: "It's shutting down in one minute. Now the main page has 502 error.", note: "Rated 4★ overall but still reported a critical stability issue, suggesting crashes affected even satisfied users." },
       ],
-      insight: "Crash cluster concentrated in Nov–Dec 2025, suggesting a bad release. 8club's Feb 2026 batch reply confirms they fixed it. But the damage — 9 reviews across both stores, some with 7–10 'helpful' votes — left a lasting rating scar.",
+      insight: "Crash cluster concentrated in Nov-Dec 2025, pointing to a problematic release during that period. 8club's Feb 2026 responses confirm the issue was addressed. The most recent crash-related review is from Jan 2026, suggesting stability has improved since. However, the 9 reviews across both stores (some with 7-10 'helpful' votes) continue to weigh on the overall rating.",
       pmAction: "Implement crash monitoring (Sentry/Firebase Crashlytics) with release-gating: if crash rate exceeds threshold in first 24h, auto-rollback. Add a staged rollout (10% → 50% → 100%) to catch regressions before full deployment."
     },
     {
@@ -44,8 +44,8 @@ const reviewData = {
         { user: "John Flynn", rating: 3, store: "Play", date: "2 Mar 2025", text: "App looks great. But too much time to approve my profile. Still on the waiting list." },
         { user: "vaishnnnnavi", rating: 1, store: "iOS", date: "1 Mar", text: "I'm not getting any invite." },
       ],
-      insight: "The single most damaging pattern. 8club's curation-by-waitlist model creates a cold-start trap: users download → complete profile → wait weeks/months → churn with a 1★ review. The gender bias callout (\"female acceptance is very quick vs male\") is a perception problem that could become a PR problem. The canned waitlist responses (identical across 4+ reviews) feel robotic.",
-      pmAction: "Three-pronged fix: (1) Set a maximum waitlist SLA (e.g. 72h) with status updates at 24h, 48h, and 72h — silence is what kills trust. (2) Create a 'waitlist-lite' experience: let waitlisted users browse public hotspots, see social proof, and build anticipation rather than staring at a dead screen. (3) Replace the copy-paste dev response with personalized, specific messaging."
+      insight: "This was the highest-damage pattern historically. The curation-by-waitlist model creates a cold-start risk: users download, complete their profile, wait weeks or months, then churn with a 1-star review. The most recent waitlist-specific complaints date to early-mid 2025, suggesting clearance may have improved. The gender bias perception ('female acceptance is very quick vs male') remains a trust risk worth monitoring. Identical copy-paste responses across 4+ reviews also undercut the brand's curated positioning.",
+      pmAction: "Three areas to consider: (1) Set a maximum waitlist SLA (e.g. 72h) with status updates at 24h, 48h, and 72h, because silence is what erodes trust. (2) Create a 'waitlist-lite' experience where waitlisted users can browse public hotspots, see social proof, and build anticipation. (3) Personalise developer responses to reviews instead of using identical templates."
     },
     {
       id: "discovery",
@@ -63,8 +63,8 @@ const reviewData = {
         { user: "aaxthaa", rating: 4, store: "iOS", date: "9 Jun", text: "Could you maybe consider adding an 'Explore Hotspots' page? Maybe integrate it in the wall?" },
         { user: "Daksh S Jain", rating: 2, store: "Play", date: "21 Apr 2026", text: "Many apps already in market. Random people create events which don't even get accepted." },
       ],
-      insight: "Users are literally asking for the 'live map' that 8club's own marketing promises but hasn't shipped. The lack of city-based filtering for a product expanding beyond Bangalore is a fundamental gap. Showing events 2000km away destroys relevance. Blocked-user events still appearing signals basic moderation gaps.",
-      pmAction: "Ship location-based filtering and map view as P0. This is the most requested feature across both stores and aligns with 8club's own stated vision. City selector on onboarding, distance-based sort on feed, and a map tab are table stakes."
+      insight: "Users are asking for the 'live map' that 8club's own marketing references but hasn't shipped yet. While the app now asks for city during onboarding, the feed and wall tabs still surface content that feels disconnected from both location and selected interests. Most visible hotspots skew heavily toward parties, with limited variety for other interest categories. The home tab also tends to show past events. Blocked-user events still appearing points to a moderation gap.",
+      pmAction: "The city selector exists in onboarding, which is good. The next step is making sure the feed actually respects it, along with the interest categories users selected. Priority areas: (1) Interest-based relevance scoring for the feed and wall. (2) Date filtering so past events don't dominate. (3) Map view for nearby hotspots. (4) Blocked user events should be hidden from feed."
     },
     {
       id: "keyboard",
@@ -93,8 +93,8 @@ const reviewData = {
         { user: "Ayush Borse", rating: 4, store: "Play", date: "16 Mar 2026", text: "What do you mean payment meta is required for the action when I try to accept an invite?" },
         { user: "gdjeh009", rating: 1, store: "iOS", date: "22 Feb", text: "Pay for your lust. Destroy your life with this lust." },
       ],
-      insight: "The pricing complaint is strategic: if 8club charges more than BookMyShow for the same nightclub, the 'exclusivity' premium must be visibly justified through curation, crowd quality, and experience — not just a guestlist label. The payment error is a conversion-killer at the most critical funnel step.",
-      pmAction: "Audit pricing against BookMyShow/Insider for overlapping venues. Make the value delta visible: show crowd composition, past event photos, host credibility. Fix the payment metadata error immediately — it's blocking conversions."
+      insight: "The pricing complaint is strategic: if 8club charges more than BookMyShow for the same nightclub, the 'exclusivity' premium needs to be visibly justified through curation, crowd quality, and experience, not just a guestlist label. The payment error is a conversion-killer at the most critical funnel step.",
+      pmAction: "Audit pricing against BookMyShow/Insider for overlapping venues. Make the value delta visible: show crowd composition, past event photos, host credibility. Fix the payment metadata error immediately, as it is blocking conversions."
     },
     {
       id: "exclusivity",
@@ -124,7 +124,7 @@ const reviewData = {
         { user: "Shivanshu Gupta", rating: 1, store: "Play", date: "22 Jan 2026", text: "Account delete option is not working." },
         { user: "Meghansh Talreja", rating: 1, store: "Play", date: "19 Jul 2025", text: "It's a fake application." },
       ],
-      insight: "Unresponsive support erodes trust fast, especially for an 'exclusive' brand. The account deletion failure is also a GDPR/privacy compliance risk. 8club's batch reply on 25 Feb 2026 (responding to months-old reviews simultaneously) screams 'we forgot about review management until someone remembered.'",
+      insight: "Unresponsive support erodes trust quickly, especially for a brand positioned around exclusivity. The account deletion failure is also a privacy compliance risk. The batch of 15+ review responses posted on 25 Feb 2026, many to months-old reviews, suggests review management may not yet be a regular practice.",
       pmAction: "Set up review monitoring with 48h response SLA. Automate account deletion flow per app store requirements. Consider in-app support chat to reduce friction."
     },
     {
@@ -140,8 +140,8 @@ const reviewData = {
         { user: "Adam9918", rating: 5, store: "iOS", date: "~1y ago", text: "Amazing UI but need profile editing option as I want to change photos that are uploaded." },
         { user: "taanishkaa", rating: 1, store: "iOS", date: "11 Jul", text: "WAY TOO MANY frequent updates!!!!!!!! It's very very irritating." },
       ],
-      insight: "The photo management complaints are consistent: users can't edit/delete photos after upload for both profiles and events. This is a basic CRUD gap. The 'too many updates' complaint reflects the aggressive 1–2 week release cycle — good for iteration, bad for user patience. The UI polarizes: some love it, some find it form-over-function.",
-      pmAction: "Ship photo edit/delete for profiles and events. Consider silent updates or batched releases to reduce update fatigue. Run a UX audit focused on information architecture — pretty UI that's hard to navigate is worse than plain UI that works."
+      insight: "The photo management complaints are consistent: users can't edit or delete photos after upload for both profiles and events. This is a basic CRUD gap. The 'too many updates' complaint reflects the aggressive 1–2 week release cycle, which is good for iteration but can frustrate users. The UI polarises: some love it, others find it prioritises form over function.",
+      pmAction: "Ship photo edit/delete for profiles and events. Consider silent updates or batched releases to reduce update fatigue. Run a UX audit focused on information architecture, because a visually striking UI that's hard to navigate creates more friction than a plain UI that works."
     },
     {
       id: "geo",
@@ -155,8 +155,8 @@ const reviewData = {
         { user: "Mohito Cloud", rating: 1, store: "Play", date: "4 Sep 2025", text: "Hey, is this available in Pune also?" },
         { user: "IshaanGoyal", rating: 2, store: "iOS", date: "23 Nov", text: "No option to filter by location. Party happening 2000km away." },
       ],
-      insight: "8club claims to be 'serviceable across India' but user experience tells a different story. Non-Bangalore users see irrelevant content. The SOP-licensing expansion model may be creating supply in new cities but the app doesn't surface it effectively.",
-      pmAction: "City-first onboarding: ask users their city upfront and filter the entire feed. Only show the 'all-India' view as an opt-in exploration mode. For cities with no active hotspots, show a 'coming soon' state with a referral incentive rather than an empty feed."
+      insight: "8club now asks for city during onboarding, which is progress. However, the feed experience for non-Bangalore users still surfaces irrelevant content. The SOP-licensing expansion model may be creating supply in new cities, but the app does not yet surface city-specific content effectively.",
+      pmAction: "The city selector in onboarding is a good foundation. Next step: ensure the feed, wall, and home tabs all respect the selected city. For cities with limited active hotspots, show a 'coming soon' state with a referral incentive rather than a sparsely populated feed."
     },
   ],
   positives: [
@@ -173,7 +173,7 @@ const reviewData = {
         { user: "ahmer.19", rating: 5, store: "iOS", date: "8 Aug", text: "I don't have to worry about planning my weekends anymore because of 8club." },
         { user: "Lobzu", rating: 5, store: "iOS", date: "10 Aug", text: "Nice to see Bangalore make a change for the better with exclusive IPs and events." },
       ],
-      insight: "When 8club works, users love it. The emotional payoff — 'I don't have to worry about planning my weekends' — is exactly the magic moment. Bastian parties, fake shaadi, cafe raves are named as highlights. 'No local crowd, no fights' is the exclusivity value proposition landing."
+      insight: "When 8club works, users love it. The emotional payoff. 'I don't have to worry about planning my weekends'. is exactly the magic moment. Bastian parties, fake shaadi, cafe raves are named as highlights. 'No local crowd, no fights' is the exclusivity value proposition landing."
     },
     {
       id: "concept",
@@ -184,7 +184,7 @@ const reviewData = {
         { user: "URMILA YADAV", rating: 5, store: "Play", date: "14 Oct 2025", text: "New concept, nice app." },
         { user: "Priyanshu Mallick", rating: 5, store: "Play", date: "13 Mar 2025", text: "Great app to get and send invitations." },
       ],
-      insight: "Even critics acknowledge the idea is strong. Multiple 1★ reviews start with 'great concept but...' — the vision resonates, the execution gap is what's hurting."
+      insight: "Even critics acknowledge the idea is strong. Multiple 1★ reviews start with 'great concept but...'. the vision resonates, the execution gap is what's hurting."
     },
   ],
 };
@@ -231,7 +231,7 @@ export default function ReviewAnalysis() {
       </div>
 
       {/* Rating Cards */}
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 24 }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 12, marginBottom: 24 }}>
         {[
           { ...reviewData.summary.playStore, icon: "▶", color: "#059669", accent: "#ECFDF5" },
           { ...reviewData.summary.appStore, icon: "🍎", color: "#2563EB", accent: "#EFF6FF" },
@@ -245,13 +245,13 @@ export default function ReviewAnalysis() {
               <span style={{ fontSize: 34, fontWeight: 700, color: s.color, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{s.rating}</span>
               <span style={{ fontSize: 14, color: "#aaa" }}>/ 5</span>
             </div>
-            <div style={{ fontSize: 12, color: "#888", marginTop: 2 }}>{s.totalReviews} reviews</div>
+            <div style={{ fontSize: 13, color: "#666", marginTop: 2 }}>{s.totalReviews} reviews</div>
           </div>
         ))}
       </div>
 
       {/* Quick Stats */}
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10, marginBottom: 28 }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(100px, 1fr))", gap: 10, marginBottom: 28 }}>
         {[
           { label: "Pain Points", value: totalNegReviews, color: "#DC2626" },
           { label: "Categories", value: reviewData.categories.length, color: "#D97706" },
@@ -262,7 +262,7 @@ export default function ReviewAnalysis() {
             padding: "14px 10px", textAlign: "center", boxShadow: "0 1px 3px rgba(0,0,0,0.04)"
           }}>
             <div style={{ fontSize: 26, fontWeight: 700, color: s.color, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{s.value}</div>
-            <div style={{ fontSize: 9, color: "#999", textTransform: "uppercase", letterSpacing: "0.8px", fontFamily: "'JetBrains Mono', monospace", marginTop: 2 }}>{s.label}</div>
+            <div style={{ fontSize: 10, color: "#888", textTransform: "uppercase", letterSpacing: "0.8px", fontFamily: "'JetBrains Mono', monospace", marginTop: 2 }}>{s.label}</div>
           </div>
         ))}
       </div>
@@ -294,7 +294,10 @@ export default function ReviewAnalysis() {
             background: "#fff", border: "1px solid #E5E5E3", borderRadius: 14,
             boxShadow: "0 1px 3px rgba(0,0,0,0.04)"
           }}>
-            <div style={{ fontSize: 10, color: "#999", textTransform: "uppercase", letterSpacing: "1.2px", fontFamily: "'JetBrains Mono', monospace", marginBottom: 14 }}>Priority by severity × volume</div>
+            <div style={{ fontSize: 11, color: "#888", textTransform: "uppercase", letterSpacing: "1.2px", fontFamily: "'JetBrains Mono', monospace", marginBottom: 6 }}>Priority by severity × volume</div>
+            <div style={{ fontSize: 13, color: "#666", marginBottom: 14, lineHeight: 1.6 }}>
+              Severity is based on user impact: <strong style={{ color: "#991B1B" }}>critical</strong> = blocks core functionality or causes churn, <strong style={{ color: "#9A3412" }}>high</strong> = significantly degrades the experience, <strong style={{ color: "#854D0E" }}>medium</strong> = friction or perception issue that compounds over time.
+            </div>
             {sorted.map((cat) => {
               const sc = severityColor[cat.severity];
               const maxCount = 9;
@@ -343,13 +346,13 @@ export default function ReviewAnalysis() {
                     {/* Insight */}
                     <div style={{ background: "#F5F3FF", border: "1px solid #E0DBFF", borderRadius: 10, padding: 14, marginBottom: 12 }}>
                       <div style={{ fontSize: 10, color: "#6D28D9", textTransform: "uppercase", letterSpacing: "1.2px", fontFamily: "'JetBrains Mono', monospace", marginBottom: 6 }}>Insight</div>
-                      <div style={{ fontSize: 13, color: "#3B1F8E", lineHeight: 1.7 }}>{cat.insight}</div>
+                      <div style={{ fontSize: 14, color: "#3B1F8E", lineHeight: 1.7 }}>{cat.insight}</div>
                     </div>
 
                     {/* PM Action */}
                     <div style={{ background: "#F0FDF4", border: "1px solid #BBF7D0", borderRadius: 10, padding: 14, marginBottom: 14 }}>
                       <div style={{ fontSize: 10, color: "#15803D", textTransform: "uppercase", letterSpacing: "1.2px", fontFamily: "'JetBrains Mono', monospace", marginBottom: 6 }}>PM Action</div>
-                      <div style={{ fontSize: 13, color: "#14532D", lineHeight: 1.7 }}>{cat.pmAction}</div>
+                      <div style={{ fontSize: 14, color: "#14532D", lineHeight: 1.7 }}>{cat.pmAction}</div>
                     </div>
 
                     {/* Reviews */}
@@ -404,7 +407,7 @@ export default function ReviewAnalysis() {
 
               <div style={{ background: "#F0FDF4", border: "1px solid #BBF7D0", borderRadius: 10, padding: 14, marginBottom: 14 }}>
                 <div style={{ fontSize: 10, color: "#15803D", textTransform: "uppercase", letterSpacing: "1.2px", fontFamily: "'JetBrains Mono', monospace", marginBottom: 6 }}>Why It Matters</div>
-                <div style={{ fontSize: 13, color: "#14532D", lineHeight: 1.7 }}>{cat.insight}</div>
+                <div style={{ fontSize: 14, color: "#14532D", lineHeight: 1.7 }}>{cat.insight}</div>
               </div>
 
               {cat.reviews.map((r, i) => (
@@ -443,15 +446,15 @@ export default function ReviewAnalysis() {
           }}>
             <div style={{ fontSize: 16, fontWeight: 700, color: "#111", marginBottom: 14, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>🤖 Developer Response Patterns</div>
             <div style={{ fontSize: 13, color: "#444", lineHeight: 1.8, marginBottom: 14 }}>
-              On <strong style={{ color: "#B45309" }}>25 February 2026</strong>, 8club replied to <strong style={{ color: "#B45309" }}>15+ Google Play reviews</strong> in a single batch — some dating back months. This tells us review management wasn't a regular practice until recently.
+              On <strong style={{ color: "#B45309" }}>25 February 2026</strong>, 8club replied to <strong style={{ color: "#B45309" }}>15+ Google Play reviews</strong> in a single batch, some dating back months. This suggests review management is still becoming a regular practice.
             </div>
             <div style={{ fontSize: 13, color: "#444", lineHeight: 1.8, marginBottom: 14 }}>
               Across iOS, the developer responses on <strong style={{ color: "#B45309" }}>8 August</strong> used an identical copy-paste waitlist response across 4+ different users. Canned replies to nuanced complaints erode the "exclusive community" brand.
             </div>
             <div style={{ background: "#F5F3FF", border: "1px solid #E0DBFF", borderRadius: 10, padding: 14 }}>
               <div style={{ fontSize: 10, color: "#6D28D9", textTransform: "uppercase", letterSpacing: "1.2px", fontFamily: "'JetBrains Mono', monospace", marginBottom: 6 }}>Takeaway</div>
-              <div style={{ fontSize: 13, color: "#3B1F8E", lineHeight: 1.7 }}>
-                A brand that promises "your city's secret inner circle" can't reply like a customer support bot. Every review response is a public brand touchpoint. Personalize them or don't reply at all — a canned response is worse than silence for a luxury positioning.
+              <div style={{ fontSize: 14, color: "#3B1F8E", lineHeight: 1.7 }}>
+                A brand that promises "your city's secret inner circle" benefits from review responses that feel equally personal. Every review is a public brand touchpoint. Personalised responses build trust; canned responses can undermine the luxury positioning.
               </div>
             </div>
           </div>
@@ -473,7 +476,7 @@ export default function ReviewAnalysis() {
               </div>
             </div>
             <div style={{ fontSize: 13, color: "#444", lineHeight: 1.8 }}>
-              The <strong style={{ color: "#DC2626" }}>0.3-star gap</strong> maps directly to the crash/keyboard cluster that was Android-specific (Flutter rendering issues). iOS users' top complaints are waitlist and discovery — product-level issues. Android users hit infrastructure-level failures first, which colored everything downstream.
+              The <strong style={{ color: "#DC2626" }}>0.3-star gap</strong> maps directly to the crash/keyboard cluster that was Android-specific (Flutter rendering issues). iOS users' top complaints are waitlist and discovery, which are product-level issues. Android users hit infrastructure-level failures first, which coloured everything downstream.
             </div>
           </div>
 
@@ -487,17 +490,17 @@ export default function ReviewAnalysis() {
             {[
               {
                 title: "1. Curation vs Accessibility",
-                body: "The waitlist exists to maintain quality, but it generates the highest volume of negative reviews. Users who can't get in feel discriminated against; users who do get in sometimes find it's not exclusive enough. The equilibrium is fragile — too strict and you starve growth, too loose and you lose the brand.",
+                body: "The waitlist exists to maintain quality, but it generates the highest volume of negative reviews. Users who can't get in feel discriminated against; users who do get in sometimes find it's not exclusive enough. The equilibrium is fragile: too strict and you starve growth, too loose and you lose the brand.",
                 color: "#7C3AED"
               },
               {
                 title: "2. Bangalore-first vs India-wide",
-                body: "Marketing says 'serviceable across India' but the app doesn't filter by city. Non-Bangalore users see irrelevant content and churn. The SOP-licensing expansion model creates supply in new cities, but the product doesn't surface it. This is a product problem masquerading as a growth problem.",
+                body: "The app now asks for city during onboarding, which is a step forward. But the feed and wall still surface content that feels disconnected from the user's location and interests. The SOP-licensing expansion model creates supply in new cities, but the product needs to surface that supply more effectively.",
                 color: "#2563EB"
               },
               {
                 title: "3. Vision vs Execution",
-                body: "The most telling signal: even 1★ reviewers acknowledge the concept is strong. 'Good idea, horrendous execution' appears in nearly identical phrasing across multiple reviews. The product vision (live map, curated offline experiences) is resonant — but basic table stakes (stability, filtering, photo management, support) aren't met. The first PM's job is closing that gap.",
+                body: "The most telling signal: even 1-star reviewers acknowledge the concept is strong. 'Good idea, horrendous execution' appears in nearly identical phrasing across multiple reviews. The product vision (live map, curated offline experiences) resonates clearly, but basic table stakes like stability, filtering, photo management, and support need to catch up.",
                 color: "#D97706"
               }
             ].map((t, i) => (
@@ -513,19 +516,19 @@ export default function ReviewAnalysis() {
             background: "#fff", border: "1px solid #E5E5E3", borderRadius: 14,
             padding: 18, marginBottom: 14, boxShadow: "0 1px 3px rgba(0,0,0,0.04)"
           }}>
-            <div style={{ fontSize: 16, fontWeight: 700, color: "#111", marginBottom: 14, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>🎯 If You Were Day-1 PM: Priority Stack</div>
+            <div style={{ fontSize: 16, fontWeight: 700, color: "#111", marginBottom: 14, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>🎯 Suggested Priority Stack</div>
             {[
-              { p: "P0", label: "Crash monitoring + staged rollouts", why: "Can't build trust on an unstable foundation. Gate every release.", color: "#DC2626" },
-              { p: "P0", label: "City-based filtering + location onboarding", why: "Most requested feature. Directly unlocks non-Bangalore retention.", color: "#DC2626" },
-              { p: "P1", label: "Waitlist transparency + SLA + lite experience", why: "Converts the #1 churn moment into an engagement loop.", color: "#D97706" },
-              { p: "P1", label: "Photo edit/delete for profiles and events", why: "Low-effort, high-trust UX fix. Unblocks hosts and attendees.", color: "#D97706" },
-              { p: "P2", label: "Review management cadence + personalized responses", why: "Every public review is a brand billboard. Treat it like one.", color: "#2563EB" },
+              { p: "P0", label: "Crash monitoring + staged rollouts", why: "Stability is the foundation. Gate every release with crash-rate thresholds.", color: "#DC2626" },
+              { p: "P0", label: "Interest-based feed relevance + map view", why: "Most requested feature. Feed currently does not strongly reflect selected interests or location.", color: "#DC2626" },
+              { p: "P1", label: "Waitlist transparency + SLA + lite experience", why: "Converts the biggest churn moment into an engagement loop.", color: "#D97706" },
+              { p: "P1", label: "Photo edit/delete for profiles and events", why: "Low-effort, high-trust UX improvement. Unblocks hosts and attendees.", color: "#D97706" },
+              { p: "P2", label: "Review management cadence + personalised responses", why: "Every public review is a brand touchpoint worth investing in.", color: "#2563EB" },
             ].map((item, i) => (
               <div key={i} style={{ display: "flex", gap: 14, alignItems: "flex-start", padding: "14px 0", borderBottom: i < 4 ? "1px solid #F0EFED" : "none" }}>
                 <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 12, fontWeight: 700, color: item.color, minWidth: 26, paddingTop: 2 }}>{item.p}</span>
                 <div>
                   <div style={{ fontSize: 13, fontWeight: 600, color: "#111", marginBottom: 3, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{item.label}</div>
-                  <div style={{ fontSize: 12, color: "#888" }}>{item.why}</div>
+                  <div style={{ fontSize: 13, color: "#666" }}>{item.why}</div>
                 </div>
               </div>
             ))}
@@ -535,7 +538,7 @@ export default function ReviewAnalysis() {
 
       {/* Footer */}
       <div style={{ textAlign: "center", padding: "22px 0 8px", borderTop: "1px solid #E5E5E3", marginTop: 24 }}>
-        <div style={{ fontSize: 10, color: "#bbb", fontFamily: "'JetBrains Mono', monospace" }}>
+        <div style={{ fontSize: 12, color: "#999", fontFamily: "'JetBrains Mono', monospace" }}>
           Sources: {reviewData.categories.reduce((s, c) => s + c.reviews.length, 0) + reviewData.positives.reduce((s, c) => s + c.reviews.length, 0)} individual reviews analyzed · Google Play Store + Apple App Store
         </div>
       </div>
