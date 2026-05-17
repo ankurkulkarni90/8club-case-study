@@ -396,7 +396,7 @@ function EmotionBar({ score }) {
           />
         ))}
       </div>
-      <span style={{ fontSize: 13, color: colors[score - 1], fontWeight: 600, minWidth: 80, textAlign: "right", fontFamily: "'JetBrains Mono', monospace" }}>
+      <span style={{ fontSize: 14, color: colors[score - 1], fontWeight: 600, minWidth: 80, textAlign: "right", fontFamily: "'JetBrains Mono', monospace" }}>
         {labels[score - 1]} ~{score}/10
       </span>
     </div>
@@ -440,7 +440,7 @@ function StageCard({ stage, isExpanded, onToggle, index }) {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            fontSize: 13,
+            fontSize: 14,
             fontWeight: 700,
             flexShrink: 0,
             marginTop: 2,
@@ -453,7 +453,7 @@ function StageCard({ stage, isExpanded, onToggle, index }) {
           <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 2 }}>
             <span
               style={{
-                fontSize: 12,
+                fontSize: 14,
                 fontWeight: 600,
                 color: phase.text,
                 textTransform: "uppercase",
@@ -466,7 +466,7 @@ function StageCard({ stage, isExpanded, onToggle, index }) {
             >
               {stage.step}
             </span>
-            <span style={{ fontSize: 13, color: "#666", fontFamily: "'JetBrains Mono', monospace" }}>
+            <span style={{ fontSize: 14, color: "#666", fontFamily: "'JetBrains Mono', monospace" }}>
               {stage.timestamp} · {stage.duration}
             </span>
           </div>
@@ -489,17 +489,17 @@ function StageCard({ stage, isExpanded, onToggle, index }) {
 
       {isExpanded && (
         <div style={{ padding: "0 18px 18px 64px" }}>
-          <p style={{ color: "#555", fontSize: 13, lineHeight: 1.7, margin: "0 0 14px 0" }}>
+          <p style={{ color: "#555", fontSize: 14, lineHeight: 1.7, margin: "0 0 14px 0" }}>
             {stage.description}
           </p>
 
           {stage.dataCollected.length > 0 && (
             <div style={{ marginBottom: 14 }}>
-              <div style={{ fontSize: 12, fontWeight: 600, color: "#2563EB", textTransform: "uppercase", letterSpacing: "1px", marginBottom: 6, fontFamily: "'JetBrains Mono', monospace" }}>
+              <div style={{ fontSize: 14, fontWeight: 600, color: "#2563EB", textTransform: "uppercase", letterSpacing: "1px", marginBottom: 6, fontFamily: "'JetBrains Mono', monospace" }}>
                 Data Collected
               </div>
               {stage.dataCollected.map((d, i) => (
-                <div key={i} style={{ fontSize: 13, color: "#1E40AF", padding: "3px 0", display: "flex", alignItems: "flex-start", gap: 6, background: "#EFF6FF", borderRadius: 6, paddingLeft: 10, marginBottom: 4, paddingTop: 6, paddingBottom: 6 }}>
+                <div key={i} style={{ fontSize: 14, color: "#1E40AF", padding: "3px 0", display: "flex", alignItems: "flex-start", gap: 6, background: "#EFF6FF", borderRadius: 6, paddingLeft: 10, marginBottom: 4, paddingTop: 6, paddingBottom: 6 }}>
                   <span style={{ color: "#2563EB", flexShrink: 0 }}>◆</span>
                   <span>{d}</span>
                 </div>
@@ -509,21 +509,21 @@ function StageCard({ stage, isExpanded, onToggle, index }) {
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 12 }}>
             <div style={{ background: "#F0FDF4", borderRadius: 10, padding: 14, border: "1px solid #BBF7D0" }}>
-              <div style={{ fontSize: 12, fontWeight: 600, color: "#166534", textTransform: "uppercase", letterSpacing: "1px", marginBottom: 8, fontFamily: "'JetBrains Mono', monospace" }}>
+              <div style={{ fontSize: 14, fontWeight: 600, color: "#166534", textTransform: "uppercase", letterSpacing: "1px", marginBottom: 8, fontFamily: "'JetBrains Mono', monospace" }}>
                 ✓ What's Working
               </div>
               {stage.uxPositives.map((p, i) => (
-                <div key={i} style={{ fontSize: 12, color: "#166534", padding: "4px 0", lineHeight: 1.55 }}>
+                <div key={i} style={{ fontSize: 14, color: "#166534", padding: "4px 0", lineHeight: 1.55 }}>
                   {p}
                 </div>
               ))}
             </div>
             <div style={{ background: "#FFFBEB", borderRadius: 10, padding: 14, border: "1px solid #FDE68A" }}>
-              <div style={{ fontSize: 12, fontWeight: 600, color: "#92400E", textTransform: "uppercase", letterSpacing: "1px", marginBottom: 8, fontFamily: "'JetBrains Mono', monospace" }}>
+              <div style={{ fontSize: 14, fontWeight: 600, color: "#92400E", textTransform: "uppercase", letterSpacing: "1px", marginBottom: 8, fontFamily: "'JetBrains Mono', monospace" }}>
                 ⚡ Friction / Questions
               </div>
               {stage.uxFriction.map((f, i) => (
-                <div key={i} style={{ fontSize: 12, color: "#92400E", padding: "4px 0", lineHeight: 1.55 }}>
+                <div key={i} style={{ fontSize: 14, color: "#92400E", padding: "4px 0", lineHeight: 1.55 }}>
                   {f}
                 </div>
               ))}
@@ -536,7 +536,7 @@ function StageCard({ stage, isExpanded, onToggle, index }) {
               padding: "10px 14px",
               background: "#F5F3FF",
               borderRadius: 8,
-              fontSize: 12,
+              fontSize: 14,
               color: "#5B21B6",
               fontStyle: "italic",
               border: "1px solid #E0DBFF",
@@ -581,27 +581,27 @@ export default function JourneyMap() {
         {/* Header */}
         <div style={{ marginBottom: 28 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 6 }}>
-            <img src={`${import.meta.env.BASE_URL}favicon.svg`} alt="8club" style={{ width: 36, height: 36, borderRadius: 8, objectFit: "contain" }} />
+            <img src="https://framerusercontent.com/images/9EnPwoHguYNzJT30BQDRklwgAoQ.png" alt="8club" style={{ width: 36, height: 36, borderRadius: 8, objectFit: "contain" }} />
             <div>
               <h1 style={{ fontSize: 22, fontWeight: 700, color: "#111", margin: 0, letterSpacing: "-0.5px", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                 New User Onboarding Journey Map
               </h1>
-              <p style={{ fontSize: 13, margin: "2px 0 0", color: "#666", fontFamily: "'JetBrains Mono', monospace" }}>
+              <p style={{ fontSize: 14, margin: "2px 0 0", color: "#666", fontFamily: "'JetBrains Mono', monospace" }}>
                 Complete screen-by-screen mapping · Download → Waitlist
               </p>
             </div>
           </div>
-          <p style={{ fontSize: 13, color: "#666", margin: "10px 0 0", lineHeight: 1.5 }}>
+          <p style={{ fontSize: 14, color: "#666", margin: "10px 0 0", lineHeight: 1.5 }}>
             ~42 screenshots · 15 distinct stages · ~10 minutes total · 6 candidate patterns identified.
           </p>
         </div>
 
         {/* Emotion Journey Overview */}
         <div style={{ background: "#fff", borderRadius: 14, padding: 18, marginBottom: 20, border: "1px solid #E5E5E3", boxShadow: "0 1px 3px rgba(0,0,0,0.04)" }}>
-          <div style={{ fontSize: 13, fontWeight: 600, color: "#666", textTransform: "uppercase", letterSpacing: "1.2px", marginBottom: 4, fontFamily: "'JetBrains Mono', monospace" }}>
+          <div style={{ fontSize: 14, fontWeight: 600, color: "#666", textTransform: "uppercase", letterSpacing: "1.2px", marginBottom: 4, fontFamily: "'JetBrains Mono', monospace" }}>
             Estimated Emotional Arc
           </div>
-          <div style={{ fontSize: 12, color: "#666", marginBottom: 6, fontStyle: "italic", lineHeight: 1.5 }}>
+          <div style={{ fontSize: 14, color: "#666", marginBottom: 6, fontStyle: "italic", lineHeight: 1.5 }}>
             Each row is one step in the onboarding flow, in order. Scores are subjective estimates based on UX patterns and copy analysis.
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
@@ -611,13 +611,13 @@ export default function JourneyMap() {
               return (
                 <div key={i} style={{ display: "flex", alignItems: "center", gap: 0 }}>
                   <div style={{
-                    fontSize: 11, color: "#999", minWidth: 22, textAlign: "right", marginRight: 6,
+                    fontSize: 14, color: "#999", minWidth: 22, textAlign: "right", marginRight: 6,
                     fontFamily: "'JetBrains Mono', monospace", fontWeight: 500,
                   }}>
                     {i + 1}.
                   </div>
                   <div style={{
-                    fontSize: 12, color: "#444", minWidth: 220, width: 220, textAlign: "right", paddingRight: 12,
+                    fontSize: 14, color: "#444", minWidth: 220, width: 220, textAlign: "right", paddingRight: 12,
                     fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 500,
                     lineHeight: 1.3,
                   }}>
@@ -633,7 +633,7 @@ export default function JourneyMap() {
                     }} />
                   </div>
                   <div style={{
-                    fontSize: 12, fontWeight: 600, color: barColor, minWidth: 36, textAlign: "right",
+                    fontSize: 14, fontWeight: 600, color: barColor, minWidth: 36, textAlign: "right",
                     fontFamily: "'JetBrains Mono', monospace",
                   }}>
                     {s}/10
@@ -664,7 +664,7 @@ export default function JourneyMap() {
               }}
             >
               <div style={{ fontSize: 24, fontWeight: 700, color: stat.color, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{stat.value}</div>
-              <div style={{ fontSize: 12, color: "#666", marginTop: 2, textTransform: "uppercase", letterSpacing: "0.8px", fontFamily: "'JetBrains Mono', monospace" }}>{stat.label}</div>
+              <div style={{ fontSize: 14, color: "#666", marginTop: 2, textTransform: "uppercase", letterSpacing: "0.8px", fontFamily: "'JetBrains Mono', monospace" }}>{stat.label}</div>
             </div>
           ))}
         </div>
@@ -679,7 +679,7 @@ export default function JourneyMap() {
               borderRadius: 8,
               color: "#7C3AED",
               padding: "6px 14px",
-              fontSize: 12,
+              fontSize: 14,
               cursor: "pointer",
               fontWeight: 600,
               fontFamily: "'Plus Jakarta Sans', sans-serif",
@@ -702,10 +702,10 @@ export default function JourneyMap() {
 
         {/* Coverage Note */}
         <div style={{ background: "#fff", borderRadius: 12, padding: 16, marginTop: 20, borderLeft: "3px solid #6B7280", border: "1px solid #E5E5E3", borderLeftWidth: 3, borderLeftColor: "#6B7280" }}>
-          <div style={{ fontSize: 12, fontWeight: 600, color: "#6B7280", marginBottom: 6, textTransform: "uppercase", letterSpacing: "1px", fontFamily: "'JetBrains Mono', monospace" }}>
+          <div style={{ fontSize: 14, fontWeight: 600, color: "#6B7280", marginBottom: 6, textTransform: "uppercase", letterSpacing: "1px", fontFamily: "'JetBrains Mono', monospace" }}>
             Coverage Note
           </div>
-          <div style={{ fontSize: 13, color: "#555", lineHeight: 1.7 }}>
+          <div style={{ fontSize: 14, color: "#555", lineHeight: 1.7 }}>
             The bottom navigation has 6 tabs: Home, Wall, Waitlist, Hotspots, Notifs, Profile. This journey map covers Wall, Waitlist, Notifs, and Profile. The <strong style={{ color: "#111" }}>Home tab</strong> and <strong style={{ color: "#111" }}>Hotspots tab</strong> were empty or gated for a waitlisted user. Their absence from this map is itself a data point: the tabs that should build anticipation during the wait currently offer nothing to a user who hasn't been cleared.
           </div>
         </div>
@@ -715,10 +715,10 @@ export default function JourneyMap() {
           <div style={{ fontSize: 14, fontWeight: 700, color: "#92400E", marginBottom: 4, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
             Candidate Observation Universe for Prioritisation (Step 2)
           </div>
-          <div style={{ fontSize: 13, color: "#666", marginBottom: 12, fontStyle: "italic" }}>
+          <div style={{ fontSize: 14, color: "#666", marginBottom: 12, fontStyle: "italic" }}>
             Six patterns surfaced from the journey. Step 2 will apply a prioritisation lens to determine which 2-3 merit a deep-dive.
           </div>
-          <div style={{ fontSize: 13, color: "#444", lineHeight: 1.75 }}>
+          <div style={{ fontSize: 14, color: "#444", lineHeight: 1.75 }}>
             <p style={{ margin: "0 0 10px 0" }}>
               <strong style={{ color: "#111" }}>1. The Emotional Cliff:</strong> User sentiment peaks at the Hotspot Selection stage (estimated 9/10. genuinely delightful UI) and crashes at the Waitlist screen (estimated 2/10). The delta between the "How Does It Work" explainer's promise and the waitlist reality is the single biggest emotional drop in the entire flow.
             </p>
@@ -741,7 +741,7 @@ export default function JourneyMap() {
         </div>
 
         <div style={{ textAlign: "center", padding: "22px 0 8px 0", borderTop: "1px solid #E5E5E3", marginTop: 24 }}>
-          <div style={{ fontSize: 12, color: "#666", fontFamily: "'JetBrains Mono', monospace" }}>
+          <div style={{ fontSize: 14, color: "#666", fontFamily: "'JetBrains Mono', monospace" }}>
             Product analysis by Ankur Kulkarni
           </div>
         </div>

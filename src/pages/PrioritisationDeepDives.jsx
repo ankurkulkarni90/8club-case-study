@@ -79,7 +79,7 @@ const feasibilityColor = {
 function SeverityBadge({ level }) {
   const c = severityColor[level] || { bg: "#F9FAFB", text: "#374151", border: "#E5E7EB" };
   return (
-    <span style={{ fontSize: 12, fontWeight: 600, color: c.text, background: c.bg, padding: "3px 8px", borderRadius: 4, border: `1px solid ${c.border}`, fontFamily: "'JetBrains Mono', monospace" }}>
+    <span style={{ fontSize: 14, fontWeight: 600, color: c.text, background: c.bg, padding: "3px 8px", borderRadius: 4, border: `1px solid ${c.border}`, fontFamily: "'JetBrains Mono', monospace" }}>
       {level}
     </span>
   );
@@ -88,7 +88,7 @@ function SeverityBadge({ level }) {
 function FeasibilityBadge({ level }) {
   const c = feasibilityColor[level] || { bg: "#F9FAFB", text: "#374151", border: "#E5E7EB" };
   return (
-    <span style={{ fontSize: 12, fontWeight: 600, color: c.text, background: c.bg, padding: "3px 8px", borderRadius: 4, border: `1px solid ${c.border}`, fontFamily: "'JetBrains Mono', monospace" }}>
+    <span style={{ fontSize: 14, fontWeight: 600, color: c.text, background: c.bg, padding: "3px 8px", borderRadius: 4, border: `1px solid ${c.border}`, fontFamily: "'JetBrains Mono', monospace" }}>
       Fix: {level}
     </span>
   );
@@ -108,10 +108,10 @@ function FunnelDiagram() {
       {stages.map((s, i) => (
         <div key={i} style={{ marginBottom: 10 }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 4 }}>
-            <span style={{ fontSize: 13, color: s.highlight ? s.color : "#444", fontWeight: s.highlight ? 700 : 500, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+            <span style={{ fontSize: 14, color: s.highlight ? s.color : "#444", fontWeight: s.highlight ? 700 : 500, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
               {s.label}
             </span>
-            <span style={{ fontSize: 12, color: "#666", fontFamily: "'JetBrains Mono', monospace" }}>
+            <span style={{ fontSize: 14, color: "#666", fontFamily: "'JetBrains Mono', monospace" }}>
               {s.users}
             </span>
           </div>
@@ -125,7 +125,7 @@ function FunnelDiagram() {
             }} />
           </div>
           {s.highlight && (
-            <div style={{ fontSize: 12, color: "#DC2626", fontWeight: 700, marginTop: 4, fontFamily: "'JetBrains Mono', monospace" }}>
+            <div style={{ fontSize: 14, color: "#DC2626", fontWeight: 700, marginTop: 4, fontFamily: "'JetBrains Mono', monospace" }}>
               ↑ THE BOTTLENECK
             </div>
           )}
@@ -138,19 +138,19 @@ function FunnelDiagram() {
 function DeepDive1() {
   return (
     <div style={{ background: "#fff", borderRadius: 14, padding: 24, marginBottom: 20, borderLeft: "3px solid #DC2626", border: "1px solid #E5E5E3", borderLeftWidth: 3, borderLeftColor: "#DC2626", boxShadow: "0 1px 3px rgba(0,0,0,0.04)" }}>
-      <div style={{ fontSize: 12, fontWeight: 600, color: "#DC2626", textTransform: "uppercase", letterSpacing: "1.2px", marginBottom: 4, fontFamily: "'JetBrains Mono', monospace" }}>
+      <div style={{ fontSize: 14, fontWeight: 600, color: "#DC2626", textTransform: "uppercase", letterSpacing: "1.2px", marginBottom: 4, fontFamily: "'JetBrains Mono', monospace" }}>
         Deep-Dive #1. Primary Observation
       </div>
       <h3 style={{ fontSize: 20, color: "#111", margin: "0 0 6px 0", fontWeight: 700, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
         The Waitlist-to-Activation Gap
       </h3>
-      <p style={{ fontSize: 12, color: "#666", margin: "0 0 16px 0", fontStyle: "italic" }}>
+      <p style={{ fontSize: 14, color: "#666", margin: "0 0 16px 0", fontStyle: "italic" }}>
         Synthesises observations #1 (Emotional Cliff), #2 (Opacity), #3 (16% Deflation), and #4 (Empty States) as facets of one core problem.
       </p>
 
       <div style={{ marginBottom: 20 }}>
         <div style={{ fontSize: 14, fontWeight: 700, color: "#92400E", marginBottom: 8, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Why This Matters for 8club Right Now</div>
-        <div style={{ fontSize: 13, color: "#444", lineHeight: 1.75 }}>
+        <div style={{ fontSize: 14, color: "#444", lineHeight: 1.75 }}>
           <p style={{ margin: "0 0 8px 0" }}>
             8club is pre-Series A. The metric that determines whether they raise successfully is <strong style={{ color: "#111" }}>activation rate</strong>, i.e. what percentage of users who download the app eventually attend their first Hotspot. Every step upstream of that first attendance is activation infrastructure.
           </p>
@@ -189,8 +189,8 @@ function DeepDive1() {
             },
           ].map((facet) => (
             <div key={facet.title} style={{ background: facet.bg, borderRadius: 10, padding: 14, borderTop: `3px solid ${facet.color}`, border: `1px solid ${facet.border}`, borderTopWidth: 3, borderTopColor: facet.color }}>
-              <div style={{ fontSize: 12, fontWeight: 700, color: facet.color, marginBottom: 6, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{facet.title}</div>
-              <div style={{ fontSize: 12, color: "#555", lineHeight: 1.65 }}>{facet.body}</div>
+              <div style={{ fontSize: 14, fontWeight: 700, color: facet.color, marginBottom: 6, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{facet.title}</div>
+              <div style={{ fontSize: 14, color: "#555", lineHeight: 1.65 }}>{facet.body}</div>
             </div>
           ))}
         </div>
@@ -198,7 +198,7 @@ function DeepDive1() {
 
       <div style={{ marginBottom: 20 }}>
         <div style={{ fontSize: 14, fontWeight: 700, color: "#92400E", marginBottom: 8, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>What I'd Want to Understand First</div>
-        <div style={{ fontSize: 13, color: "#444", lineHeight: 1.75 }}>
+        <div style={{ fontSize: 14, color: "#444", lineHeight: 1.75 }}>
           <p style={{ margin: "0 0 6px 0" }}>Before proposing solutions, a PM on this team would need to understand the mechanics behind the curtain:</p>
           {[
             "What is the actual clearance criteria today? Manual review? Algorithmic? Batch processing? What's the average time-to-clearance, and how does it vary by profile completeness, gender, and social connections?",
@@ -215,7 +215,7 @@ function DeepDive1() {
 
       <div style={{ marginBottom: 20 }}>
         <div style={{ fontSize: 14, fontWeight: 700, color: "#92400E", marginBottom: 8, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>How I'd Measure Impact</div>
-        <div style={{ fontSize: 13, color: "#444", lineHeight: 1.75 }}>
+        <div style={{ fontSize: 14, color: "#444", lineHeight: 1.75 }}>
           <p style={{ margin: "0 0 6px 0" }}><strong style={{ color: "#111" }}>Primary metric:</strong> Waitlist-to-first-Hotspot-attendance conversion rate (the true activation metric).</p>
           <p style={{ margin: "0 0 6px 0" }}><strong style={{ color: "#111" }}>Leading indicators:</strong> Day-7 retention of waitlisted users (are they still opening the app?), profile completion rate among waitlisted users (are the nudges working?), time-to-clearance distribution.</p>
           <p style={{ margin: "0 0 6px 0" }}><strong style={{ color: "#111" }}>Guardrail metrics:</strong> App store rating trend (are negative reviews decreasing?), support ticket volume related to waitlist status.</p>
@@ -227,7 +227,7 @@ function DeepDive1() {
 
       <div>
         <div style={{ fontSize: 14, fontWeight: 700, color: "#92400E", marginBottom: 8, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Directional Ideas (Ordered by Implementation Effort)</div>
-        <div style={{ fontSize: 12, color: "#666", fontStyle: "italic", marginBottom: 10 }}>These are starting points for exploration, not prescriptions. The right answer depends on data only the team has.</div>
+        <div style={{ fontSize: 14, color: "#666", fontStyle: "italic", marginBottom: 10 }}>These are starting points for exploration, not prescriptions. The right answer depends on data only the team has.</div>
         {[
           { effort: "Low", effortColor: "#059669", effortBg: "#F0FDF4", effortBorder: "#BBF7D0", title: "Reframe the progress signal", body: "When onboarding completes, show \"Core profile complete ✓\" as a distinct milestone before introducing optional enhancement steps. The 16% number doesn't need to disappear, but the user should feel they've accomplished something before being told they're barely started. This is a copy and logic change, not an architecture change." },
           { effort: "Low", effortColor: "#059669", effortBg: "#F0FDF4", effortBorder: "#BBF7D0", title: "Add transparency to the wait", body: "Even without revealing the exact algorithm, communicate: an estimated timeline (\"most profiles are reviewed within X days\"), what stage the user is in (\"submitted → under review → cleared\"), and what actions genuinely improve their chances (if profile completion matters, say so explicitly). Opacity is only valuable when it serves the brand. here it's eroding trust." },
@@ -236,12 +236,12 @@ function DeepDive1() {
         ].map((idea) => (
           <div key={idea.title} style={{ background: "#FAFAF8", borderRadius: 10, padding: 14, marginBottom: 8, border: "1px solid #E5E5E3" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 6, flexWrap: "wrap" }}>
-              <span style={{ fontSize: 12, fontWeight: 700, color: idea.effortColor, background: idea.effortBg, padding: "3px 8px", borderRadius: 4, border: `1px solid ${idea.effortBorder}`, fontFamily: "'JetBrains Mono', monospace" }}>
+              <span style={{ fontSize: 14, fontWeight: 700, color: idea.effortColor, background: idea.effortBg, padding: "3px 8px", borderRadius: 4, border: `1px solid ${idea.effortBorder}`, fontFamily: "'JetBrains Mono', monospace" }}>
                 {idea.effort}
               </span>
-              <span style={{ fontSize: 13, fontWeight: 600, color: "#111", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{idea.title}</span>
+              <span style={{ fontSize: 14, fontWeight: 600, color: "#111", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{idea.title}</span>
             </div>
-            <div style={{ fontSize: 13, color: "#555", lineHeight: 1.7 }}>{idea.body}</div>
+            <div style={{ fontSize: 14, color: "#555", lineHeight: 1.7 }}>{idea.body}</div>
           </div>
         ))}
       </div>
@@ -252,19 +252,19 @@ function DeepDive1() {
 function DeepDive2() {
   return (
     <div style={{ background: "#fff", borderRadius: 14, padding: 24, marginBottom: 20, borderLeft: "3px solid #D97706", border: "1px solid #E5E5E3", borderLeftWidth: 3, borderLeftColor: "#D97706", boxShadow: "0 1px 3px rgba(0,0,0,0.04)" }}>
-      <div style={{ fontSize: 12, fontWeight: 600, color: "#D97706", textTransform: "uppercase", letterSpacing: "1.2px", marginBottom: 4, fontFamily: "'JetBrains Mono', monospace" }}>
+      <div style={{ fontSize: 14, fontWeight: 600, color: "#D97706", textTransform: "uppercase", letterSpacing: "1.2px", marginBottom: 4, fontFamily: "'JetBrains Mono', monospace" }}>
         Deep-Dive #2. Secondary Observation
       </div>
       <h3 style={{ fontSize: 20, color: "#111", margin: "0 0 6px 0", fontWeight: 700, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
         The Re-engagement Dead End
       </h3>
-      <p style={{ fontSize: 12, color: "#666", margin: "0 0 16px 0", fontStyle: "italic" }}>
+      <p style={{ fontSize: 14, color: "#666", margin: "0 0 16px 0", fontStyle: "italic" }}>
         Observation #6, a structural gap in the ability to bring waitlisted users back after they leave the app.
       </p>
 
       <div style={{ marginBottom: 20 }}>
         <div style={{ fontSize: 14, fontWeight: 700, color: "#92400E", marginBottom: 8, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Why This Matters</div>
-        <div style={{ fontSize: 13, color: "#444", lineHeight: 1.75 }}>
+        <div style={{ fontSize: 14, color: "#444", lineHeight: 1.75 }}>
           <p style={{ margin: "0 0 8px 0" }}>
             Even if the waitlist experience improves (Deep-Dive #1), there will always be a gap between onboarding and clearance. During that gap, users will close the app. The question is: <strong style={{ color: "#111" }}>can the system bring them back when it's their turn?</strong>
           </p>
@@ -287,10 +287,10 @@ function DeepDive2() {
           ].map((ch) => (
             <div key={ch.channel} style={{ background: "#FAFAF8", borderRadius: 10, padding: 14, border: "1px solid #E5E5E3" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6, flexWrap: "wrap" }}>
-                <span style={{ fontSize: 13, fontWeight: 700, color: "#111", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{ch.channel}</span>
-                <span style={{ fontSize: 12, fontWeight: 600, color: ch.statusColor, background: ch.statusBg, padding: "2px 8px", borderRadius: 4, fontFamily: "'JetBrains Mono', monospace" }}>{ch.status}</span>
+                <span style={{ fontSize: 14, fontWeight: 700, color: "#111", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{ch.channel}</span>
+                <span style={{ fontSize: 14, fontWeight: 600, color: ch.statusColor, background: ch.statusBg, padding: "2px 8px", borderRadius: 4, fontFamily: "'JetBrains Mono', monospace" }}>{ch.status}</span>
               </div>
-              <div style={{ fontSize: 13, color: "#666", lineHeight: 1.65 }}>{ch.note}</div>
+              <div style={{ fontSize: 14, color: "#666", lineHeight: 1.65 }}>{ch.note}</div>
             </div>
           ))}
         </div>
@@ -298,7 +298,7 @@ function DeepDive2() {
 
       <div style={{ marginBottom: 20 }}>
         <div style={{ fontSize: 14, fontWeight: 700, color: "#92400E", marginBottom: 8, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>What I'd Want to Understand First</div>
-        <div style={{ fontSize: 13, color: "#444", lineHeight: 1.75 }}>
+        <div style={{ fontSize: 14, color: "#444", lineHeight: 1.75 }}>
           {[
             "What % of users who complete onboarding grant push notification permission before leaving their first session? If it's below 30%, the re-engagement gap is confirmed.",
             "What % of waitlisted users return to the app within 7 days without any outbound trigger? This measures organic return rate, the baseline without any re-engagement system.",
@@ -314,7 +314,7 @@ function DeepDive2() {
 
       <div style={{ marginBottom: 20 }}>
         <div style={{ fontSize: 14, fontWeight: 700, color: "#92400E", marginBottom: 8, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>How I'd Measure Impact</div>
-        <div style={{ fontSize: 13, color: "#444", lineHeight: 1.75 }}>
+        <div style={{ fontSize: 14, color: "#444", lineHeight: 1.75 }}>
           <p style={{ margin: "0 0 6px 0" }}><strong style={{ color: "#111" }}>Primary metric:</strong> Clearance-to-first-session-post-clearance rate (does the user come back when approved?).</p>
           <p style={{ margin: "0 0 6px 0" }}><strong style={{ color: "#111" }}>Leading indicators:</strong> Push notification opt-in rate, email collection rate during onboarding, Day-7 return rate for waitlisted users.</p>
           <p style={{ margin: "0 0 6px 0" }}><strong style={{ color: "#111" }}>Experiment:</strong> A/B test adding a lightweight email collection step in onboarding (positioned as "we'll email you when you're in") vs. current flow. Measure email provision rate and subsequent return rate when clearance notification is sent.</p>
@@ -326,7 +326,7 @@ function DeepDive2() {
 
       <div>
         <div style={{ fontSize: 14, fontWeight: 700, color: "#92400E", marginBottom: 8, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Directional Ideas (Ordered by Implementation Effort)</div>
-        <div style={{ fontSize: 12, color: "#666", fontStyle: "italic", marginBottom: 10 }}>Starting points, not prescriptions. Compliance review needed for SMS-based approaches.</div>
+        <div style={{ fontSize: 14, color: "#666", fontStyle: "italic", marginBottom: 10 }}>Starting points, not prescriptions. Compliance review needed for SMS-based approaches.</div>
         {[
           { effort: "Low", effortColor: "#059669", effortBg: "#F0FDF4", effortBorder: "#BBF7D0", title: "Move notification permission ask into the onboarding flow", body: "Instead of burying it on the Notifications tab, request push permission during the \"How Does It Work\" explainer. right at the moment the user learns they'll receive invites. The context (\"we need to notify you when you're invited\") makes the ask natural. This is a flow reorder, not a new feature." },
           { effort: "Low", effortColor: "#059669", effortBg: "#F0FDF4", effortBorder: "#BBF7D0", title: "Add email collection to onboarding with clear value framing", body: "Add an optional step after the username screen: \"Add your email so we can let you know the moment you're in.\" The value proposition is immediate and specific. Even a 40-50% provision rate creates a re-engagement channel that currently doesn't exist." },
@@ -334,12 +334,12 @@ function DeepDive2() {
         ].map((idea) => (
           <div key={idea.title} style={{ background: "#FAFAF8", borderRadius: 10, padding: 14, marginBottom: 8, border: "1px solid #E5E5E3" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 6, flexWrap: "wrap" }}>
-              <span style={{ fontSize: 12, fontWeight: 700, color: idea.effortColor, background: idea.effortBg, padding: "3px 8px", borderRadius: 4, border: `1px solid ${idea.effortBorder}`, fontFamily: "'JetBrains Mono', monospace" }}>
+              <span style={{ fontSize: 14, fontWeight: 700, color: idea.effortColor, background: idea.effortBg, padding: "3px 8px", borderRadius: 4, border: `1px solid ${idea.effortBorder}`, fontFamily: "'JetBrains Mono', monospace" }}>
                 {idea.effort}
               </span>
-              <span style={{ fontSize: 13, fontWeight: 600, color: "#111", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{idea.title}</span>
+              <span style={{ fontSize: 14, fontWeight: 600, color: "#111", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{idea.title}</span>
             </div>
-            <div style={{ fontSize: 13, color: "#555", lineHeight: 1.7 }}>{idea.body}</div>
+            <div style={{ fontSize: 14, color: "#555", lineHeight: 1.7 }}>{idea.body}</div>
           </div>
         ))}
       </div>
@@ -358,12 +358,12 @@ export default function Prioritisation() {
         {/* Header */}
         <div style={{ marginBottom: 24 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 6 }}>
-            <img src={`${import.meta.env.BASE_URL}favicon.svg`} alt="8club" style={{ width: 36, height: 36, borderRadius: 8, objectFit: "contain" }} />
+            <img src="https://framerusercontent.com/images/9EnPwoHguYNzJT30BQDRklwgAoQ.png" alt="8club" style={{ width: 36, height: 36, borderRadius: 8, objectFit: "contain" }} />
             <div>
               <h1 style={{ fontSize: 22, fontWeight: 700, color: "#111", margin: 0, letterSpacing: "-0.5px", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                 Observation Prioritisation & Deep-Dives
               </h1>
-              <p style={{ fontSize: 13, margin: "2px 0 0", color: "#666", fontFamily: "'JetBrains Mono', monospace" }}>
+              <p style={{ fontSize: 14, margin: "2px 0 0", color: "#666", fontFamily: "'JetBrains Mono', monospace" }}>
                 Step 2 · 6 observations → framework → 2 deep-dives
               </p>
             </div>
@@ -373,7 +373,7 @@ export default function Prioritisation() {
         {/* Business Context */}
         <div style={{ background: "#fff", borderRadius: 14, padding: 20, marginBottom: 20, border: "1px solid #E5E5E3", boxShadow: "0 1px 3px rgba(0,0,0,0.04)" }}>
           <div style={{ fontSize: 14, fontWeight: 700, color: "#111", marginBottom: 10, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>The Prioritisation Lens: What Matters for 8club Right Now?</div>
-          <div style={{ fontSize: 13, color: "#444", lineHeight: 1.75 }}>
+          <div style={{ fontSize: 14, color: "#444", lineHeight: 1.75 }}>
             <p style={{ margin: "0 0 8px 0" }}>
               8club is a pre-Series A company with ~$795K seed funding, ~200K community members (heavily Bangalore-concentrated), and effectively zero revenue. They're hiring their first PM. The next fundraise depends on proving the core loop works: users download → onboard → get cleared → receive Hotspot invites → attend → come back.
             </p>
@@ -389,11 +389,11 @@ export default function Prioritisation() {
         {/* Activation Funnel */}
         <div style={{ background: "#fff", borderRadius: 14, padding: 20, marginBottom: 20, border: "1px solid #E5E5E3", boxShadow: "0 1px 3px rgba(0,0,0,0.04)" }}>
           <div style={{ fontSize: 14, fontWeight: 700, color: "#111", marginBottom: 4, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>8club's Activation Funnel</div>
-          <div style={{ fontSize: 13, color: "#666", marginBottom: 4, fontStyle: "italic" }}>
+          <div style={{ fontSize: 14, color: "#666", marginBottom: 4, fontStyle: "italic" }}>
             Widths are illustrative. actual conversion rates would need internal data. The bottleneck location is informed by public review data.
           </div>
           <FunnelDiagram />
-          <div style={{ fontSize: 12, color: "#666", lineHeight: 1.65, marginTop: 8 }}>
+          <div style={{ fontSize: 14, color: "#666", lineHeight: 1.65, marginTop: 8 }}>
             The onboarding-to-waitlist transition is relatively smooth (~6 minutes, low friction). The waitlist itself is where the funnel collapses. Public app store reviews confirm this is the primary churn point. 4 of our 6 observations cluster here.
           </div>
         </div>
@@ -403,9 +403,9 @@ export default function Prioritisation() {
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
             <div>
               <div style={{ fontSize: 14, fontWeight: 700, color: "#111", marginBottom: 2, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Evaluation Matrix</div>
-              <div style={{ fontSize: 13, color: "#666" }}>3 criteria: funnel position × severity × feasibility for a small team</div>
+              <div style={{ fontSize: 14, color: "#666" }}>3 criteria: funnel position × severity × feasibility for a small team</div>
             </div>
-            <button onClick={() => setShowMatrix(!showMatrix)} style={{ background: "#fff", border: "1px solid #E0DBFF", borderRadius: 8, color: "#7C3AED", padding: "5px 12px", fontSize: 12, cursor: "pointer", fontWeight: 600, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+            <button onClick={() => setShowMatrix(!showMatrix)} style={{ background: "#fff", border: "1px solid #E0DBFF", borderRadius: 8, color: "#7C3AED", padding: "5px 12px", fontSize: 14, cursor: "pointer", fontWeight: 600, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
               {showMatrix ? "Collapse" : "Expand"}
             </button>
           </div>
@@ -427,7 +427,7 @@ export default function Prioritisation() {
                   }}
                 >
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 6 }}>
-                    <div style={{ fontSize: 13, fontWeight: 600, color: "#111", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                    <div style={{ fontSize: 14, fontWeight: 600, color: "#111", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                       <span style={{ color: "#666", marginRight: 6, fontFamily: "'JetBrains Mono', monospace" }}>#{obs.id}</span>
                       {obs.name}
                     </div>
@@ -436,8 +436,8 @@ export default function Prioritisation() {
                       <FeasibilityBadge level={obs.feasibility} />
                     </div>
                   </div>
-                  <div style={{ fontSize: 12, color: "#666", lineHeight: 1.55, marginBottom: 6 }}>{obs.short}</div>
-                  <div style={{ display: "flex", gap: 16, fontSize: 12 }}>
+                  <div style={{ fontSize: 14, color: "#666", lineHeight: 1.55, marginBottom: 6 }}>{obs.short}</div>
+                  <div style={{ display: "flex", gap: 16, fontSize: 14 }}>
                     <span style={{ color: "#666" }}>Funnel: <span style={{ color: "#5B21B6", fontWeight: 500 }}>{obs.funnelStage}</span></span>
                     <span style={{ color: "#666" }}>Breadth: <span style={{ color: "#5B21B6", fontWeight: 500 }}>{obs.breadth}</span></span>
                   </div>
@@ -450,7 +450,7 @@ export default function Prioritisation() {
         {/* The Clustering Insight */}
         <div style={{ background: "#fff", borderRadius: 14, padding: 20, marginBottom: 20, borderLeft: "3px solid #7C3AED", border: "1px solid #E5E5E3", borderLeftWidth: 3, borderLeftColor: "#7C3AED", boxShadow: "0 1px 3px rgba(0,0,0,0.04)" }}>
           <div style={{ fontSize: 14, fontWeight: 700, color: "#5B21B6", marginBottom: 8, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>The Clustering Insight</div>
-          <div style={{ fontSize: 13, color: "#444", lineHeight: 1.75 }}>
+          <div style={{ fontSize: 14, color: "#444", lineHeight: 1.75 }}>
             <p style={{ margin: "0 0 8px 0" }}>
               Four of the six observations (#1 Emotional Cliff, #2 Opacity, #3 16% Deflation, #4 Empty States) are not independent problems. they are <strong style={{ color: "#111" }}>facets of one core issue: the waitlist-to-activation transition</strong>. The expectation gap, the lack of transparency, the deflating progress signal, and the empty experience are all symptoms of the same underlying condition: the waiting period actively destroys the demand that onboarding created.
             </p>
@@ -471,17 +471,17 @@ export default function Prioritisation() {
           <div style={{ fontSize: 14, fontWeight: 700, color: "#1E40AF", marginBottom: 10, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Final Selection: 2 Deep-Dives</div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 12 }}>
             <div style={{ background: "#FAFAF8", borderRadius: 10, padding: 14, borderTop: "3px solid #DC2626", border: "1px solid #FECACA", borderTopWidth: 3, borderTopColor: "#DC2626" }}>
-              <div style={{ fontSize: 12, color: "#DC2626", fontWeight: 600, marginBottom: 4, fontFamily: "'JetBrains Mono', monospace" }}>PRIMARY</div>
+              <div style={{ fontSize: 14, color: "#DC2626", fontWeight: 600, marginBottom: 4, fontFamily: "'JetBrains Mono', monospace" }}>PRIMARY</div>
               <div style={{ fontSize: 14, fontWeight: 700, color: "#111", marginBottom: 4, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>The Waitlist-to-Activation Gap</div>
-              <div style={{ fontSize: 13, color: "#666", lineHeight: 1.55 }}>Synthesises observations #1, #2, #3, #4 as dimensions of one core problem. Highest impact, affects 100% of users, addresses the funnel's primary bottleneck.</div>
+              <div style={{ fontSize: 14, color: "#666", lineHeight: 1.55 }}>Synthesises observations #1, #2, #3, #4 as dimensions of one core problem. Highest impact, affects 100% of users, addresses the funnel's primary bottleneck.</div>
             </div>
             <div style={{ background: "#FAFAF8", borderRadius: 10, padding: 14, borderTop: "3px solid #D97706", border: "1px solid #FFEDD5", borderTopWidth: 3, borderTopColor: "#D97706" }}>
-              <div style={{ fontSize: 12, color: "#D97706", fontWeight: 600, marginBottom: 4, fontFamily: "'JetBrains Mono', monospace" }}>SECONDARY</div>
+              <div style={{ fontSize: 14, color: "#D97706", fontWeight: 600, marginBottom: 4, fontFamily: "'JetBrains Mono', monospace" }}>SECONDARY</div>
               <div style={{ fontSize: 14, fontWeight: 700, color: "#111", marginBottom: 4, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>The Re-engagement Dead End</div>
-              <div style={{ fontSize: 13, color: "#666", lineHeight: 1.55 }}>Observation #6: Structural infrastructure gap, no channels to bring waitlisted users back. Complements #1 by addressing the system layer, not just the experience layer.</div>
+              <div style={{ fontSize: 14, color: "#666", lineHeight: 1.55 }}>Observation #6: Structural infrastructure gap, no channels to bring waitlisted users back. Complements #1 by addressing the system layer, not just the experience layer.</div>
             </div>
           </div>
-          <div style={{ marginTop: 10, fontSize: 13, color: "#666", lineHeight: 1.55, fontStyle: "italic" }}>
+          <div style={{ marginTop: 10, fontSize: 14, color: "#666", lineHeight: 1.55, fontStyle: "italic" }}>
             Deprioritised: #5 (Trust Sequencing). valid but lower-order; a natural follow-up optimisation once the primary bottleneck is addressed.
           </div>
         </div>
@@ -494,13 +494,13 @@ export default function Prioritisation() {
         {/* Closing Note */}
         <div style={{ background: "#fff", borderRadius: 14, padding: 18, marginTop: 8, borderLeft: "3px solid #059669", border: "1px solid #E5E5E3", borderLeftWidth: 3, borderLeftColor: "#059669", boxShadow: "0 1px 3px rgba(0,0,0,0.04)" }}>
           <div style={{ fontSize: 14, fontWeight: 700, color: "#065F46", marginBottom: 6, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>A Note on Framing</div>
-          <div style={{ fontSize: 12, color: "#555", lineHeight: 1.75 }}>
+          <div style={{ fontSize: 14, color: "#555", lineHeight: 1.75 }}>
             Everything above is informed by one new user's onboarding experience and publicly available data (app store reviews, website, LinkedIn). The 8club team has internal data. clearance rates, cohort analysis, retention curves, A/B test history. that would refine, redirect, or invalidate some of these observations. That's expected and welcome. The value here isn't in having the final answer. It's in demonstrating a way of looking at the product: mapping the experience, identifying patterns, connecting observations to business context, and thinking about what to explore first.
           </div>
         </div>
 
         <div style={{ textAlign: "center", padding: "22px 0 8px 0", borderTop: "1px solid #E5E5E3", marginTop: 24 }}>
-          <div style={{ fontSize: 12, color: "#666", fontFamily: "'JetBrains Mono', monospace" }}>
+          <div style={{ fontSize: 14, color: "#666", fontFamily: "'JetBrains Mono', monospace" }}>
             Product analysis by Ankur Kulkarni
           </div>
         </div>

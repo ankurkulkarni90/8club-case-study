@@ -116,7 +116,7 @@ export default function Landing({ onNavigate }) {
               padding: "5px 14px",
               borderRadius: 100,
               background: "linear-gradient(135deg, #5B21B6, #7C3AED)",
-              fontSize: 12,
+              fontSize: 14,
               fontFamily: "'JetBrains Mono', monospace",
               color: "#fff",
               fontWeight: 500,
@@ -197,7 +197,7 @@ export default function Landing({ onNavigate }) {
               rel="noopener noreferrer"
               style={{
                 fontFamily: "'JetBrains Mono', monospace",
-                fontSize: 13,
+                fontSize: 14,
                 color: "#5B21B6",
                 textDecoration: "none",
               }}
@@ -208,7 +208,7 @@ export default function Landing({ onNavigate }) {
             <span
               style={{
                 fontFamily: "'JetBrains Mono', monospace",
-                fontSize: 13,
+                fontSize: 14,
                 color: "#555",
               }}
             >
@@ -258,7 +258,7 @@ export default function Landing({ onNavigate }) {
                   <span
                     style={{
                       fontFamily: "'JetBrains Mono', monospace",
-                      fontSize: 13,
+                      fontSize: 14,
                       color: f.accent,
                       fontWeight: 500,
                     }}
@@ -312,7 +312,7 @@ export default function Landing({ onNavigate }) {
                   <span
                     style={{
                       fontFamily: "'JetBrains Mono', monospace",
-                      fontSize: 12,
+                      fontSize: 14,
                       fontWeight: 600,
                       color: f.accent,
                       textTransform: "uppercase",
@@ -395,7 +395,7 @@ export default function Landing({ onNavigate }) {
                   <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
                     <span style={{
                       fontFamily: "'JetBrains Mono', monospace",
-                      fontSize: 12,
+                      fontSize: 14,
                       fontWeight: 600,
                       color: "#5B21B6",
                       background: "#F5F3FF",
@@ -497,7 +497,7 @@ export default function Landing({ onNavigate }) {
                     <div
                       style={{
                         fontFamily: "'JetBrains Mono', monospace",
-                        fontSize: 13,
+                        fontSize: 14,
                         color: "#666",
                         marginTop: 3,
                       }}
@@ -605,7 +605,7 @@ export default function Landing({ onNavigate }) {
               href="mailto:ankurkulkarni90@gmail.com"
               style={{
                 fontFamily: "'JetBrains Mono', monospace",
-                fontSize: 13,
+                fontSize: 14,
                 color: "#555",
                 textDecoration: "none",
               }}
@@ -619,7 +619,7 @@ export default function Landing({ onNavigate }) {
               rel="noopener noreferrer"
               style={{
                 fontFamily: "'JetBrains Mono', monospace",
-                fontSize: 13,
+                fontSize: 14,
                 color: "#555",
                 textDecoration: "none",
               }}

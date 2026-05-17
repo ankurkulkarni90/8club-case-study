@@ -230,12 +230,12 @@ export default function ReviewAnalysis() {
       {/* Header */}
       <div style={{ marginBottom: 32 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 6 }}>
-          <img src={`${import.meta.env.BASE_URL}favicon.svg`} alt="8club" style={{
+          <img src="https://framerusercontent.com/images/9EnPwoHguYNzJT30BQDRklwgAoQ.png" alt="8club" style={{
             width: 36, height: 36, borderRadius: 8, objectFit: "contain",
           }} />
           <div>
             <h1 style={{ fontSize: 22, fontWeight: 700, margin: 0, color: "#111", letterSpacing: "-0.5px", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>8club Review Intelligence</h1>
-            <p style={{ fontSize: 13, margin: "2px 0 0", color: "#555", fontFamily: "'JetBrains Mono', monospace" }}>Google Play + Apple App Store · Text reviews as of May 2026</p>
+            <p style={{ fontSize: 14, margin: "2px 0 0", color: "#555", fontFamily: "'JetBrains Mono', monospace" }}>Google Play + Apple App Store · Text reviews as of May 2026</p>
           </div>
         </div>
       </div>
@@ -250,12 +250,12 @@ export default function ReviewAnalysis() {
             background: "#fff", border: "1px solid #E5E5E3", borderRadius: 14,
             padding: "18px 16px", boxShadow: "0 1px 3px rgba(0,0,0,0.04)"
           }}>
-            <div style={{ fontSize: 12, color: "#666", marginBottom: 10, textTransform: "uppercase", letterSpacing: "1.2px", fontFamily: "'JetBrains Mono', monospace" }}>{s.source}</div>
+            <div style={{ fontSize: 14, color: "#666", marginBottom: 10, textTransform: "uppercase", letterSpacing: "1.2px", fontFamily: "'JetBrains Mono', monospace" }}>{s.source}</div>
             <div style={{ display: "flex", alignItems: "baseline", gap: 5 }}>
               <span style={{ fontSize: 34, fontWeight: 700, color: s.color, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{s.rating}</span>
               <span style={{ fontSize: 14, color: "#777" }}>/ 5</span>
             </div>
-            <div style={{ fontSize: 13, color: "#666", marginTop: 2 }}>{s.totalReviews} reviews</div>
+            <div style={{ fontSize: 14, color: "#666", marginTop: 2 }}>{s.totalReviews} reviews</div>
           </div>
         ))}
       </div>
@@ -272,7 +272,7 @@ export default function ReviewAnalysis() {
             padding: "14px 10px", textAlign: "center", boxShadow: "0 1px 3px rgba(0,0,0,0.04)"
           }}>
             <div style={{ fontSize: 26, fontWeight: 700, color: s.color, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{s.value}</div>
-            <div style={{ fontSize: 12, color: "#666", textTransform: "uppercase", letterSpacing: "0.8px", fontFamily: "'JetBrains Mono', monospace", marginTop: 2 }}>{s.label}</div>
+            <div style={{ fontSize: 14, color: "#666", textTransform: "uppercase", letterSpacing: "0.8px", fontFamily: "'JetBrains Mono', monospace", marginTop: 2 }}>{s.label}</div>
           </div>
         ))}
       </div>
@@ -286,7 +286,7 @@ export default function ReviewAnalysis() {
         ].map(tab => (
           <button key={tab.id} onClick={() => setActiveTab(tab.id)} style={{
             flex: 1, padding: "10px 8px", borderRadius: 9, border: "none", cursor: "pointer",
-            fontSize: 13, fontWeight: 600, fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontSize: 14, fontWeight: 600, fontFamily: "'Plus Jakarta Sans', sans-serif",
             background: activeTab === tab.id ? "#fff" : "transparent",
             color: activeTab === tab.id ? "#111" : "#666",
             boxShadow: activeTab === tab.id ? "0 1px 4px rgba(0,0,0,0.08)" : "none",
@@ -304,8 +304,8 @@ export default function ReviewAnalysis() {
             background: "#fff", border: "1px solid #E5E5E3", borderRadius: 14,
             boxShadow: "0 1px 3px rgba(0,0,0,0.04)"
           }}>
-            <div style={{ fontSize: 13, color: "#666", textTransform: "uppercase", letterSpacing: "1.2px", fontFamily: "'JetBrains Mono', monospace", marginBottom: 6 }}>Priority by severity × volume</div>
-            <ul style={{ fontSize: 13, color: "#555", marginBottom: 14, lineHeight: 1.65, paddingLeft: 20 }}>
+            <div style={{ fontSize: 14, color: "#666", textTransform: "uppercase", letterSpacing: "1.2px", fontFamily: "'JetBrains Mono', monospace", marginBottom: 6 }}>Priority by severity × volume</div>
+            <ul style={{ fontSize: 14, color: "#555", marginBottom: 14, lineHeight: 1.65, paddingLeft: 20 }}>
               <li style={{ marginBottom: 4 }}><strong style={{ color: "#991B1B" }}>Critical</strong> means the issue blocks core functionality or directly causes users to churn (e.g. crashes, waitlist abandonment).</li>
               <li style={{ marginBottom: 4 }}><strong style={{ color: "#9A3412" }}>High</strong> means the experience is significantly degraded, even if the user can technically continue (e.g. missing filters, unresponsive support).</li>
               <li><strong style={{ color: "#854D0E" }}>Medium</strong> means there is friction or a perception problem that compounds over time but does not block usage on its own (e.g. UI clutter, pricing confusion).</li>
@@ -317,9 +317,9 @@ export default function ReviewAnalysis() {
                 <div key={cat.id} style={{ marginBottom: 10 }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 5 }}>
                     <span style={{ fontSize: 14 }}>{cat.icon}</span>
-                    <span style={{ fontSize: 12, color: "#444", flex: 1, fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 500 }}>{cat.label}</span>
-                    <span style={{ fontSize: 10, fontFamily: "'JetBrains Mono', monospace", color: sc.text, background: sc.bg, padding: "2px 8px", borderRadius: 5, border: `1px solid ${sc.border}` }}>{cat.severity}</span>
-                    <span style={{ fontSize: 12, fontFamily: "'JetBrains Mono', monospace", color: "#666", minWidth: 20, textAlign: "right" }}>{cat.count}</span>
+                    <span style={{ fontSize: 14, color: "#444", flex: 1, fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 500 }}>{cat.label}</span>
+                    <span style={{ fontSize: 14, fontFamily: "'JetBrains Mono', monospace", color: sc.text, background: sc.bg, padding: "2px 8px", borderRadius: 5, border: `1px solid ${sc.border}` }}>{cat.severity}</span>
+                    <span style={{ fontSize: 14, fontFamily: "'JetBrains Mono', monospace", color: "#666", minWidth: 20, textAlign: "right" }}>{cat.count}</span>
                   </div>
                   <div style={{ height: 5, background: "#F0EFED", borderRadius: 3 }}>
                     <div style={{ height: 5, background: sc.dot, borderRadius: 3, width: `${(cat.count / maxCount) * 100}%`, transition: "width 0.5s ease", opacity: 0.85 }} />
@@ -355,9 +355,9 @@ export default function ReviewAnalysis() {
                   <div style={{ flex: 1 }}>
                     <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
                       <span style={{ fontSize: 14, fontWeight: 600, color: "#111", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{cat.label}</span>
-                      <span style={{ fontSize: 10, fontFamily: "'JetBrains Mono', monospace", color: sc.text, background: sc.bg, padding: "2px 7px", borderRadius: 5, border: `1px solid ${sc.border}` }}>{cat.severity.toUpperCase()}</span>
+                      <span style={{ fontSize: 14, fontFamily: "'JetBrains Mono', monospace", color: sc.text, background: sc.bg, padding: "2px 7px", borderRadius: 5, border: `1px solid ${sc.border}` }}>{cat.severity.toUpperCase()}</span>
                     </div>
-                    <div style={{ fontSize: 13, color: "#666", fontFamily: "'JetBrains Mono', monospace" }}>{cat.count} reviews · {cat.stores}</div>
+                    <div style={{ fontSize: 14, color: "#666", fontFamily: "'JetBrains Mono', monospace" }}>{cat.count} reviews · {cat.stores}</div>
                   </div>
                   <span style={{ color: "#bbb", fontSize: 16, transform: isExpanded ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.2s" }}>▼</span>
                 </button>
@@ -366,18 +366,18 @@ export default function ReviewAnalysis() {
                   <div style={{ padding: "0 18px 18px" }}>
                     {/* Insight */}
                     <div style={{ background: "#F5F3FF", border: "1px solid #E0DBFF", borderRadius: 10, padding: 14, marginBottom: 12 }}>
-                      <div style={{ fontSize: 12, color: "#6D28D9", textTransform: "uppercase", letterSpacing: "1.2px", fontFamily: "'JetBrains Mono', monospace", marginBottom: 6 }}>Insight</div>
+                      <div style={{ fontSize: 14, color: "#6D28D9", textTransform: "uppercase", letterSpacing: "1.2px", fontFamily: "'JetBrains Mono', monospace", marginBottom: 6 }}>Insight</div>
                       <div style={{ fontSize: 14, color: "#3B1F8E", lineHeight: 1.7 }}>{cat.insight}</div>
                     </div>
 
                     {/* PM Action */}
                     <div style={{ background: "#F0FDF4", border: "1px solid #BBF7D0", borderRadius: 10, padding: 14, marginBottom: 14 }}>
-                      <div style={{ fontSize: 12, color: "#15803D", textTransform: "uppercase", letterSpacing: "1.2px", fontFamily: "'JetBrains Mono', monospace", marginBottom: 6 }}>PM Action</div>
+                      <div style={{ fontSize: 14, color: "#15803D", textTransform: "uppercase", letterSpacing: "1.2px", fontFamily: "'JetBrains Mono', monospace", marginBottom: 6 }}>PM Action</div>
                       <div style={{ fontSize: 14, color: "#14532D", lineHeight: 1.7 }}>{cat.pmAction}</div>
                     </div>
 
                     {/* Reviews */}
-                    <div style={{ fontSize: 13, color: "#555", textTransform: "uppercase", letterSpacing: "1.2px", fontFamily: "'JetBrains Mono', monospace", marginBottom: 10 }}>Raw Reviews</div>
+                    <div style={{ fontSize: 14, color: "#555", textTransform: "uppercase", letterSpacing: "1.2px", fontFamily: "'JetBrains Mono', monospace", marginBottom: 10 }}>Raw Reviews</div>
                     {sortReviewsByDate(cat.reviews).map((r, i) => (
                       <div key={i} style={{
                         padding: "12px 14px", background: "#FAFAF8", borderRadius: 10, marginBottom: 8,
@@ -386,9 +386,9 @@ export default function ReviewAnalysis() {
                         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 4 }}>
                           <span style={{ fontSize: 14, fontWeight: 600, color: "#333", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{r.user}</span>
                           <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
-                            <span style={{ fontSize: 12, fontFamily: "'JetBrains Mono', monospace", color: "#666" }}>{r.date}</span>
+                            <span style={{ fontSize: 14, fontFamily: "'JetBrains Mono', monospace", color: "#666" }}>{r.date}</span>
                             <span style={{
-                              fontSize: 12, fontFamily: "'JetBrains Mono', monospace",
+                              fontSize: 14, fontFamily: "'JetBrains Mono', monospace",
                               color: r.store === "iOS" ? "#2563EB" : "#059669",
                               background: r.store === "iOS" ? "#EFF6FF" : "#ECFDF5",
                               padding: "2px 7px", borderRadius: 4,
@@ -396,10 +396,10 @@ export default function ReviewAnalysis() {
                             }}>{r.store}</span>
                           </div>
                         </div>
-                        <div style={{ fontSize: 13, color: "#D97706" }}>{"★".repeat(r.rating)}<span style={{ color: "#ddd" }}>{"★".repeat(5 - r.rating)}</span></div>
+                        <div style={{ fontSize: 14, color: "#D97706" }}>{"★".repeat(r.rating)}<span style={{ color: "#ddd" }}>{"★".repeat(5 - r.rating)}</span></div>
                         <div style={{ fontSize: 14, color: "#444", lineHeight: 1.65, marginTop: 4 }}>{r.text}</div>
                         {r.note && (
-                          <div style={{ fontSize: 13, color: "#7C3AED", background: "#F5F3FF", padding: "6px 10px", borderRadius: 6, marginTop: 6, fontStyle: "italic", border: "1px solid #E0DBFF" }}>
+                          <div style={{ fontSize: 14, color: "#7C3AED", background: "#F5F3FF", padding: "6px 10px", borderRadius: 6, marginTop: 6, fontStyle: "italic", border: "1px solid #E0DBFF" }}>
                             ℹ️ {r.note}
                           </div>
                         )}
@@ -427,7 +427,7 @@ export default function ReviewAnalysis() {
               </div>
 
               <div style={{ background: "#F0FDF4", border: "1px solid #BBF7D0", borderRadius: 10, padding: 14, marginBottom: 14 }}>
-                <div style={{ fontSize: 12, color: "#15803D", textTransform: "uppercase", letterSpacing: "1.2px", fontFamily: "'JetBrains Mono', monospace", marginBottom: 6 }}>Why It Matters</div>
+                <div style={{ fontSize: 14, color: "#15803D", textTransform: "uppercase", letterSpacing: "1.2px", fontFamily: "'JetBrains Mono', monospace", marginBottom: 6 }}>Why It Matters</div>
                 <div style={{ fontSize: 14, color: "#14532D", lineHeight: 1.7 }}>{cat.insight}</div>
               </div>
 
@@ -439,9 +439,9 @@ export default function ReviewAnalysis() {
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 4 }}>
                     <span style={{ fontSize: 14, fontWeight: 600, color: "#333", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{r.user}</span>
                     <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
-                      <span style={{ fontSize: 12, fontFamily: "'JetBrains Mono', monospace", color: "#666" }}>{r.date}</span>
+                      <span style={{ fontSize: 14, fontFamily: "'JetBrains Mono', monospace", color: "#666" }}>{r.date}</span>
                       <span style={{
-                        fontSize: 12, fontFamily: "'JetBrains Mono', monospace",
+                        fontSize: 14, fontFamily: "'JetBrains Mono', monospace",
                         color: r.store === "iOS" ? "#2563EB" : "#059669",
                         background: r.store === "iOS" ? "#EFF6FF" : "#ECFDF5",
                         padding: "2px 7px", borderRadius: 4,
@@ -466,14 +466,14 @@ export default function ReviewAnalysis() {
             padding: 18, marginBottom: 14, boxShadow: "0 1px 3px rgba(0,0,0,0.04)"
           }}>
             <div style={{ fontSize: 16, fontWeight: 700, color: "#111", marginBottom: 14, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>🤖 Developer Response Patterns</div>
-            <div style={{ fontSize: 13, color: "#444", lineHeight: 1.8, marginBottom: 14 }}>
+            <div style={{ fontSize: 14, color: "#444", lineHeight: 1.8, marginBottom: 14 }}>
               On <strong style={{ color: "#B45309" }}>25 February 2026</strong>, 8club replied to <strong style={{ color: "#B45309" }}>15+ Google Play reviews</strong> in a single batch, some dating back months. This suggests review management is still becoming a regular practice.
             </div>
-            <div style={{ fontSize: 13, color: "#444", lineHeight: 1.8, marginBottom: 14 }}>
+            <div style={{ fontSize: 14, color: "#444", lineHeight: 1.8, marginBottom: 14 }}>
               Across iOS, the developer responses on <strong style={{ color: "#B45309" }}>8 August</strong> used an identical copy-paste waitlist response across 4+ different users. Canned replies to nuanced complaints erode the "exclusive community" brand.
             </div>
             <div style={{ background: "#F5F3FF", border: "1px solid #E0DBFF", borderRadius: 10, padding: 14 }}>
-              <div style={{ fontSize: 12, color: "#6D28D9", textTransform: "uppercase", letterSpacing: "1.2px", fontFamily: "'JetBrains Mono', monospace", marginBottom: 6 }}>Takeaway</div>
+              <div style={{ fontSize: 14, color: "#6D28D9", textTransform: "uppercase", letterSpacing: "1.2px", fontFamily: "'JetBrains Mono', monospace", marginBottom: 6 }}>Takeaway</div>
               <div style={{ fontSize: 14, color: "#3B1F8E", lineHeight: 1.7 }}>
                 A brand that promises "your city's secret inner circle" benefits from review responses that feel equally personal. Every review is a public brand touchpoint. Personalised responses build trust; canned responses can undermine the luxury positioning.
               </div>
@@ -489,14 +489,14 @@ export default function ReviewAnalysis() {
             <div style={{ display: "flex", gap: 14, marginBottom: 14 }}>
               <div style={{ flex: 1, textAlign: "center", padding: 14, background: "#EFF6FF", borderRadius: 10, border: "1px solid #BFDBFE" }}>
                 <div style={{ fontSize: 30, fontWeight: 700, color: "#2563EB", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>4.8</div>
-                <div style={{ fontSize: 13, color: "#6B7280", marginTop: 2 }}>iOS (244 ratings)</div>
+                <div style={{ fontSize: 14, color: "#6B7280", marginTop: 2 }}>iOS (244 ratings)</div>
               </div>
               <div style={{ flex: 1, textAlign: "center", padding: 14, background: "#ECFDF5", borderRadius: 10, border: "1px solid #A7F3D0" }}>
                 <div style={{ fontSize: 30, fontWeight: 700, color: "#059669", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>4.5</div>
-                <div style={{ fontSize: 13, color: "#6B7280", marginTop: 2 }}>Android (197 reviews)</div>
+                <div style={{ fontSize: 14, color: "#6B7280", marginTop: 2 }}>Android (197 reviews)</div>
               </div>
             </div>
-            <div style={{ fontSize: 13, color: "#444", lineHeight: 1.8 }}>
+            <div style={{ fontSize: 14, color: "#444", lineHeight: 1.8 }}>
               The <strong style={{ color: "#DC2626" }}>0.3-star gap</strong> maps directly to the crash/keyboard cluster that was Android-specific (Flutter rendering issues). iOS users' top complaints are waitlist and discovery, which are product-level issues. Android users hit infrastructure-level failures first, which coloured everything downstream.
             </div>
           </div>
@@ -527,7 +527,7 @@ export default function ReviewAnalysis() {
             ].map((t, i) => (
               <div key={i} style={{ padding: "14px 16px", background: "#FAFAF8", borderRadius: 10, marginBottom: 10, borderLeft: `3px solid ${t.color}` }}>
                 <div style={{ fontSize: 14, fontWeight: 700, color: "#111", marginBottom: 6, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{t.title}</div>
-                <div style={{ fontSize: 13, color: "#555", lineHeight: 1.7 }}>{t.body}</div>
+                <div style={{ fontSize: 14, color: "#555", lineHeight: 1.7 }}>{t.body}</div>
               </div>
             ))}
           </div>
@@ -546,10 +546,10 @@ export default function ReviewAnalysis() {
               { p: "P2", label: "Review management cadence + personalised responses", why: "Every public review is a brand touchpoint worth investing in.", color: "#2563EB" },
             ].map((item, i) => (
               <div key={i} style={{ display: "flex", gap: 14, alignItems: "flex-start", padding: "14px 0", borderBottom: i < 4 ? "1px solid #F0EFED" : "none" }}>
-                <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 12, fontWeight: 700, color: item.color, minWidth: 26, paddingTop: 2 }}>{item.p}</span>
+                <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 14, fontWeight: 700, color: item.color, minWidth: 26, paddingTop: 2 }}>{item.p}</span>
                 <div>
-                  <div style={{ fontSize: 13, fontWeight: 600, color: "#111", marginBottom: 3, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{item.label}</div>
-                  <div style={{ fontSize: 13, color: "#666" }}>{item.why}</div>
+                  <div style={{ fontSize: 14, fontWeight: 600, color: "#111", marginBottom: 3, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{item.label}</div>
+                  <div style={{ fontSize: 14, color: "#666" }}>{item.why}</div>
                 </div>
               </div>
             ))}
@@ -559,7 +559,7 @@ export default function ReviewAnalysis() {
 
       {/* Footer */}
       <div style={{ textAlign: "center", padding: "22px 0 8px", borderTop: "1px solid #E5E5E3", marginTop: 24 }}>
-        <div style={{ fontSize: 13, color: "#555", fontFamily: "'JetBrains Mono', monospace" }}>
+        <div style={{ fontSize: 14, color: "#555", fontFamily: "'JetBrains Mono', monospace" }}>
           Sources: {reviewData.categories.reduce((s, c) => s + c.reviews.length, 0) + reviewData.positives.reduce((s, c) => s + c.reviews.length, 0)} text reviews analysed · Google Play Store + Apple App Store
         </div>
       </div>
