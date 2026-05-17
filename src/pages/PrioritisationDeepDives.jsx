@@ -106,25 +106,29 @@ function FunnelDiagram() {
   return (
     <div style={{ margin: "16px 0" }}>
       {stages.map((s, i) => (
-        <div key={i} style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 6 }}>
-          <div style={{ minWidth: 100, maxWidth: 160, textAlign: "right", fontSize: 12, color: "#666", flexShrink: 0, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{s.label}</div>
-          <div style={{ flex: 1, position: "relative" }}>
-            <div
-              style={{
-                width: `${s.width}%`,
-                height: 24,
-                background: s.highlight ? `linear-gradient(90deg, ${s.color}, ${s.color}88)` : `${s.color}20`,
-                borderRadius: 4,
-                border: s.highlight ? `1px solid ${s.color}` : `1px solid ${s.color}40`,
-                display: "flex",
-                alignItems: "center",
-                paddingLeft: 8,
-              }}
-            >
-              <span style={{ fontSize: 12, color: s.highlight ? "#991B1B" : "#666", fontFamily: "'JetBrains Mono', monospace" }}>{s.users}</span>
-            </div>
+        <div key={i} style={{ marginBottom: 10 }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 4 }}>
+            <span style={{ fontSize: 13, color: s.highlight ? s.color : "#444", fontWeight: s.highlight ? 700 : 500, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+              {s.label}
+            </span>
+            <span style={{ fontSize: 12, color: "#666", fontFamily: "'JetBrains Mono', monospace" }}>
+              {s.users}
+            </span>
           </div>
-          {s.highlight && <span style={{ fontSize: 13, color: "#DC2626", fontWeight: 700, flexShrink: 0, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>← THE BOTTLENECK</span>}
+          <div style={{ width: "100%", height: 8, background: "#F0EFED", borderRadius: 4 }}>
+            <div style={{
+              width: `${s.width}%`,
+              height: "100%",
+              background: s.highlight ? `linear-gradient(90deg, ${s.color}, ${s.color}CC)` : `${s.color}66`,
+              borderRadius: 4,
+              transition: "width 0.4s ease",
+            }} />
+          </div>
+          {s.highlight && (
+            <div style={{ fontSize: 12, color: "#DC2626", fontWeight: 700, marginTop: 4, fontFamily: "'JetBrains Mono', monospace" }}>
+              ↑ THE BOTTLENECK
+            </div>
+          )}
         </div>
       ))}
     </div>
@@ -161,7 +165,7 @@ function DeepDive1() {
 
       <div style={{ marginBottom: 20 }}>
         <div style={{ fontSize: 14, fontWeight: 700, color: "#92400E", marginBottom: 8, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>The Four Facets of This Problem</div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: 10 }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
           {[
             {
               title: "Expectation vs. Reality",
@@ -180,7 +184,7 @@ function DeepDive1() {
             },
             {
               title: "An Empty Room to Wait In",
-              body: "\"Scroll while it simmers\", but the Wall tab loaded blank, Notifications show zero, and the Hotspots tab is gated. The user is told to explore an app that has nothing to show them yet. This is a missed opportunity: the waiting period could build anticipation, educate about the community, or showcase what's coming.",
+              body: "\"Scroll while it simmers\", but the Wall tab loaded blank, Notifications show zero, and the Hotspots tab is gated. The user is told to explore an app that has nothing to show them yet. This is a missed opportunity: the waiting period should build anticipation, educate about the community, and showcase what's coming.",
               color: "#7C3AED", bg: "#F5F3FF", border: "#E0DBFF",
             },
           ].map((facet) => (
@@ -227,17 +231,17 @@ function DeepDive1() {
         {[
           { effort: "Low", effortColor: "#059669", effortBg: "#F0FDF4", effortBorder: "#BBF7D0", title: "Reframe the progress signal", body: "When onboarding completes, show \"Core profile complete ✓\" as a distinct milestone before introducing optional enhancement steps. The 16% number doesn't need to disappear, but the user should feel they've accomplished something before being told they're barely started. This is a copy and logic change, not an architecture change." },
           { effort: "Low", effortColor: "#059669", effortBg: "#F0FDF4", effortBorder: "#BBF7D0", title: "Add transparency to the wait", body: "Even without revealing the exact algorithm, communicate: an estimated timeline (\"most profiles are reviewed within X days\"), what stage the user is in (\"submitted → under review → cleared\"), and what actions genuinely improve their chances (if profile completion matters, say so explicitly). Opacity is only valuable when it serves the brand. here it's eroding trust." },
-          { effort: "Medium", effortColor: "#D97706", effortBg: "#FFF7ED", effortBorder: "#FFEDD5", title: "Build a waitlist-lite experience", body: "Instead of empty tabs, give waitlisted users curated content: a highlight reel of past Hotspots (the Wall already has this content. surface it reliably), a \"trending this week in Bangalore\" feed, or profiles of active hosts they could follow. The goal is to build anticipation and social proof during the wait, not just kill time. This transforms the waitlist from a dead-end into a warmup." },
-          { effort: "Medium", effortColor: "#D97706", effortBg: "#FFF7ED", effortBorder: "#FFEDD5", title: "Status update touchpoints", body: "At 24h, 48h, and 72h post-submission, send a brief in-app or push update: where the profile stands, what's happening in the community, and one specific action the user could take. This converts silence into communication. Even \"we're still reviewing\" is better than nothing, because it confirms the system is alive." },
+          { effort: "Medium", effortColor: "#D97706", effortBg: "#FFF7ED", effortBorder: "#FFEDD5", title: "Build a waitlist-lite experience", body: "Instead of empty tabs, give waitlisted users curated content: a highlight reel of past Hotspots (the Wall already has this content — surface it reliably), a \"trending this week in Bangalore\" feed, or profiles of active hosts to follow. The goal is to build anticipation and social proof during the wait, not just kill time. This transforms the waitlist from a dead-end into a warmup." },
+          { effort: "Medium", effortColor: "#D97706", effortBg: "#FFF7ED", effortBorder: "#FFEDD5", title: "Status update touchpoints", body: "At 24h, 48h, and 72h post-submission, send a brief in-app or push update: where the profile stands, what's happening in the community, and one specific action for the user to take. This converts silence into communication. Even \"we're still reviewing\" is better than nothing, because it confirms the system is alive." },
         ].map((idea) => (
-          <div key={idea.title} style={{ background: "#FAFAF8", borderRadius: 10, padding: 14, marginBottom: 8, display: "flex", gap: 12, alignItems: "flex-start", border: "1px solid #E5E5E3" }}>
-            <span style={{ fontSize: 12, fontWeight: 700, color: idea.effortColor, background: idea.effortBg, padding: "3px 8px", borderRadius: 4, flexShrink: 0, marginTop: 2, border: `1px solid ${idea.effortBorder}`, fontFamily: "'JetBrains Mono', monospace" }}>
-              {idea.effort}
-            </span>
-            <div>
-              <div style={{ fontSize: 13, fontWeight: 600, color: "#111", marginBottom: 4, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{idea.title}</div>
-              <div style={{ fontSize: 12, color: "#555", lineHeight: 1.65 }}>{idea.body}</div>
+          <div key={idea.title} style={{ background: "#FAFAF8", borderRadius: 10, padding: 14, marginBottom: 8, border: "1px solid #E5E5E3" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 6, flexWrap: "wrap" }}>
+              <span style={{ fontSize: 12, fontWeight: 700, color: idea.effortColor, background: idea.effortBg, padding: "3px 8px", borderRadius: 4, border: `1px solid ${idea.effortBorder}`, fontFamily: "'JetBrains Mono', monospace" }}>
+                {idea.effort}
+              </span>
+              <span style={{ fontSize: 13, fontWeight: 600, color: "#111", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{idea.title}</span>
             </div>
+            <div style={{ fontSize: 13, color: "#555", lineHeight: 1.7 }}>{idea.body}</div>
           </div>
         ))}
       </div>
@@ -265,26 +269,28 @@ function DeepDive2() {
             Even if the waitlist experience improves (Deep-Dive #1), there will always be a gap between onboarding and clearance. During that gap, users will close the app. The question is: <strong style={{ color: "#111" }}>can the system bring them back when it's their turn?</strong>
           </p>
           <p style={{ margin: "0 0 8px 0" }}>
-            Right now, the answer appears to be no. The onboarding flow collects a phone number (for auth) but there's no evidence of transactional SMS for waitlist status updates. Email is not collected during onboarding. it's an optional field buried in Edit Profile, meaning most users never provide it. Push notification permission is requested on the Notifications tab, but a waitlisted user exploring the app may not navigate there or may decline because the ask feels premature ("notify me about what?").
+            Right now, the answer is no. The onboarding flow collects a phone number (for auth) but does not use it for transactional SMS or waitlist status updates. Email is not collected during onboarding — it's an optional field buried in Edit Profile, meaning most users never provide it. Push notification permission is requested on the Notifications tab, but a waitlisted user exploring the app won't navigate there, or will decline because the ask feels premature ("notify me about what?").
           </p>
           <p style={{ margin: "0" }}>
-            This creates a paradox: 8club invests in acquiring a user, onboarding them, collecting their data, and evaluating their profile, but when the moment comes to convert them (waitlist clearance), the app may have no way to reach them. The user has to remember to come back on their own. For an app competing against Instagram, WhatsApp, and daily life for attention, that's a significant structural weakness.
+            This creates a paradox: 8club invests in acquiring a user, onboarding them, collecting their data, and evaluating their profile, but when the moment comes to convert them (waitlist clearance), the app has no way to reach them. The user has to remember to come back on their own. For an app competing against Instagram, WhatsApp, and daily life for attention, that's a significant structural weakness.
           </p>
         </div>
       </div>
 
       <div style={{ marginBottom: 20 }}>
         <div style={{ fontSize: 14, fontWeight: 700, color: "#92400E", marginBottom: 8, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Current Re-engagement Channel Map</div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(100px, 1fr))", gap: 10 }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
           {[
-            { channel: "Push Notifications", status: "Not granted", statusColor: "#DC2626", statusBg: "#FEF2F2", note: "Permission asked post-onboarding on the Notifs tab. likely low grant rate for waitlisted users who see no immediate value" },
-            { channel: "Email", status: "Not collected", statusColor: "#DC2626", statusBg: "#FEF2F2", note: "Optional field in Edit Profile, not part of onboarding flow. Most users likely skip it." },
+            { channel: "Push Notifications", status: "Not granted", statusColor: "#DC2626", statusBg: "#FEF2F2", note: "Permission asked post-onboarding on the Notifs tab. Low grant rate for waitlisted users who see no immediate value." },
+            { channel: "Email", status: "Not collected", statusColor: "#DC2626", statusBg: "#FEF2F2", note: "Optional field in Edit Profile, not part of onboarding flow. Most users skip it." },
             { channel: "SMS", status: "Number collected, not used", statusColor: "#D97706", statusBg: "#FFF7ED", note: "Phone number collected for OTP but no evidence of transactional SMS for status updates or re-engagement." },
           ].map((ch) => (
             <div key={ch.channel} style={{ background: "#FAFAF8", borderRadius: 10, padding: 14, border: "1px solid #E5E5E3" }}>
-              <div style={{ fontSize: 13, fontWeight: 700, color: "#111", marginBottom: 4, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{ch.channel}</div>
-              <div style={{ fontSize: 12, fontWeight: 600, color: ch.statusColor, marginBottom: 6, background: ch.statusBg, display: "inline-block", padding: "2px 8px", borderRadius: 4, fontFamily: "'JetBrains Mono', monospace" }}>{ch.status}</div>
-              <div style={{ fontSize: 13, color: "#666", lineHeight: 1.55 }}>{ch.note}</div>
+              <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6, flexWrap: "wrap" }}>
+                <span style={{ fontSize: 13, fontWeight: 700, color: "#111", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{ch.channel}</span>
+                <span style={{ fontSize: 12, fontWeight: 600, color: ch.statusColor, background: ch.statusBg, padding: "2px 8px", borderRadius: 4, fontFamily: "'JetBrains Mono', monospace" }}>{ch.status}</span>
+              </div>
+              <div style={{ fontSize: 13, color: "#666", lineHeight: 1.65 }}>{ch.note}</div>
             </div>
           ))}
         </div>
@@ -326,14 +332,14 @@ function DeepDive2() {
           { effort: "Low", effortColor: "#059669", effortBg: "#F0FDF4", effortBorder: "#BBF7D0", title: "Add email collection to onboarding with clear value framing", body: "Add an optional step after the username screen: \"Add your email so we can let you know the moment you're in.\" The value proposition is immediate and specific. Even a 40-50% provision rate creates a re-engagement channel that currently doesn't exist." },
           { effort: "Medium", effortColor: "#D97706", effortBg: "#FFF7ED", effortBorder: "#FFEDD5", title: "Transactional SMS for critical state changes", body: "Use the already-collected phone number to send a single SMS when waitlist status changes: \"You're in! Open 8club to see your first Hotspot invites.\" Under TRAI regulations, service/transactional SMS tied to an existing account relationship is permissible. One high-signal message at the right moment is worth more than a drip campaign." },
         ].map((idea) => (
-          <div key={idea.title} style={{ background: "#FAFAF8", borderRadius: 10, padding: 14, marginBottom: 8, display: "flex", gap: 12, alignItems: "flex-start", border: "1px solid #E5E5E3" }}>
-            <span style={{ fontSize: 12, fontWeight: 700, color: idea.effortColor, background: idea.effortBg, padding: "3px 8px", borderRadius: 4, flexShrink: 0, marginTop: 2, border: `1px solid ${idea.effortBorder}`, fontFamily: "'JetBrains Mono', monospace" }}>
-              {idea.effort}
-            </span>
-            <div>
-              <div style={{ fontSize: 13, fontWeight: 600, color: "#111", marginBottom: 4, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{idea.title}</div>
-              <div style={{ fontSize: 12, color: "#555", lineHeight: 1.65 }}>{idea.body}</div>
+          <div key={idea.title} style={{ background: "#FAFAF8", borderRadius: 10, padding: 14, marginBottom: 8, border: "1px solid #E5E5E3" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 6, flexWrap: "wrap" }}>
+              <span style={{ fontSize: 12, fontWeight: 700, color: idea.effortColor, background: idea.effortBg, padding: "3px 8px", borderRadius: 4, border: `1px solid ${idea.effortBorder}`, fontFamily: "'JetBrains Mono', monospace" }}>
+                {idea.effort}
+              </span>
+              <span style={{ fontSize: 13, fontWeight: 600, color: "#111", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{idea.title}</span>
             </div>
+            <div style={{ fontSize: 13, color: "#555", lineHeight: 1.7 }}>{idea.body}</div>
           </div>
         ))}
       </div>
@@ -352,7 +358,7 @@ export default function Prioritisation() {
         {/* Header */}
         <div style={{ marginBottom: 24 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 6 }}>
-            <img src="https://framerusercontent.com/images/9EnPwoHguYNzJT30BQDRklwgAoQ.png" alt="8club" style={{ width: 36, height: 36, borderRadius: 8, objectFit: "contain" }} />
+            <img src={`${import.meta.env.BASE_URL}favicon.svg`} alt="8club" style={{ width: 36, height: 36, borderRadius: 8, objectFit: "contain" }} />
             <div>
               <h1 style={{ fontSize: 22, fontWeight: 700, color: "#111", margin: 0, letterSpacing: "-0.5px", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                 Observation Prioritisation & Deep-Dives

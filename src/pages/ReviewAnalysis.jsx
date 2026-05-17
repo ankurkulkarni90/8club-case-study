@@ -44,7 +44,7 @@ const reviewData = {
         { user: "John Flynn", rating: 3, store: "Play", date: "2 Mar 2025", text: "App looks great. But too much time to approve my profile. Still on the waiting list." },
         { user: "vaishnnnnavi", rating: 1, store: "iOS", date: "1 Mar", text: "I'm not getting any invite." },
       ],
-      insight: "This was the highest-damage pattern historically. The curation-by-waitlist model creates a cold-start risk: users download, complete their profile, wait weeks or months, then churn with a 1-star review. The most recent waitlist-specific complaints date to early-mid 2025, suggesting clearance may have improved. The gender bias perception ('female acceptance is very quick vs male') remains a trust risk worth monitoring. Identical copy-paste responses across 4+ reviews also undercut the brand's curated positioning.",
+      insight: "This was the highest-damage pattern historically. The curation-by-waitlist model creates a cold-start risk: users download, complete their profile, wait weeks or months, then churn with a 1-star review. The most recent waitlist-specific complaints date to early-mid 2025, indicating clearance has improved since. The gender bias perception ('female acceptance is very quick vs male') remains a trust risk worth monitoring. Identical copy-paste responses across 4+ reviews also undercut the brand's curated positioning.",
       pmAction: "Three areas to consider: (1) Set a maximum waitlist SLA (e.g. 72h) with status updates at 24h, 48h, and 72h, because silence is what erodes trust. (2) Create a 'waitlist-lite' experience where waitlisted users can browse public hotspots, see social proof, and build anticipation. (3) Personalise developer responses to reviews instead of using identical templates."
     },
     {
@@ -124,7 +124,7 @@ const reviewData = {
         { user: "Shivanshu Gupta", rating: 1, store: "Play", date: "22 Jan 2026", text: "Account delete option is not working." },
         { user: "Meghansh Talreja", rating: 1, store: "Play", date: "19 Jul 2025", text: "It's a fake application." },
       ],
-      insight: "Unresponsive support erodes trust quickly, especially for a brand positioned around exclusivity. The account deletion failure is also a privacy compliance risk. The batch of 15+ review responses posted on 25 Feb 2026, many to months-old reviews, suggests review management may not yet be a regular practice.",
+      insight: "Unresponsive support erodes trust quickly, especially for a brand positioned around exclusivity. The account deletion failure is also a privacy compliance risk. The batch of 15+ review responses posted on 25 Feb 2026, many to months-old reviews, indicates review management is not yet a regular practice.",
       pmAction: "Set up review monitoring with 48h response SLA. Automate account deletion flow per app store requirements. Consider in-app support chat to reduce friction."
     },
     {
@@ -155,7 +155,7 @@ const reviewData = {
         { user: "Mohito Cloud", rating: 1, store: "Play", date: "4 Sep 2025", text: "Hey, is this available in Pune also?" },
         { user: "IshaanGoyal", rating: 2, store: "iOS", date: "23 Nov", text: "No option to filter by location. Party happening 2000km away." },
       ],
-      insight: "8club now asks for city during onboarding, which is progress. However, the feed experience for non-Bangalore users still surfaces irrelevant content. The SOP-licensing expansion model may be creating supply in new cities, but the app does not yet surface city-specific content effectively.",
+      insight: "8club now asks for city during onboarding, which is progress. However, the feed experience for non-Bangalore users still surfaces irrelevant content. The SOP-licensing expansion model is creating supply in new cities, but the app does not yet surface city-specific content effectively.",
       pmAction: "The city selector in onboarding is a good foundation. Next step: ensure the feed, wall, and home tabs all respect the selected city. For cities with limited active hotspots, show a 'coming soon' state with a referral incentive rather than a sparsely populated feed."
     },
   ],
@@ -230,7 +230,7 @@ export default function ReviewAnalysis() {
       {/* Header */}
       <div style={{ marginBottom: 32 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 6 }}>
-          <img src="https://framerusercontent.com/images/9EnPwoHguYNzJT30BQDRklwgAoQ.png" alt="8club" style={{
+          <img src={`${import.meta.env.BASE_URL}favicon.svg`} alt="8club" style={{
             width: 36, height: 36, borderRadius: 8, objectFit: "contain",
           }} />
           <div>

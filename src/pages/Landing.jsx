@@ -23,9 +23,9 @@ const findings = [
     title: "There is no reliable way to bring waitlisted users back",
     bullets: [
       "The phone number collected during sign-up is used for OTP authentication. However, when my own waitlist was cleared, I did not receive an SMS, email, or push notification about it.",
-      "Email is not part of the onboarding flow. It is an optional field in Edit Profile, which most users are unlikely to fill out unprompted.",
-      "Push notification permission is requested on the Notifications tab, which a waitlisted user may not visit or may decline because the value is unclear at that point.",
-      "This means that when 8club clears a user from the waitlist, the app may have no way to tell them. The user has to remember to come back on their own.",
+      "Email is not part of the onboarding flow. It is an optional field in Edit Profile, which most users won't fill out unprompted.",
+      "Push notification permission is requested on the Notifications tab, which a waitlisted user has no reason to visit and no clear reason to grant.",
+      "This means that when 8club clears a user from the waitlist, the app has no way to tell them. The user has to remember to come back on their own.",
     ],
     impact: "Adding email collection during onboarding with a specific value proposition (\"we will notify you when you are in\") typically sees 40-60% provision rates in consumer apps. Even recovering a small fraction of users who never learn they were approved directly lifts activation.",
     accent: "#D97706",
@@ -368,45 +368,59 @@ export default function Landing({ onNavigate }) {
               boxShadow: "0 1px 3px rgba(0,0,0,0.04)",
             }}
           >
-            <ul
-              style={{
-                margin: 0,
-                padding: "0 0 0 20px",
-                listStyle: "disc",
-              }}
-            >
-              <li style={{ fontSize: 15, lineHeight: 1.75, color: "#444", marginBottom: 10 }}>
-                <strong style={{ color: "#111" }}>Week 1-2: Instrument the activation funnel.</strong>{" "}
-                Before building anything, I would want to understand the actual
-                conversion rates at each stage: onboarding completion, waitlist
-                entry, clearance, first Hotspot attendance. The findings above
-                are based on public data. Internal metrics will confirm, refine,
-                or redirect these priorities.
-              </li>
-              <li style={{ fontSize: 15, lineHeight: 1.75, color: "#444", marginBottom: 10 }}>
-                <strong style={{ color: "#111" }}>Week 2-3: Ship waitlist transparency.</strong>{" "}
-                Add status updates, timeline estimates, and reframe the progress
-                signal ("Core profile complete" instead of "16%"). This is a
-                copy and logic change, not an architecture change. Measurable
-                through Day-7 retention of waitlisted users.
-              </li>
-              <li style={{ fontSize: 15, lineHeight: 1.75, color: "#444", marginBottom: 10 }}>
-                <strong style={{ color: "#111" }}>Week 3-4: Close the re-engagement gap.</strong>{" "}
-                Add email collection during onboarding with a clear reason
-                ("we will notify you when you are in"). Move push notification
-                permission into the onboarding flow at the moment users learn
-                about invites, where the ask makes sense. For SMS: 8club already
-                collects the phone number for OTP. Using it for a single
-                transactional message when the waitlist clears is a high-signal,
-                low-cost addition worth testing.
-              </li>
-              <li style={{ fontSize: 15, lineHeight: 1.75, color: "#444", marginBottom: 0 }}>
-                <strong style={{ color: "#111" }}>Ongoing: Feed relevance and stability.</strong>{" "}
-                Set up crash monitoring with release-gating. Begin work on
-                interest-based and location-based feed scoring so what users see
-                matches what they told 8club they care about.
-              </li>
-            </ul>
+            <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+              {[
+                {
+                  week: "Week 1–2",
+                  title: "Instrument the activation funnel",
+                  body: "Before building anything, I would want to understand the actual conversion rates at each stage: onboarding completion, waitlist entry, clearance, first Hotspot attendance. The findings above are based on public data. Internal metrics will confirm, refine, or redirect these priorities.",
+                },
+                {
+                  week: "Week 2–3",
+                  title: "Ship waitlist transparency",
+                  body: "Add status updates, timeline estimates, and reframe the progress signal (\"Core profile complete\" instead of \"16%\"). This is a copy and logic change, not an architecture change. Measurable through Day-7 retention of waitlisted users.",
+                },
+                {
+                  week: "Week 3–4",
+                  title: "Close the re-engagement gap",
+                  body: "Add email collection during onboarding with a clear reason (\"we will notify you when you are in\"). Move push notification permission into the onboarding flow at the moment users learn about invites, where the ask makes sense. For SMS: 8club already collects the phone number for OTP. Using it for a single transactional message when the waitlist clears is a high-signal, low-cost addition worth testing.",
+                },
+                {
+                  week: "Ongoing",
+                  title: "Feed relevance and stability",
+                  body: "Set up crash monitoring with release-gating. Begin work on interest-based and location-based feed scoring so what users see matches what they told 8club they care about.",
+                },
+              ].map((item, i) => (
+                <div key={i} style={{ paddingBottom: i < 3 ? 16 : 0, borderBottom: i < 3 ? "1px solid #F0EFED" : "none" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
+                    <span style={{
+                      fontFamily: "'JetBrains Mono', monospace",
+                      fontSize: 12,
+                      fontWeight: 600,
+                      color: "#5B21B6",
+                      background: "#F5F3FF",
+                      padding: "3px 10px",
+                      borderRadius: 5,
+                      border: "1px solid #E0DBFF",
+                      whiteSpace: "nowrap",
+                    }}>
+                      {item.week}
+                    </span>
+                    <span style={{
+                      fontFamily: "'Plus Jakarta Sans', sans-serif",
+                      fontSize: 15,
+                      fontWeight: 700,
+                      color: "#111",
+                    }}>
+                      {item.title}
+                    </span>
+                  </div>
+                  <p style={{ fontSize: 15, lineHeight: 1.75, color: "#444", margin: 0, paddingLeft: 2 }}>
+                    {item.body}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -458,12 +472,13 @@ export default function Landing({ onNavigate }) {
                     justifyContent: "space-between",
                     padding: "14px 20px",
                     borderRadius: 10,
-                    border: `1px solid ${isHovered ? item.accent + "44" : "#E5E5E3"}`,
-                    background: "#fff",
+                    border: `1px solid ${isHovered ? item.accent + "88" : "#E5E5E3"}`,
+                    background: isHovered ? item.accent + "08" : "#fff",
                     cursor: "pointer",
                     transition: "all 0.2s ease",
+                    transform: isHovered ? "translateX(4px)" : "translateX(0)",
                     boxShadow: isHovered
-                      ? "0 2px 8px rgba(0,0,0,0.06)"
+                      ? `0 3px 12px ${item.accent}18`
                       : "0 1px 3px rgba(0,0,0,0.04)",
                   }}
                 >
@@ -473,7 +488,8 @@ export default function Landing({ onNavigate }) {
                         fontFamily: "'Plus Jakarta Sans', sans-serif",
                         fontSize: 15,
                         fontWeight: 600,
-                        color: "#111",
+                        color: isHovered ? item.accent : "#111",
+                        transition: "color 0.2s ease",
                       }}
                     >
                       {item.title}
@@ -545,7 +561,7 @@ export default function Landing({ onNavigate }) {
             I read every text review on both stores individually, signed up
             with a real phone number and walked through every screen, then ran
             the raw observations through AI-assisted pattern recognition to
-            surface themes and cross-references I might have missed manually.
+            surface themes and cross-references across the dataset.
             The prioritisation framework and solution architectures are
             original. Everything here is built on public data and one user's
             experience. Internal metrics would refine or redirect these

@@ -19,7 +19,7 @@ const journeyStages = [
     ],
     uxFriction: [
       "No option to sign up with email or social auth; phone-only creates a single point of failure",
-      "Country code appears hardcoded to +91, with no international user path",
+      "Country code is hardcoded to +91, with no international user path",
     ],
     userFeeling: "Curious, slightly intrigued by the aesthetic",
     emotionScore: 7,
@@ -33,7 +33,7 @@ const journeyStages = [
     title: "Profile Photo Upload + Crop",
     dataCollected: ["Profile photo (face required)"],
     description:
-      '"Add a photo. Your face keeps you trusted here." Disco ball icon as the upload button. Requests full photo library access (iOS permission dialog). After selection, a dedicated crop screen appears with "Crop Profile Picture" header. The step counter shows 1/5 in the top right. Background uses a subtle zigzag pattern in dark grey. Strategic context: for an invite-only app where hosts evaluate profiles before sending invites, the photo is arguably the single most important data point. Making it mandatory upfront ensures every profile in the system is real and evaluable, a defensible product choice for the curation model.',
+      '"Add a photo. Your face keeps you trusted here." Disco ball icon as the upload button. Requests full photo library access (iOS permission dialog). After selection, a dedicated crop screen appears with "Crop Profile Picture" header. The step counter shows 1/5 in the top right. Background uses a subtle zigzag pattern in dark grey. Strategic context: for an invite-only app where hosts evaluate profiles before sending invites, the photo is the single most important data point. Making it mandatory upfront ensures every profile in the system is real and evaluable, a defensible product choice for the curation model.',
     uxPositives: [
       '"Your face keeps you trusted here". clever copy that frames the requirement as safety, not surveillance',
       "Dedicated crop screen ensures photo quality. they care about how profiles look",
@@ -43,7 +43,7 @@ const journeyStages = [
     ],
     uxFriction: [
       "The strategic rationale is sound, but it creates a trust tradeoff: users must invest before receiving any value. The copy ('keeps you trusted') partially offsets this, but the gap remains",
-      "Full photo library access requested (not limited access), and could use iOS 'Select Photos' limited access to reduce the permission footprint",
+      "Full photo library access requested (not limited access). Should use iOS 'Select Photos' limited access to reduce the permission footprint",
       "No skip option visible. mandatory photo is the right call for curation quality, but removes user agency at the earliest stage",
       "Multiple sub-steps across photo selection, confirmation, and cropping, as the iOS photo picker adds friction the app can't fully control",
     ],
@@ -66,7 +66,7 @@ const journeyStages = [
       "Still counted as Step 1/5. bundling photo + name avoids overwhelming the step counter",
     ],
     uxFriction: [
-      "No last name field. intentional informality, but may cause issues for matching/discovery later",
+      "No last name field. intentional informality, but creates issues for matching/discovery later",
       "No character limit or format guidance visible",
     ],
     userFeeling: "Engaged, the profile is taking shape",
@@ -112,7 +112,7 @@ const journeyStages = [
     ],
     uxFriction: [
       "No visibility into how gender is used, for matching? display? event curation?",
-      "Reviews suggest gender-based waitlist bias (females approved faster). This data point may feed into that opaque process",
+      "Reviews confirm gender-based waitlist bias (females approved faster). This data point feeds into that opaque process",
     ],
     userFeeling: "Neutral. quick, painless step",
     emotionScore: 6,
@@ -129,7 +129,7 @@ const journeyStages = [
       '"Accepting Invites from Bangalore, Karnataka" with a green dot indicator (active status). Only one city visible. "Change Location" link at the bottom. "Next" button to proceed.',
     uxPositives: [
       "Green dot conveys 'active/available' status. familiar pattern",
-      "Location is pre-detected (likely from phone settings or IP). minimal effort required",
+      "Location is pre-detected from phone settings or IP. minimal effort required",
       '"Accepting Invites from" framing is smart. positions the user as a receiver, not a browser',
     ],
     uxFriction: [
@@ -163,7 +163,7 @@ const journeyStages = [
     ],
     uxFriction: [
       "No indication of how these preferences will be used. matching? feed curation? host visibility?",
-      "Categories require scrolling through multiple screens of options, and could feel long",
+      "Categories require scrolling through multiple screens of options, which feels long",
       "Some categories feel overlapping (Lunch vs Dinner vs Brunch; Travel vs Weekend Getaway vs Outdoor Activities)",
     ],
     userFeeling: "Delighted. This is the emotional high point of onboarding",
@@ -232,8 +232,8 @@ const journeyStages = [
       "The edit screen is focused and distraction-free",
     ],
     uxFriction: [
-      "The auto-generated username (user_b6qfu8) is obviously ugly. might create a negative micro-impression",
-      "No username suggestions based on the display name entered earlier (Kulki → @kulki could be auto-suggested)",
+      "The auto-generated username (user_b6qfu8) is obviously ugly and creates a negative micro-impression",
+      "No username suggestions based on the display name entered earlier (Kulki → @kulki should be auto-suggested)",
     ],
     userFeeling: "Mildly annoyed by ugly default, satisfied after editing",
     emotionScore: 6,
@@ -258,7 +258,7 @@ const journeyStages = [
     uxFriction: [
       "16% completion after finishing ALL 5 mandatory onboarding steps feels deflating. 'I just did everything you asked and I'm only 16% done?'",
       "The remaining completion steps aren't explained in a checklist. just a carousel you have to swipe through to discover what's missing",
-      "It's unclear what completion percentage, if any, unlocks waitlist clearance",
+      "There is no indication of what completion percentage, if any, unlocks waitlist clearance",
       "Email is optional during onboarding but counts toward completion, which is a missed opportunity to collect it earlier",
     ],
     userFeeling: "Deflated. 'Wait, 16%? I just filled out everything!'",
@@ -310,7 +310,7 @@ const journeyStages = [
       "The initial blank white screen is a serious bug/loading issue. kills momentum completely",
       "No loading indicator or skeleton state. user can't tell if it's broken or empty",
       "The white screen against the dark app theme is visually jarring. clearly unintended",
-      "For a waitlisted user, seeing events they can't attend could backfire. aspiration vs frustration depends on the wait time",
+      "For a waitlisted user, seeing events they can't attend risks tipping from aspiration to frustration, depending on the wait time",
     ],
     userFeeling: "Confused by blank screen, then curious when content appears",
     emotionScore: 4,
@@ -357,7 +357,7 @@ const journeyStages = [
     ],
     uxFriction: [
       "Adding ONE Instagram handle jumped profile from 16% to 33%. The weighting feels arbitrary",
-      "Social links default to 'not visible'. But visibility is presumably what makes profiles attractive to hosts. Defaulting to OFF may hurt user outcomes",
+      "Social links default to 'not visible'. But visibility is what makes profiles attractive to hosts. Defaulting to OFF hurts user outcomes",
       "No LinkedIn/X auto-verification. it's just a text field, so anyone can type any handle",
       "Still no clear connection between profile completion % and waitlist clearance",
     ],
@@ -581,7 +581,7 @@ export default function JourneyMap() {
         {/* Header */}
         <div style={{ marginBottom: 28 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 6 }}>
-            <img src="https://framerusercontent.com/images/9EnPwoHguYNzJT30BQDRklwgAoQ.png" alt="8club" style={{ width: 36, height: 36, borderRadius: 8, objectFit: "contain" }} />
+            <img src={`${import.meta.env.BASE_URL}favicon.svg`} alt="8club" style={{ width: 36, height: 36, borderRadius: 8, objectFit: "contain" }} />
             <div>
               <h1 style={{ fontSize: 22, fontWeight: 700, color: "#111", margin: 0, letterSpacing: "-0.5px", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                 New User Onboarding Journey Map
@@ -601,24 +601,27 @@ export default function JourneyMap() {
           <div style={{ fontSize: 13, fontWeight: 600, color: "#666", textTransform: "uppercase", letterSpacing: "1.2px", marginBottom: 4, fontFamily: "'JetBrains Mono', monospace" }}>
             Estimated Emotional Arc
           </div>
-          <div style={{ fontSize: 12, color: "#666", marginBottom: 14, fontStyle: "italic", lineHeight: 1.5 }}>
-            Subjective estimates based on UX patterns and copy analysis. Directional, not precise.
+          <div style={{ fontSize: 12, color: "#666", marginBottom: 6, fontStyle: "italic", lineHeight: 1.5 }}>
+            Each row is one step in the onboarding flow, in order. Scores are subjective estimates based on UX patterns and copy analysis.
           </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
             {scores.map((s, i) => {
               const colors = ["","","#DC2626","#DC2626","#EA580C","#D97706","#65A30D","#059669","#0D9488","#0891B2"];
               const barColor = colors[s] || "#999";
-              const shortTitle = journeyStages[i].title.length > 24
-                ? journeyStages[i].title.substring(0, 22) + "..."
-                : journeyStages[i].title;
               return (
-                <div key={i} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                <div key={i} style={{ display: "flex", alignItems: "center", gap: 0 }}>
                   <div style={{
-                    fontSize: 12, color: "#555", minWidth: 130, textAlign: "right",
-                    fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 500,
-                    whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis",
+                    fontSize: 11, color: "#999", minWidth: 22, textAlign: "right", marginRight: 6,
+                    fontFamily: "'JetBrains Mono', monospace", fontWeight: 500,
                   }}>
-                    {shortTitle}
+                    {i + 1}.
+                  </div>
+                  <div style={{
+                    fontSize: 12, color: "#444", minWidth: 220, width: 220, textAlign: "right", paddingRight: 12,
+                    fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 500,
+                    lineHeight: 1.3,
+                  }}>
+                    {journeyStages[i].title}
                   </div>
                   <div style={{ flex: 1, height: 10, background: "#F0EFED", borderRadius: 5, overflow: "hidden" }}>
                     <div style={{
@@ -630,7 +633,7 @@ export default function JourneyMap() {
                     }} />
                   </div>
                   <div style={{
-                    fontSize: 12, fontWeight: 600, color: barColor, minWidth: 30,
+                    fontSize: 12, fontWeight: 600, color: barColor, minWidth: 36, textAlign: "right",
                     fontFamily: "'JetBrains Mono', monospace",
                   }}>
                     {s}/10
@@ -703,7 +706,7 @@ export default function JourneyMap() {
             Coverage Note
           </div>
           <div style={{ fontSize: 13, color: "#555", lineHeight: 1.7 }}>
-            The bottom navigation has 6 tabs: Home, Wall, Waitlist, Hotspots, Notifs, Profile. This journey map covers Wall, Waitlist, Notifs, and Profile. The <strong style={{ color: "#111" }}>Home tab</strong> and <strong style={{ color: "#111" }}>Hotspots tab</strong> were either not screenshotted or were gated/empty for a waitlisted user. Their absence is itself a data point. If these tabs had compelling content, they would likely have been captured. They remain unobserved and should not be assumed empty without verification.
+            The bottom navigation has 6 tabs: Home, Wall, Waitlist, Hotspots, Notifs, Profile. This journey map covers Wall, Waitlist, Notifs, and Profile. The <strong style={{ color: "#111" }}>Home tab</strong> and <strong style={{ color: "#111" }}>Hotspots tab</strong> were empty or gated for a waitlisted user. Their absence from this map is itself a data point: the tabs that should build anticipation during the wait currently offer nothing to a user who hasn't been cleared.
           </div>
         </div>
 
@@ -726,13 +729,13 @@ export default function JourneyMap() {
               <strong style={{ color: "#111" }}>3. The 16% Deflation:</strong> Completing all 5 mandatory onboarding steps results in only 16% profile completion. This framing punishes the user for doing exactly what was asked and creates a discouraging first impression of the profile.
             </p>
             <p style={{ margin: "0 0 10px 0" }}>
-              <strong style={{ color: "#111" }}>4. The Empty State Gap:</strong> The app tells waitlisted users to "scroll while it simmers" but multiple tabs (Wall, Notifications) are either empty or broken. There's no curated content experience for the liminal waiting period.
+              <strong style={{ color: "#111" }}>4. The Empty State Gap:</strong> The app tells waitlisted users to "scroll while it simmers" but multiple tabs (Wall, Notifications) are empty or broken. There's no curated content experience for the liminal waiting period.
             </p>
             <p style={{ margin: "0 0 10px 0" }}>
-              <strong style={{ color: "#111" }}>5. The Trust Sequencing Problem:</strong> High-trust permissions (full photo library access, contacts sync) are requested before the user has experienced any product value. UX best practice is to ask at the moment of relevance. e.g., contacts sync after attending a first Hotspot, when inviting friends is a natural action. Front-loading these asks may depress permission grant rates and create unnecessary friction.
+              <strong style={{ color: "#111" }}>5. The Trust Sequencing Problem:</strong> High-trust permissions (full photo library access, contacts sync) are requested before the user has experienced any product value. UX best practice is to ask at the moment of relevance — e.g., contacts sync after attending a first Hotspot, when inviting friends is a natural action. Front-loading these asks depresses permission grant rates and creates unnecessary friction.
             </p>
             <p style={{ margin: "0" }}>
-              <strong style={{ color: "#111" }}>6. The Re-engagement Dead End:</strong> The app collects a phone number but shows no evidence of SMS-based status updates. Email is not collected during onboarding (optional, buried in Edit Profile). Push notification permission hasn't been granted yet. This means a waitlisted user who closes the app has effectively zero re-engagement channels available. the only path back in is the user remembering to open the app on their own.
+              <strong style={{ color: "#111" }}>6. The Re-engagement Dead End:</strong> The app collects a phone number but does not use it for SMS-based status updates. Email is not collected during onboarding (optional, buried in Edit Profile). Push notification permission hasn't been granted yet. This means a waitlisted user who closes the app has zero re-engagement channels available — the only path back in is the user remembering to open the app on their own.
             </p>
           </div>
         </div>
