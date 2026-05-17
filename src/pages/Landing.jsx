@@ -1,64 +1,58 @@
 import { useState, useEffect } from "react";
 
-const caseStudies = [
+const fontLink =
+  "https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap";
+
+const findings = [
   {
-    id: "review-analysis",
     number: "01",
-    title: "App Review Intelligence",
-    subtitle: "441 reviews across Play Store and App Store",
-    hook: "What users are telling 8club through their ratings, and what patterns emerge when you read every single one.",
-    description:
-      "Every public review on both stores, categorised by theme, scored by severity, and mapped to PM-level actions. Covers stability, the waitlist experience, discovery and filtering gaps, pricing perception, and more. Each category includes the raw reviews, a pattern analysis, and a recommended next step.",
-    stats: [
-      { label: "Reviews Read", value: "441" },
-      { label: "Themes Found", value: "8" },
-      { label: "Priority Actions", value: "5" },
-    ],
+    title: "The waitlist is the activation bottleneck",
+    body: "Four of six onboarding observations cluster at the same point: the waitlist-to-activation transition. The estimated emotional arc drops from ~9/10 (Hotspot selection) to ~2/10 (waitlist screen) in a single step. No timeline, no status updates, no explanation of clearance criteria. Users who complete all mandatory steps see \"16% profile complete.\" The waiting room has empty tabs and no content. This is where 8club loses the demand that onboarding built.",
+    impact: "Affects 100% of users. Improving waitlist transparency and experience correlates with 15-25% higher Day-7 retention in comparable invite-only products.",
     accent: "#DC2626",
     accentBg: "#FEF2F2",
     accentBorder: "#FECACA",
-    icon: "💬",
+  },
+  {
+    number: "02",
+    title: "No channels exist to bring waitlisted users back",
+    body: "Phone number is collected for OTP but not used for transactional SMS. Email is not part of onboarding; it is an optional field buried in Edit Profile. Push notification permission is requested on the Notifications tab, after onboarding, when a waitlisted user has no reason to grant it. If a user closes the app during the wait, 8club has no way to reach them when they are cleared.",
+    impact: "Structural gap. Adding email collection during onboarding (with clear value framing) typically sees 40-60% provision rates at comparable consumer apps. That alone creates a re-engagement channel that currently does not exist.",
+    accent: "#D97706",
+    accentBg: "#FFF7ED",
+    accentBorder: "#FFEDD5",
+  },
+  {
+    number: "03",
+    title: "Discovery does not match what users selected",
+    body: "The app asks for interests and city during onboarding, but the feed, wall, and home tabs do not strongly reflect those selections. Most visible hotspots skew toward parties. The home tab surfaces past events. Users in non-Bangalore cities see limited relevant content. This is the most requested improvement in app store reviews across both stores.",
+    impact: "Interest-based relevance scoring is the highest-signal feature request. Comparable social discovery apps that ship location + interest filtering typically see measurable lifts in browse-to-action conversion.",
+    accent: "#2563EB",
+    accentBg: "#EFF6FF",
+    accentBorder: "#BFDBFE",
+  },
+];
+
+const goDeeper = [
+  {
+    id: "review-analysis",
+    title: "App Review Intelligence",
+    meta: "441 reviews, 8 themes, severity-scored",
+    accent: "#DC2626",
   },
   {
     id: "onboarding-journey",
     title: "Onboarding Journey Map",
-    number: "02",
-    subtitle: "13 screens, emotion-scored, screen by screen",
-    hook: "A first-person walkthrough of the full onboarding funnel, from OTP to waitlist.",
-    description:
-      "Signed up with a real phone number and documented every screen, permission dialog, and piece of copy. Each stage is scored on an estimated emotional curve. Maps where the product builds user trust, where it asks too much too early, and where the experience drops off. Surfaces six candidate observations for prioritisation.",
-    stats: [
-      { label: "Stages Mapped", value: "13" },
-      { label: "Friction Points", value: "23" },
-      { label: "Observations", value: "6" },
-    ],
+    meta: "13 screens, emotion-scored, friction-mapped",
     accent: "#D97706",
-    accentBg: "#FFF7ED",
-    accentBorder: "#FFEDD5",
-    icon: "📱",
   },
   {
     id: "prioritisation",
-    number: "03",
     title: "Prioritisation Deep Dives",
-    subtitle: "8 observations scored, 4 fully spec'd",
-    hook: "Taking the observations from the journey map and applying a structured prioritisation framework.",
-    description:
-      "Eight observations from the onboarding audit, scored through a modified RICE framework (Breadth, Severity, Feasibility). The top four are expanded into full solution architectures with problem statements, user psychology, build specifications, and expected impact. This is where analysis turns into a buildable roadmap.",
-    stats: [
-      { label: "Scored", value: "8" },
-      { label: "Deep Dives", value: "4" },
-      { label: "Solutions", value: "8" },
-    ],
+    meta: "6 observations scored, 2 fully spec'd",
     accent: "#059669",
-    accentBg: "#ECFDF5",
-    accentBorder: "#A7F3D0",
-    icon: "🎯",
   },
 ];
-
-const fontLink =
-  "https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap";
 
 export default function Landing({ onNavigate }) {
   const [hoveredCard, setHoveredCard] = useState(null);
@@ -80,6 +74,12 @@ export default function Landing({ onNavigate }) {
     else window.location.hash = id;
   };
 
+  const fadeIn = (delay) => ({
+    opacity: loaded ? 1 : 0,
+    transform: loaded ? "translateY(0)" : "translateY(12px)",
+    transition: `all 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s`,
+  });
+
   return (
     <div
       style={{
@@ -92,14 +92,7 @@ export default function Landing({ onNavigate }) {
     >
       <div style={{ maxWidth: 760, margin: "0 auto" }}>
         {/* Header */}
-        <header
-          style={{
-            paddingTop: 16,
-            opacity: loaded ? 1 : 0,
-            transform: loaded ? "translateY(0)" : "translateY(12px)",
-            transition: "all 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
-          }}
-        >
+        <header style={fadeIn(0)}>
           <div
             style={{
               display: "inline-flex",
@@ -151,9 +144,10 @@ export default function Landing({ onNavigate }) {
               margin: "0 0 24px 0",
             }}
           >
-            Three analyses exploring 8club's product through different angles:
-            user reviews, onboarding experience, and a prioritised improvement
-            roadmap. Built to show how I think about consumer products.
+            441 app store reviews read individually. 13 onboarding screens
+            documented with a real phone number. Six observations scored through
+            a prioritisation framework and two expanded into full solution
+            architectures. Here is what surfaced.
           </p>
 
           <div
@@ -203,13 +197,120 @@ export default function Landing({ onNavigate }) {
           </div>
         </header>
 
-        {/* Context */}
+        {/* Key Findings */}
+        <section style={{ padding: "28px 0 24px", ...fadeIn(0.1) }}>
+          <div
+            style={{
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: 11,
+              letterSpacing: "1.2px",
+              textTransform: "uppercase",
+              color: "#888",
+              marginBottom: 16,
+            }}
+          >
+            Key Findings
+          </div>
+
+          <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+            {findings.map((f, i) => (
+              <div
+                key={f.number}
+                style={{
+                  background: "#fff",
+                  borderRadius: 14,
+                  padding: "22px 24px",
+                  border: `1px solid #E5E5E3`,
+                  borderLeft: `3px solid ${f.accent}`,
+                  boxShadow: "0 1px 3px rgba(0,0,0,0.04)",
+                  ...fadeIn(0.15 + i * 0.07),
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 10,
+                    marginBottom: 8,
+                  }}
+                >
+                  <span
+                    style={{
+                      fontFamily: "'JetBrains Mono', monospace",
+                      fontSize: 11,
+                      color: f.accent,
+                      fontWeight: 500,
+                    }}
+                  >
+                    {f.number}
+                  </span>
+                  <h3
+                    style={{
+                      fontFamily: "'Plus Jakarta Sans', sans-serif",
+                      fontSize: 17,
+                      fontWeight: 700,
+                      color: "#111",
+                      margin: 0,
+                      letterSpacing: "-0.3px",
+                    }}
+                  >
+                    {f.title}
+                  </h3>
+                </div>
+
+                <p
+                  style={{
+                    fontSize: 15,
+                    lineHeight: 1.75,
+                    color: "#555",
+                    margin: "0 0 12px 0",
+                  }}
+                >
+                  {f.body}
+                </p>
+
+                <div
+                  style={{
+                    background: f.accentBg,
+                    border: `1px solid ${f.accentBorder}`,
+                    borderRadius: 8,
+                    padding: "10px 14px",
+                  }}
+                >
+                  <span
+                    style={{
+                      fontFamily: "'JetBrains Mono', monospace",
+                      fontSize: 10,
+                      fontWeight: 600,
+                      color: f.accent,
+                      textTransform: "uppercase",
+                      letterSpacing: "0.8px",
+                    }}
+                  >
+                    Directional Impact
+                  </span>
+                  <p
+                    style={{
+                      fontSize: 13,
+                      lineHeight: 1.65,
+                      color: "#555",
+                      margin: "4px 0 0 0",
+                    }}
+                  >
+                    {f.impact}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* First 30 Days */}
         <section
           style={{
-            padding: "28px 0 24px",
-            opacity: loaded ? 1 : 0,
-            transform: loaded ? "translateY(0)" : "translateY(12px)",
-            transition: "all 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s",
+            padding: "24px 0",
+            borderTop: "1px solid #E5E5E3",
+            ...fadeIn(0.4),
           }}
         >
           <div
@@ -222,23 +323,93 @@ export default function Landing({ onNavigate }) {
               marginBottom: 12,
             }}
           >
-            Context
+            Where I Would Start
           </div>
-          <p style={{ fontSize: 16, lineHeight: 1.8, color: "#444", maxWidth: 660 }}>
-            8club has clear product-market fit signals:{" "}
-            <strong style={{ color: "#111" }}>
-              200K+ members, 10K+ hosts, 55% Hotspot fill rate
-            </strong>
-            . The concept resonates, even critics in the app store acknowledge
-            that. These analyses look at where the current experience sits,
-            what patterns show up across hundreds of user reviews, and where
-            the highest-leverage improvements are for a founding PM thinking
-            about the first 30 days.
-          </p>
+          <div
+            style={{
+              background: "#fff",
+              borderRadius: 14,
+              padding: "20px 24px",
+              border: "1px solid #E5E5E3",
+              borderLeft: "3px solid #5B21B6",
+              boxShadow: "0 1px 3px rgba(0,0,0,0.04)",
+            }}
+          >
+            <p
+              style={{
+                fontSize: 15,
+                lineHeight: 1.8,
+                color: "#444",
+                margin: "0 0 10px 0",
+              }}
+            >
+              <strong style={{ color: "#111" }}>
+                Week 1-2: Instrument the activation funnel.
+              </strong>{" "}
+              Before building anything, understand the current conversion rates
+              at each stage: onboarding completion, waitlist entry, clearance,
+              first Hotspot attendance. The analysis above is built from
+              public signals. Internal data will confirm, refine, or redirect
+              these priorities.
+            </p>
+            <p
+              style={{
+                fontSize: 15,
+                lineHeight: 1.8,
+                color: "#444",
+                margin: "0 0 10px 0",
+              }}
+            >
+              <strong style={{ color: "#111" }}>
+                Week 2-3: Ship waitlist transparency.
+              </strong>{" "}
+              Status updates, timeline estimates, progress reframing ("Core
+              profile complete" instead of "16%"). Low engineering effort,
+              high-signal change. Measurable through Day-7 retention of
+              waitlisted users.
+            </p>
+            <p
+              style={{
+                fontSize: 15,
+                lineHeight: 1.8,
+                color: "#444",
+                margin: "0 0 10px 0",
+              }}
+            >
+              <strong style={{ color: "#111" }}>
+                Week 3-4: Close the re-engagement gap.
+              </strong>{" "}
+              Add email collection during onboarding. Move push notification
+              permission into the onboarding flow at a contextually appropriate
+              moment. Send a single transactional SMS when waitlist clears. These
+              are the channels needed to bring users back when it is their turn.
+            </p>
+            <p
+              style={{
+                fontSize: 15,
+                lineHeight: 1.8,
+                color: "#444",
+                margin: 0,
+              }}
+            >
+              <strong style={{ color: "#111" }}>
+                Ongoing: Feed relevance and stability.
+              </strong>{" "}
+              Set up crash monitoring with release-gating. Begin work on
+              interest-based and location-based feed scoring so discovery matches
+              what users selected during onboarding.
+            </p>
+          </div>
         </section>
 
-        {/* Case Study Cards */}
-        <section style={{ padding: "8px 0 40px" }}>
+        {/* Go Deeper */}
+        <section
+          style={{
+            padding: "24px 0",
+            borderTop: "1px solid #E5E5E3",
+            ...fadeIn(0.5),
+          }}
+        >
           <div
             style={{
               fontFamily: "'JetBrains Mono', monospace",
@@ -246,165 +417,89 @@ export default function Landing({ onNavigate }) {
               letterSpacing: "1.2px",
               textTransform: "uppercase",
               color: "#888",
-              marginBottom: 16,
+              marginBottom: 6,
             }}
           >
-            Three Lenses
+            Full Analysis
           </div>
+          <p
+            style={{
+              fontSize: 14,
+              color: "#888",
+              margin: "0 0 14px 0",
+              lineHeight: 1.6,
+            }}
+          >
+            The three pages below contain the complete evidence base behind
+            these findings.
+          </p>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-            {caseStudies.map((study, i) => {
-              const isHovered = hoveredCard === study.id;
+          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+            {goDeeper.map((item) => {
+              const isHovered = hoveredCard === item.id;
               return (
                 <div
-                  key={study.id}
-                  onMouseEnter={() => setHoveredCard(study.id)}
+                  key={item.id}
+                  onMouseEnter={() => setHoveredCard(item.id)}
                   onMouseLeave={() => setHoveredCard(null)}
-                  onClick={() => navigate(study.id)}
+                  onClick={() => navigate(item.id)}
                   style={{
-                    position: "relative",
-                    padding: "24px 28px",
-                    borderRadius: 14,
-                    border: `1px solid ${isHovered ? study.accentBorder : "#E5E5E3"}`,
-                    background: isHovered ? study.accentBg : "#fff",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    padding: "14px 20px",
+                    borderRadius: 10,
+                    border: `1px solid ${isHovered ? item.accent + "44" : "#E5E5E3"}`,
+                    background: isHovered ? "#fff" : "#fff",
                     cursor: "pointer",
-                    transition: "all 0.25s ease",
+                    transition: "all 0.2s ease",
                     boxShadow: isHovered
-                      ? "0 4px 12px rgba(0,0,0,0.06)"
+                      ? "0 2px 8px rgba(0,0,0,0.06)"
                       : "0 1px 3px rgba(0,0,0,0.04)",
-                    opacity: loaded ? 1 : 0,
-                    transform: loaded ? "translateY(0)" : "translateY(12px)",
-                    transitionDelay: `${0.18 + i * 0.08}s`,
                   }}
                 >
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      marginBottom: 12,
-                    }}
-                  >
-                    <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                      <span
-                        style={{
-                          fontFamily: "'JetBrains Mono', monospace",
-                          fontSize: 11,
-                          color: study.accent,
-                          fontWeight: 500,
-                        }}
-                      >
-                        {study.number}
-                      </span>
-                      <span style={{ fontSize: 20 }}>{study.icon}</span>
-                    </div>
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke={isHovered ? study.accent : "#ccc"}
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
+                  <div>
+                    <div
                       style={{
-                        transition: "all 0.25s ease",
-                        transform: isHovered ? "translateX(3px)" : "translateX(0)",
+                        fontFamily: "'Plus Jakarta Sans', sans-serif",
+                        fontSize: 15,
+                        fontWeight: 600,
+                        color: "#111",
                       }}
                     >
-                      <line x1="5" y1="12" x2="19" y2="12" />
-                      <polyline points="12 5 19 12 12 19" />
-                    </svg>
+                      {item.title}
+                    </div>
+                    <div
+                      style={{
+                        fontFamily: "'JetBrains Mono', monospace",
+                        fontSize: 11,
+                        color: "#888",
+                        marginTop: 2,
+                      }}
+                    >
+                      {item.meta}
+                    </div>
                   </div>
-
-                  <h3
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke={isHovered ? item.accent : "#ccc"}
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     style={{
-                      fontFamily: "'Plus Jakarta Sans', sans-serif",
-                      fontSize: 20,
-                      fontWeight: 700,
-                      color: "#111",
-                      margin: "0 0 4px 0",
-                      letterSpacing: "-0.3px",
+                      transition: "all 0.2s ease",
+                      transform: isHovered
+                        ? "translateX(3px)"
+                        : "translateX(0)",
+                      flexShrink: 0,
                     }}
                   >
-                    {study.title}
-                  </h3>
-
-                  <div
-                    style={{
-                      fontFamily: "'JetBrains Mono', monospace",
-                      fontSize: 11,
-                      color: "#888",
-                      textTransform: "uppercase",
-                      letterSpacing: "0.8px",
-                      marginBottom: 10,
-                    }}
-                  >
-                    {study.subtitle}
-                  </div>
-
-                  <p
-                    style={{
-                      fontSize: 14,
-                      fontStyle: "italic",
-                      color: study.accent,
-                      margin: "0 0 10px 0",
-                      lineHeight: 1.55,
-                      fontWeight: 500,
-                    }}
-                  >
-                    {study.hook}
-                  </p>
-
-                  <p
-                    style={{
-                      fontSize: 15,
-                      lineHeight: 1.75,
-                      color: "#555",
-                      margin: "0 0 18px 0",
-                    }}
-                  >
-                    {study.description}
-                  </p>
-
-                  <div
-                    style={{
-                      display: "flex",
-                      gap: 20,
-                      flexWrap: "wrap",
-                      padding: "14px 16px",
-                      background: "#FAFAF8",
-                      borderRadius: 10,
-                      border: "1px solid #E5E5E3",
-                    }}
-                  >
-                    {study.stats.map((s) => (
-                      <div key={s.label}>
-                        <div
-                          style={{
-                            fontFamily: "'Plus Jakarta Sans', sans-serif",
-                            fontSize: 20,
-                            fontWeight: 700,
-                            color: study.accent,
-                          }}
-                        >
-                          {s.value}
-                        </div>
-                        <div
-                          style={{
-                            fontFamily: "'JetBrains Mono', monospace",
-                            fontSize: 10,
-                            color: "#888",
-                            textTransform: "uppercase",
-                            letterSpacing: "0.8px",
-                            marginTop: 2,
-                          }}
-                        >
-                          {s.label}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
                 </div>
               );
             })}
@@ -416,8 +511,7 @@ export default function Landing({ onNavigate }) {
           style={{
             padding: "24px 0 20px",
             borderTop: "1px solid #E5E5E3",
-            opacity: loaded ? 1 : 0,
-            transition: "all 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.5s",
+            ...fadeIn(0.55),
           }}
         >
           <div
@@ -432,11 +526,19 @@ export default function Landing({ onNavigate }) {
           >
             Methodology
           </div>
-          <p style={{ fontSize: 14, lineHeight: 1.8, color: "#666", maxWidth: 620 }}>
+          <p
+            style={{
+              fontSize: 14,
+              lineHeight: 1.8,
+              color: "#666",
+              maxWidth: 620,
+            }}
+          >
             Reviews were read individually across both stores. The onboarding
             teardown was done by signing up with a real phone number and
             documenting each screen. The prioritisation framework is original.
-            All three analyses are interactive React applications.
+            All conclusions are based on public data and one user's experience.
+            Internal metrics would refine or redirect these priorities.
           </p>
         </section>
 
